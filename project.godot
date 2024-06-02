@@ -19,10 +19,11 @@ config/icon="res://icon.svg"
 
 window/size/viewport_width=256
 window/size/viewport_height=240
-window/size/window_width_override=1024
-window/size/window_height_override=960
+window/size/window_width_override=512
+window/size/window_height_override=480
 window/stretch/mode="viewport"
 window/stretch/scale_mode="integer"
+window/dpi/allow_hidpi=false
 
 [input]
 
