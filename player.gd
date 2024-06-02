@@ -21,7 +21,27 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-	if direction != 0:
-		sprite.flip_h = direction < 0
 
 	move_and_slide()
+
+
+func _process(_delta: float) -> void:
+	if velocity.x != 0:
+		sprite.flip_h = velocity.x < 0
+
+	# choose animations
+	if velocity.y < 0:
+		if not sprite.animation == &"jump":
+			sprite.play(&"jump")
+	elif velocity.y > 0:
+		sprite.play(&"fall")
+	elif velocity.x != 0:
+		sprite.play(&"walk")
+	else:
+		if Input.is_action_pressed("down"):
+			sprite.play(&"duck")
+		else:
+			sprite.play(&"idle")
+
+
+
