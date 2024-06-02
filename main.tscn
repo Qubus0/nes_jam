@@ -1,0 +1,108 @@
+[gd_scene load_steps=14 format=3 uid="uid://d25fo6tavx8fs"]
+
+[ext_resource type="Texture2D" uid="uid://ggvjig4eivxw" path="res://characters/beet/beet_hoven.png" id="1_enk1s"]
+[ext_resource type="Script" path="res://main.gd" id="1_kslb5"]
+[ext_resource type="Script" path="res://player.gd" id="3_2r0n4"]
+[ext_resource type="Texture2D" uid="uid://b6o1cmtrxc1al" path="res://characters/player/player.png" id="3_3lavg"]
+[ext_resource type="Texture2D" uid="uid://kyjutf2rjloh" path="res://interface/instrument.png" id="4_swdsx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k4ch6"]
+atlas = ExtResource("1_enk1s")
+region = Rect2(0, 0, 116, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wfs4x"]
+atlas = ExtResource("1_enk1s")
+region = Rect2(116, 0, 116, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3k3di"]
+atlas = ExtResource("1_enk1s")
+region = Rect2(232, 0, 116, 53)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ikcpb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k4ch6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wfs4x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3k3di")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ign6h"]
+size = Vector2(58, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qsnsb"]
+size = Vector2(110, 9)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5fs8f"]
+radius = 6.0
+height = 16.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y43yp"]
+size = Vector2(256, 8)
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_kslb5")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -103.5
+offset_top = -55.0
+offset_right = 103.5
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("4_swdsx")
+
+[node name="Boss" type="CharacterBody2D" parent="."]
+position = Vector2(120, 32)
+
+[node name="Sprite" type="AnimatedSprite2D" parent="Boss"]
+sprite_frames = SubResource("SpriteFrames_ikcpb")
+autoplay = "default"
+frame_progress = 0.668377
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boss"]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_ign6h")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Boss"]
+position = Vector2(0, 20.5)
+shape = SubResource("RectangleShape2D_qsnsb")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(119, 144)
+script = ExtResource("3_2r0n4")
+
+[node name="Sprite" type="Sprite2D" parent="Player"]
+texture = ExtResource("3_3lavg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("CapsuleShape2D_5fs8f")
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(128, 168)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+shape = SubResource("RectangleShape2D_y43yp")
