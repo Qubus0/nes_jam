@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://v0c6se8o27e1"]
+[gd_scene load_steps=9 format=3 uid="uid://v0c6se8o27e1"]
 
 [ext_resource type="Texture2D" uid="uid://ctulntoqjext0" path="res://characters/lemon/lemon_tilemap.png" id="1_7v8mq"]
 [ext_resource type="PackedScene" uid="uid://c8cq6yojoo4gy" path="res://characters/player/player.tscn" id="2_17tq7"]
 [ext_resource type="PackedScene" uid="uid://sm8ieqfo1brp" path="res://characters/lemon/killzone.tscn" id="3_co1y5"]
+[ext_resource type="Script" path="res://characters/lemon/submarine.gd" id="4_64uch"]
 [ext_resource type="Texture2D" uid="uid://dyf2fr8jc4qlc" path="res://characters/lemon/submarine.png" id="4_hox0k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gswfq"]
@@ -235,7 +236,7 @@ position = Vector2(-17, 37)
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(1, 39)
 limit_left = -32
-limit_top = -80
+limit_top = -120
 limit_bottom = 160
 
 [node name="Killzone" parent="." instance=ExtResource("3_co1y5")]
@@ -244,6 +245,20 @@ limit_bottom = 160
 position = Vector2(-17, 122)
 shape = SubResource("WorldBoundaryShape2D_48h7r")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(88, 122)
+[node name="Submarine" type="CharacterBody2D" parent="."]
+position = Vector2(830, 122)
+script = ExtResource("4_64uch")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Submarine"]
 texture = ExtResource("4_hox0k")
+
+[node name="RayCastLeft" type="RayCast2D" parent="Submarine"]
+position = Vector2(-76, 20)
+target_position = Vector2(0, -300)
+collision_mask = 2
+
+[node name="RayCastRight" type="RayCast2D" parent="Submarine"]
+position = Vector2(74, 20)
+target_position = Vector2(0, -300)
+collision_mask = 2
