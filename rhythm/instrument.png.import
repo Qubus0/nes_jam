@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://kyjutf2rjloh"
-path="res://.godot/imported/instrument.png-3b26026e13a5881b1113242f0a22a94d.ctex"
+path="res://.godot/imported/instrument.png-ee047b1e6a5cda076b1fcd2b39c966fe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://interface/instrument.png"
-dest_files=["res://.godot/imported/instrument.png-3b26026e13a5881b1113242f0a22a94d.ctex"]
+source_file="res://rhythm/instrument.png"
+dest_files=["res://.godot/imported/instrument.png-ee047b1e6a5cda076b1fcd2b39c966fe.ctex"]
 
 [params]
 

@@ -17,6 +17,9 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("up") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
+	if Input.is_action_just_released("up") and velocity.y < 0:
+		velocity.y = 0
+
 	# Get the input direction and handle the movement/deceleration.
 	var direction := Input.get_axis("left", "right")
 	if direction:
@@ -28,6 +31,9 @@ func _physics_process(delta: float) -> void:
 
 
 func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("debug"):
+		$Health.damage(1)
+
 	if velocity.x != 0:
 		sprite.flip_h = velocity.x < 0
 

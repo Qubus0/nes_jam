@@ -1,0 +1,206 @@
+[gd_scene load_steps=11 format=3 uid="uid://7b4uamk1ww8p"]
+
+[ext_resource type="Script" path="res://rhythm/rhythm.gd" id="1_1kst2"]
+[ext_resource type="Texture2D" uid="uid://kyjutf2rjloh" path="res://rhythm/instrument.png" id="1_44xy3"]
+[ext_resource type="PackedScene" uid="uid://xrk332tlwqw4" path="res://rhythm/beat.tscn" id="3_groqn"]
+[ext_resource type="Texture2D" uid="uid://cmawg8gkpnnnj" path="res://rhythm/beat.png" id="4_2dx05"]
+
+[sub_resource type="Curve2D" id="Curve2D_o7k0u"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -133, 26)
+}
+point_count = 2
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u0hhw"]
+radius = 2.70631
+height = 12.4675
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fs7cm"]
+radius = 1.5
+
+[sub_resource type="Curve2D" id="Curve2D_r5gad"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 400, 0)
+}
+point_count = 2
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jumcl"]
+radius = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_tk826"]
+font_size = 14
+
+[node name="Rhythm" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1kst2")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -103.5
+offset_top = -55.0
+offset_right = 103.5
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("1_44xy3")
+metadata/_edit_use_anchors_ = true
+
+[node name="Track" type="Path2D" parent="."]
+position = Vector2(216, 187)
+curve = SubResource("Curve2D_o7k0u")
+
+[node name="Valid" type="PathFollow2D" parent="Track"]
+position = Vector2(-124.771, 24.3913)
+rotation = 2.94854
+progress = 127.115
+
+[node name="ValidArea" type="Area2D" parent="Track/Valid"]
+unique_name_in_owner = true
+rotation = -1.56396
+collision_layer = 0
+collision_mask = 256
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Track/Valid/ValidArea"]
+shape = SubResource("CapsuleShape2D_u0hhw")
+
+[node name="Precision" type="PathFollow2D" parent="Track"]
+position = Vector2(-124.771, 24.3913)
+rotation = 2.94854
+progress = 127.115
+
+[node name="Perfect" type="Area2D" parent="Track/Precision"]
+unique_name_in_owner = true
+rotation = -2.94854
+collision_layer = 0
+collision_mask = 256
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Track/Precision/Perfect"]
+shape = SubResource("CircleShape2D_fs7cm")
+
+[node name="Precision2" type="PathFollow2D" parent="Track"]
+position = Vector2(-121.685, 23.7881)
+rotation = 2.94854
+progress = 123.94
+
+[node name="Solid" type="Area2D" parent="Track/Precision2"]
+unique_name_in_owner = true
+rotation = -2.94854
+collision_layer = 0
+collision_mask = 256
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Track/Precision2/Solid"]
+shape = SubResource("CircleShape2D_fs7cm")
+
+[node name="Precision3" type="PathFollow2D" parent="Track"]
+position = Vector2(-127.773, 24.9783)
+rotation = 2.94854
+progress = 130.232
+
+[node name="Weak" type="Area2D" parent="Track/Precision3"]
+unique_name_in_owner = true
+rotation = -2.94854
+collision_layer = 0
+collision_mask = 256
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Track/Precision3/Weak"]
+shape = SubResource("CircleShape2D_fs7cm")
+
+[node name="Precision4" type="PathFollow2D" parent="Track"]
+position = Vector2(-133, 26)
+rotation = 2.94854
+progress = 135.518
+
+[node name="Miss" type="Area2D" parent="Track/Precision4"]
+rotation = -2.94854
+collision_layer = 0
+collision_mask = 256
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Track/Precision4/Miss"]
+shape = SubResource("CircleShape2D_fs7cm")
+
+[node name="Tracks" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0.372549)
+position = Vector2(24, 173)
+
+[node name="Track1" type="Path2D" parent="Tracks"]
+curve = SubResource("Curve2D_r5gad")
+
+[node name="TestTrack" type="PathFollow2D" parent="Tracks/Track1"]
+unique_name_in_owner = true
+
+[node name="Area" type="Area2D" parent="Tracks/Track1/TestTrack"]
+collision_layer = 0
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tracks/Track1/TestTrack/Area"]
+shape = SubResource("CircleShape2D_jumcl")
+
+[node name="Sprite2D" type="Sprite2D" parent="Tracks/Track1/TestTrack"]
+position = Vector2(0, -11)
+rotation = -1.5708
+texture = ExtResource("4_2dx05")
+
+[node name="Beat" parent="Tracks/Track1" instance=ExtResource("3_groqn")]
+position = Vector2(5.12453, 0)
+progress = 5.0
+
+[node name="Beat2" parent="Tracks/Track1" instance=ExtResource("3_groqn")]
+position = Vector2(25.1476, 0)
+progress = 25.0
+face_left = false
+
+[node name="Beat3" parent="Tracks/Track1" instance=ExtResource("3_groqn")]
+position = Vector2(49.9915, 0)
+progress = 50.0
+face_left = false
+
+[node name="Beat4" parent="Tracks/Track1" instance=ExtResource("3_groqn")]
+position = Vector2(69.9972, 0)
+progress = 70.0
+
+[node name="Beat5" parent="Tracks/Track1" instance=ExtResource("3_groqn")]
+position = Vector2(99.9955, 0)
+progress = 100.0
+
+[node name="Beat6" parent="Tracks/Track1" instance=ExtResource("3_groqn")]
+position = Vector2(149.998, 0)
+progress = 150.0
+
+[node name="Beat7" parent="Tracks/Track1" instance=ExtResource("3_groqn")]
+position = Vector2(179.999, 0)
+progress = 180.0
+face_left = false
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Test"
+label_settings = SubResource("LabelSettings_tk826")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[connection signal="area_entered" from="Track/Precision4/Miss" to="." method="_on_miss_area_entered"]

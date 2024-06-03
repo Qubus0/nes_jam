@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://d25fo6tavx8fs"]
 
 [ext_resource type="Script" path="res://characters/beet/beet_arena.gd" id="1_kslb5"]
+[ext_resource type="PackedScene" uid="uid://7b4uamk1ww8p" path="res://rhythm/rhythm.tscn" id="2_8hul5"]
 [ext_resource type="PackedScene" uid="uid://vbtwg3dccnv2" path="res://characters/beet/beet.tscn" id="3_a4f4u"]
 [ext_resource type="PackedScene" uid="uid://c8cq6yojoo4gy" path="res://characters/player/player.tscn" id="4_7csfv"]
-[ext_resource type="Texture2D" uid="uid://kyjutf2rjloh" path="res://interface/instrument.png" id="4_swdsx"]
 [ext_resource type="PackedScene" uid="uid://c44itudm3s8x8" path="res://characters/beet/key_bullet.tscn" id="5_a44xy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y43yp"]
@@ -26,20 +26,8 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect" type="TextureRect" parent="Interface/Control"]
+[node name="Rhythm" parent="Interface/Control" instance=ExtResource("2_8hul5")]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -103.5
-offset_top = -55.0
-offset_right = 103.5
-grow_horizontal = 2
-grow_vertical = 0
-texture = ExtResource("4_swdsx")
-metadata/_edit_use_anchors_ = true
 
 [node name="Beet" parent="." instance=ExtResource("3_a4f4u")]
 position = Vector2(131, 32)
