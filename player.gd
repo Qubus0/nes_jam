@@ -1,8 +1,10 @@
 extends CharacterBody2D
 
 
-const SPEED = 100.0
-const JUMP_VELOCITY = -300.0
+const SPEED := 100.0
+const JUMP_VELOCITY := -300.0
+
+var keep_animation := 0
 
 @onready var sprite := $Sprite
 
@@ -29,6 +31,9 @@ func _process(_delta: float) -> void:
 	if velocity.x != 0:
 		sprite.flip_h = velocity.x < 0
 
+	if keep_animation > 0:
+		return
+
 	# choose animations
 	if velocity.y < 0:
 		if not sprite.animation == &"jump":
@@ -44,4 +49,17 @@ func _process(_delta: float) -> void:
 			sprite.play(&"idle")
 
 
+func _on_health_depleted() -> void:
+	get_tree().reload_current_scene()
 
+
+func _on_health_hurt() -> void:
+	sprite.play("hurt")
+	keep_animation = 3
+
+
+func _on_sprite_animation_finished() -> void:
+	keep_animation -= 1
+
+func _on_sprite_animation_looped() -> void:
+	keep_animation -= 1

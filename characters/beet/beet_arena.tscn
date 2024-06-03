@@ -1,0 +1,107 @@
+[gd_scene load_steps=8 format=3 uid="uid://d25fo6tavx8fs"]
+
+[ext_resource type="Script" path="res://characters/beet/beet_arena.gd" id="1_kslb5"]
+[ext_resource type="PackedScene" uid="uid://vbtwg3dccnv2" path="res://characters/beet/beet.tscn" id="3_a4f4u"]
+[ext_resource type="PackedScene" uid="uid://c8cq6yojoo4gy" path="res://characters/player/player.tscn" id="4_7csfv"]
+[ext_resource type="Texture2D" uid="uid://kyjutf2rjloh" path="res://interface/instrument.png" id="4_swdsx"]
+[ext_resource type="PackedScene" uid="uid://c44itudm3s8x8" path="res://characters/beet/key_bullet.tscn" id="5_a44xy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y43yp"]
+size = Vector2(256, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_db6dt"]
+size = Vector2(7, 172)
+
+[node name="BeetArena" type="Node2D"]
+script = ExtResource("1_kslb5")
+
+[node name="Interface" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="Interface"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Interface/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -103.5
+offset_top = -55.0
+offset_right = 103.5
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("4_swdsx")
+metadata/_edit_use_anchors_ = true
+
+[node name="Beet" parent="." instance=ExtResource("3_a4f4u")]
+position = Vector2(131, 32)
+
+[node name="TopPattern" type="Node2D" parent="."]
+position = Vector2(128, -32)
+
+[node name="KeyBullet" parent="TopPattern" instance=ExtResource("5_a44xy")]
+collision_layer = 32
+collision_mask = 64
+damage = 1
+
+[node name="KeyBullet2" parent="TopPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(-32, 0)
+collision_layer = 32
+collision_mask = 64
+damage = 1
+
+[node name="KeyBullet3" parent="TopPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(-48, -56)
+collision_layer = 32
+collision_mask = 64
+short = true
+damage = 1
+
+[node name="KeyBullet4" parent="TopPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(0, -56)
+collision_layer = 32
+collision_mask = 64
+short = true
+damage = 1
+
+[node name="KeyBullet5" parent="TopPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(32, -96)
+collision_layer = 32
+collision_mask = 64
+dark = true
+damage = 1
+
+[node name="KeyBullet6" parent="TopPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(72, -96)
+collision_layer = 32
+collision_mask = 64
+damage = 1
+
+[node name="Player" parent="." instance=ExtResource("4_7csfv")]
+position = Vector2(55, 136)
+
+[node name="Room" type="StaticBody2D" parent="."]
+position = Vector2(128, 168)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room"]
+shape = SubResource("RectangleShape2D_y43yp")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Room"]
+position = Vector2(0, -164)
+shape = SubResource("RectangleShape2D_y43yp")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Room"]
+position = Vector2(-124.5, -82)
+shape = SubResource("RectangleShape2D_db6dt")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Room"]
+position = Vector2(124.5, -82)
+shape = SubResource("RectangleShape2D_db6dt")

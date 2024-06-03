@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://vbtwg3dccnv2"]
+
+[ext_resource type="Script" path="res://characters/beet/beet.gd" id="1_c4stk"]
+[ext_resource type="Texture2D" uid="uid://ggvjig4eivxw" path="res://characters/beet/beet_hoven.png" id="1_ta73l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k4ch6"]
+atlas = ExtResource("1_ta73l")
+region = Rect2(0, 0, 116, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wfs4x"]
+atlas = ExtResource("1_ta73l")
+region = Rect2(116, 0, 116, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3k3di"]
+atlas = ExtResource("1_ta73l")
+region = Rect2(232, 0, 116, 53)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ikcpb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k4ch6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wfs4x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3k3di")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ign6h"]
+size = Vector2(58, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qsnsb"]
+size = Vector2(110, 9)
+
+[node name="Beet" type="CharacterBody2D"]
+script = ExtResource("1_c4stk")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ikcpb")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_ign6h")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(0, 20.5)
+shape = SubResource("RectangleShape2D_qsnsb")
