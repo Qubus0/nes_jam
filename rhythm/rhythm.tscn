@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://7b4uamk1ww8p"]
+[gd_scene load_steps=14 format=3 uid="uid://7b4uamk1ww8p"]
 
 [ext_resource type="Script" path="res://rhythm/rhythm.gd" id="1_1kst2"]
 [ext_resource type="Texture2D" uid="uid://kyjutf2rjloh" path="res://rhythm/instrument.png" id="1_44xy3"]
 [ext_resource type="PackedScene" uid="uid://xrk332tlwqw4" path="res://rhythm/beat.tscn" id="3_groqn"]
 [ext_resource type="Texture2D" uid="uid://cmawg8gkpnnnj" path="res://rhythm/beat.png" id="4_2dx05"]
+[ext_resource type="Texture2D" uid="uid://dek65apns16sy" path="res://rhythm/precision.png" id="5_13nrc"]
 
 [sub_resource type="Curve2D" id="Curve2D_o7k0u"]
 _data = {
@@ -12,11 +13,23 @@ _data = {
 point_count = 2
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u0hhw"]
-radius = 2.70631
-height = 12.4675
+radius = 3.0
+height = 14.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fnve1"]
+radius = 2.5
+height = 12.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tltp7"]
+radius = 2.0
+height = 8.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yneav"]
+radius = 1.5
+height = 3.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fs7cm"]
-radius = 1.5
+radius = 1.0
 
 [sub_resource type="Curve2D" id="Curve2D_r5gad"]
 _data = {
@@ -26,9 +39,6 @@ point_count = 2
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jumcl"]
 radius = 1.0
-
-[sub_resource type="LabelSettings" id="LabelSettings_tk826"]
-font_size = 14
 
 [node name="Rhythm" type="Control"]
 layout_mode = 3
@@ -62,75 +72,70 @@ curve = SubResource("Curve2D_o7k0u")
 [node name="Valid" type="PathFollow2D" parent="Track"]
 position = Vector2(-124.771, 24.3913)
 rotation = 2.94854
+scale = Vector2(1, 1)
 progress = 127.115
 
 [node name="ValidArea" type="Area2D" parent="Track/Valid"]
 unique_name_in_owner = true
-rotation = -1.56396
+rotation = 1.5708
 collision_layer = 0
 collision_mask = 256
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Track/Valid/ValidArea"]
 shape = SubResource("CapsuleShape2D_u0hhw")
+debug_color = Color(0.334564, 1, 0.304688, 0.42)
 
-[node name="Precision" type="PathFollow2D" parent="Track"]
-position = Vector2(-124.771, 24.3913)
+[node name="Accuracy" type="PathFollow2D" parent="Track"]
+position = Vector2(-124.771, 24.3914)
 rotation = 2.94854
 progress = 127.115
 
-[node name="Perfect" type="Area2D" parent="Track/Precision"]
+[node name="Weak" type="Area2D" parent="Track/Accuracy"]
 unique_name_in_owner = true
-rotation = -2.94854
+rotation = 1.5708
+scale = Vector2(1, 1)
 collision_layer = 0
 collision_mask = 256
 monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Track/Precision/Perfect"]
-shape = SubResource("CircleShape2D_fs7cm")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Track/Accuracy/Weak"]
+shape = SubResource("CapsuleShape2D_fnve1")
+debug_color = Color(0.7, 0.155859, 0, 0.42)
 
-[node name="Precision2" type="PathFollow2D" parent="Track"]
-position = Vector2(-121.685, 23.7881)
-rotation = 2.94854
-progress = 123.94
-
-[node name="Solid" type="Area2D" parent="Track/Precision2"]
+[node name="Solid" type="Area2D" parent="Track/Accuracy"]
 unique_name_in_owner = true
-rotation = -2.94854
+rotation = 1.5708
+scale = Vector2(1, 1)
 collision_layer = 0
 collision_mask = 256
 monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Track/Precision2/Solid"]
-shape = SubResource("CircleShape2D_fs7cm")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Track/Accuracy/Solid"]
+shape = SubResource("CapsuleShape2D_tltp7")
+debug_color = Color(1, 0.942429, 0.330078, 0.42)
 
-[node name="Precision3" type="PathFollow2D" parent="Track"]
-position = Vector2(-127.773, 24.9783)
-rotation = 2.94854
-progress = 130.232
-
-[node name="Weak" type="Area2D" parent="Track/Precision3"]
+[node name="Perfect" type="Area2D" parent="Track/Accuracy"]
 unique_name_in_owner = true
-rotation = -2.94854
+rotation = 1.5708
 collision_layer = 0
 collision_mask = 256
 monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Track/Precision3/Weak"]
-shape = SubResource("CircleShape2D_fs7cm")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Track/Accuracy/Perfect"]
+shape = SubResource("CapsuleShape2D_yneav")
 
-[node name="Precision4" type="PathFollow2D" parent="Track"]
+[node name="Miss" type="PathFollow2D" parent="Track"]
 position = Vector2(-133, 26)
 rotation = 2.94854
 progress = 135.518
 
-[node name="Miss" type="Area2D" parent="Track/Precision4"]
-rotation = -2.94854
+[node name="Miss" type="Area2D" parent="Track/Miss"]
 collision_layer = 0
 collision_mask = 256
 monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Track/Precision4/Miss"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Track/Miss/Miss"]
 shape = SubResource("CircleShape2D_fs7cm")
 
 [node name="Tracks" type="Node2D" parent="."]
@@ -186,21 +191,10 @@ position = Vector2(179.999, 0)
 progress = 180.0
 face_left = false
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -23.0
-offset_right = 20.0
-grow_horizontal = 2
-grow_vertical = 0
-text = "Test"
-label_settings = SubResource("LabelSettings_tk826")
-horizontal_alignment = 1
-vertical_alignment = 2
+[node name="AccuracyText" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(113, 191)
+texture = ExtResource("5_13nrc")
+vframes = 4
 
-[connection signal="area_entered" from="Track/Precision4/Miss" to="." method="_on_miss_area_entered"]
+[connection signal="area_entered" from="Track/Miss/Miss" to="." method="_on_miss_area_entered"]
