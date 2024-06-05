@@ -36,42 +36,24 @@ position = Vector2(131, 32)
 position = Vector2(128, -32)
 
 [node name="KeyBullet" parent="TopPattern" instance=ExtResource("5_a44xy")]
-collision_layer = 32
-collision_mask = 64
-damage = 1
 
 [node name="KeyBullet2" parent="TopPattern" instance=ExtResource("5_a44xy")]
 position = Vector2(-32, 0)
-collision_layer = 32
-collision_mask = 64
-damage = 1
 
 [node name="KeyBullet3" parent="TopPattern" instance=ExtResource("5_a44xy")]
 position = Vector2(-48, -56)
-collision_layer = 32
-collision_mask = 64
 short = true
-damage = 1
 
 [node name="KeyBullet4" parent="TopPattern" instance=ExtResource("5_a44xy")]
 position = Vector2(0, -56)
-collision_layer = 32
-collision_mask = 64
 short = true
-damage = 1
 
 [node name="KeyBullet5" parent="TopPattern" instance=ExtResource("5_a44xy")]
 position = Vector2(32, -96)
-collision_layer = 32
-collision_mask = 64
 dark = true
-damage = 1
 
 [node name="KeyBullet6" parent="TopPattern" instance=ExtResource("5_a44xy")]
 position = Vector2(72, -96)
-collision_layer = 32
-collision_mask = 64
-damage = 1
 
 [node name="Player" parent="." instance=ExtResource("4_7csfv")]
 position = Vector2(55, 136)
