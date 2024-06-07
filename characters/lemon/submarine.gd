@@ -56,5 +56,9 @@ func Shoot():
 		get_parent().add_child(projectile_instance2)
 		projectile_instance.transform = $LeftTurretMarker.global_transform
 		projectile_instance2.transform = $RightTurretMarker.global_transform
+		var dir_left = (player.global_position - $LeftTurretMarker.global_position).normalized()
+		var dir_right = (player.global_position - $RightTurretMarker.global_position).normalized()
+		projectile_instance.projectile_direction = dir_left
+		projectile_instance2.projectile_direction = dir_right
 		await get_tree().create_timer(3).timeout
 		can_shoot = true

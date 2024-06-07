@@ -1,10 +1,12 @@
 extends CharacterBody2D
 
+@onready var health: Health = $Health
 
 const SPEED := 110.0
 const JUMP_VELOCITY := -320.0
 
 var keep_animation := 0
+var current_health = 0
 
 @onready var sprite := $Sprite
 
@@ -31,6 +33,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _process(_delta: float) -> void:
+	current_health = health.health
 	if Input.is_action_just_pressed("debug"):
 		$Health.damage(1)
 

@@ -1,11 +1,11 @@
 extends Hitbox
 
-var projectile_speed = 120
-var projectile_angle = Vector2(0, 0)
+var projectile_speed = 160
+var projectile_direction = Vector2.UP
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	position.y += projectile_speed * delta * -1
+	translate(projectile_speed * projectile_direction * delta)
 
 func _on_body_entered(body: Node2D) -> void:
 	queue_free()
