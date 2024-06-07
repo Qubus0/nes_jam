@@ -9,6 +9,7 @@ var projectile = preload("res://characters/lemon/lemon_projectile.tscn")
 
 @onready var player: CharacterBody2D = $"../Player"
 
+@onready var player_scan: ShapeCast2D = $PlayerScan
 @onready var ray_cast_left: RayCast2D = $RayCastLeft
 @onready var ray_cast_right: RayCast2D = $RayCastRight
 
@@ -56,9 +57,10 @@ func Shoot():
 		get_parent().add_child(projectile_instance2)
 		projectile_instance.transform = $LeftTurretMarker.global_transform
 		projectile_instance2.transform = $RightTurretMarker.global_transform
-		var dir_left = (player.global_position - $LeftTurretMarker.global_position).normalized()
-		var dir_right = (player.global_position - $RightTurretMarker.global_position).normalized()
-		projectile_instance.projectile_direction = dir_left
-		projectile_instance2.projectile_direction = dir_right
+		if player_scan.is_colliding():
+			var dir_left = (player.global_position - $LeftTurretMarker.global_position).normalized()
+			var dir_right = (player.global_position - $RightTurretMarker.global_position).normalized()
+			projectile_instance.projectile_direction = dir_left
+			projectile_instance2.projectile_direction = dir_right
 		await get_tree().create_timer(3).timeout
 		can_shoot = true

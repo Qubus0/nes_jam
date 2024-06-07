@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://v0c6se8o27e1"]
+[gd_scene load_steps=27 format=3 uid="uid://v0c6se8o27e1"]
 
 [ext_resource type="Texture2D" uid="uid://ctulntoqjext0" path="res://characters/lemon/lemon_tilemap.png" id="1_7v8mq"]
 [ext_resource type="Script" path="res://characters/lemon/health_bar_test.gd" id="1_kx4xt"]
@@ -312,6 +312,8 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_x7rvd"]
+
 [node name="LemonStage" type="Node2D"]
 
 [node name="Interface" type="CanvasLayer" parent="."]
@@ -425,6 +427,13 @@ position = Vector2(28, -15)
 
 [node name="Sprite2D" type="Sprite2D" parent="Submarine/HingeRight"]
 texture = ExtResource("6_vfxdc")
+
+[node name="PlayerScan" type="ShapeCast2D" parent="Submarine"]
+position = Vector2(0, -28)
+scale = Vector2(20, 20)
+shape = SubResource("CircleShape2D_x7rvd")
+target_position = Vector2(0, 0)
+collision_mask = 2
 
 [node name="SubDiveArea" type="RayCast2D" parent="."]
 position = Vector2(3400, -3)
