@@ -1,12 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://d25fo6tavx8fs"]
+[gd_scene load_steps=20 format=3 uid="uid://d25fo6tavx8fs"]
 
 [ext_resource type="Script" path="res://characters/beet/beet_arena.gd" id="1_kslb5"]
 [ext_resource type="PackedScene" uid="uid://7b4uamk1ww8p" path="res://rhythm/rhythm.tscn" id="2_8hul5"]
-[ext_resource type="Texture2D" uid="uid://dhterisnmpg3" path="res://rhythm/note_big.png" id="3_20srf"]
+[ext_resource type="Script" path="res://characters/lemon/health_bar_test.gd" id="3_3nhtv"]
 [ext_resource type="PackedScene" uid="uid://vbtwg3dccnv2" path="res://characters/beet/beet.tscn" id="3_a4f4u"]
-[ext_resource type="PackedScene" uid="uid://s8w3s5etmyhv" path="res://rhythm/instrument_shot.tscn" id="3_m1vis"]
-[ext_resource type="Script" path="res://rhythm/instrument_shot.gd" id="3_sla4k"]
 [ext_resource type="PackedScene" uid="uid://c8cq6yojoo4gy" path="res://characters/player/player.tscn" id="4_7csfv"]
+[ext_resource type="Texture2D" uid="uid://d07tt0gjgaq1w" path="res://characters/health.png" id="4_cefrg"]
 [ext_resource type="PackedScene" uid="uid://c44itudm3s8x8" path="res://characters/beet/key_bullet.tscn" id="5_a44xy"]
 
 [sub_resource type="Curve2D" id="Curve2D_xo3am"]
@@ -17,20 +16,66 @@ point_count = 4
 
 [sub_resource type="Curve2D" id="Curve2D_7e71l"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 5, 5, -2.17947, 10.2152, 2.17947, -10.2152, -11, -18, -2.52269, 8.61919, 2.52269, -8.61919, 8, -35, -3.99426, 9.24986, 3.99426, -9.24986, 0, -66, -7.77829, 15.977, 7.77829, -15.977, 27, -80, -5.2556, 14.085, 5.2556, -14.085, 24, -116, -3.57381, 11.3521, 3.57381, -11.3521, 46, -136, -5.88627, 7.98852, 5.88627, -7.98852, 47, -161, -5.2556, 8.61919, 5.2556, -8.61919, 79, -165, 0, 0, 0, 0, 106, -177)
+"points": PackedVector2Array(0, 0, 0, 0, 5, 5, -2.17947, 10.2152, 2.17947, -10.2152, -14, -34, -7.77829, 15.977, 7.77829, -15.977, 27, -80, -5.88627, 7.98852, 5.88627, -7.98852, 42, -153, 0, 0, 0, 0, 106, -177)
 }
-point_count = 10
+point_count = 5
 
-[sub_resource type="Curve" id="Curve_qwbof"]
-min_value = 0.2
-max_value = 3.0
-_data = [Vector2(0, 0.2), 0.0, 10.6203, 0, 0, Vector2(0.120408, 1.13272), 5.2472, 5.2472, 0, 0, Vector2(1, 1.38408), -2.51294, 0.0, 0, 0]
-point_count = 3
+[sub_resource type="AtlasTexture" id="AtlasTexture_6d6cw"]
+atlas = ExtResource("4_cefrg")
+region = Rect2(0, 192, 64, 32)
 
-[sub_resource type="Curve" id="Curve_2sshp"]
-max_value = 6.0
-_data = [Vector2(0, 6), 0.0, 0.0, 0, 0, Vector2(0.0204082, 5.1115), -43.5367, -19.1511, 1, 0, Vector2(0.0591837, 4.1826), 0.0, 0.0, 0, 0, Vector2(0.0918367, 3.14601), 0.0, 0.0, 0, 0, Vector2(0.12449, 2.23058), 0.0, 0.0, 0, 0, Vector2(0.165306, 1.22092), 0.0, 0.0, 0, 0, Vector2(0.220408, 0.13048), 0.0, 0.0, 0, 0, Vector2(0.755102, 1.19399), 0.0, 0.0, 0, 0, Vector2(0.853061, 2.21712), 0.0, 0.0, 0, 0, Vector2(0.997959, 2.90369), 4.73832, 0.0, 1, 0, Vector2(1, 1), -932.843, 0.0, 1, 0]
-point_count = 11
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbh7u"]
+atlas = ExtResource("4_cefrg")
+region = Rect2(0, 160, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dlkh7"]
+atlas = ExtResource("4_cefrg")
+region = Rect2(0, 128, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1pr6i"]
+atlas = ExtResource("4_cefrg")
+region = Rect2(0, 96, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lpyhi"]
+atlas = ExtResource("4_cefrg")
+region = Rect2(0, 64, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_262n8"]
+atlas = ExtResource("4_cefrg")
+region = Rect2(0, 32, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ph5s3"]
+atlas = ExtResource("4_cefrg")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_heri7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6d6cw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tbh7u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dlkh7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1pr6i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lpyhi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_262n8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ph5s3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y43yp"]
 size = Vector2(256, 8)
@@ -57,31 +102,27 @@ layout_mode = 1
 [node name="InstrumentAttacks" type="Node2D" parent="Interface"]
 position = Vector2(24, 202)
 
-[node name="Attack" type="Path2D" parent="Interface/InstrumentAttacks"]
+[node name="Perfect" type="Path2D" parent="Interface/InstrumentAttacks"]
 unique_name_in_owner = true
 curve = SubResource("Curve2D_xo3am")
 
-[node name="InstrumentShot" parent="Interface/InstrumentAttacks/Attack" instance=ExtResource("3_m1vis")]
-position = Vector2(5, 4)
-progress = 0.0
-
-[node name="Perfect" type="Path2D" parent="Interface/InstrumentAttacks"]
+[node name="Attack" type="Path2D" parent="Interface/InstrumentAttacks"]
 unique_name_in_owner = true
 curve = SubResource("Curve2D_7e71l")
 
-[node name="InstrumentShot" type="PathFollow2D" parent="Interface/InstrumentAttacks/Perfect"]
-position = Vector2(106, -177)
-progress = 278.98
-rotates = false
-loop = false
-script = ExtResource("3_sla4k")
-speed = SubResource("Curve_qwbof")
-frame = SubResource("Curve_2sshp")
+[node name="HealthBarTest" type="Control" parent="Interface"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 67.0
+offset_bottom = 35.0
+script = ExtResource("3_3nhtv")
+metadata/_edit_group_ = true
 
-[node name="Sprite" type="Sprite2D" parent="Interface/InstrumentAttacks/Perfect/InstrumentShot"]
-texture = ExtResource("3_20srf")
-hframes = 6
-frame = 1
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Interface"]
+position = Vector2(35, 19)
+sprite_frames = SubResource("SpriteFrames_heri7")
 
 [node name="Beet" parent="." instance=ExtResource("3_a4f4u")]
 position = Vector2(131, 32)
@@ -129,3 +170,6 @@ shape = SubResource("RectangleShape2D_db6dt")
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Room"]
 position = Vector2(124.5, -82)
 shape = SubResource("RectangleShape2D_db6dt")
+
+[connection signal="beat_hit" from="Interface/Control/Rhythm" to="." method="_on_rhythm_beat_hit"]
+[connection signal="defeated" from="Beet" to="." method="_on_beet_defeated"]

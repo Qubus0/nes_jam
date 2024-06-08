@@ -138,10 +138,9 @@ debug={
 2d_physics/layer_1="level"
 2d_physics/layer_2="player"
 2d_physics/layer_3="projectile"
-2d_physics/layer_4="enemy"
+2d_physics/layer_4="enemy_hurtbox"
 2d_physics/layer_5="enemy_projectile"
-2d_physics/layer_6="hitbox"
-2d_physics/layer_7="hurtbox"
+2d_physics/layer_6="enemy_hitbox"
 2d_physics/layer_9="rhythm_beat"
 
 [rendering]

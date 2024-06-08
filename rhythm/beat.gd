@@ -8,6 +8,11 @@ var speed := 0
 	set(val):
 		face_left = val
 		$Sprite.flip_h = not face_left
+@export var theme := 0 :
+	set(val):
+		theme = val
+		$Sprite.frame_coords.x = val
+
 
 func _ready() -> void:
 	$Sprite.rotation_degrees = -rotation_degrees

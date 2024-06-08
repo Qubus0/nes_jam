@@ -7,8 +7,8 @@
 size = Vector2(4, 16)
 
 [node name="KeyBullet" type="Area2D"]
-collision_layer = 32
-collision_mask = 64
+collision_layer = 16
+collision_mask = 0
 script = ExtResource("1_rsdgu")
 
 [node name="Sprite" type="Sprite2D" parent="."]

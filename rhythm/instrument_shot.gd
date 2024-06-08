@@ -1,10 +1,15 @@
 #@tool # uncomment and enable loop to see in editor
+class_name InstrumentShot
 extends PathFollow2D
 
-signal note_arrrived
 
+@export var damage := 1
 @export var speed: Curve
 @export var frame: Curve
+
+
+func _ready() -> void:
+	$Hitbox.damage = damage
 
 
 func _process(delta: float) -> void:
@@ -13,5 +18,4 @@ func _process(delta: float) -> void:
 	%Sprite.frame = floor(frame.sample_baked(progress_ratio))
 
 	if progress_ratio == 1:
-		note_arrrived.emit()
 		queue_free()

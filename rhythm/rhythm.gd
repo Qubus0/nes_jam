@@ -1,8 +1,8 @@
 extends Control
 
-signal beat_hit(accuracy)
+signal beat_hit(accuracy: int)
 
-var beat_speed := 30
+var beat_speed := 40
 enum {
 	PERFECT,
 	SOLID,
@@ -30,10 +30,8 @@ func play_track(track_name: String) -> void:
 	if playhead_area and playhead_area.area_entered.is_connected(playhead_entered):
 		playhead_area.area_entered.disconnect(playhead_entered)
 
-	playhead = get_node("%" + track_name)
+	playhead = get_node("%" + track_name + "Playhead")
 	playhead_area = playhead.get_node("Area")
-
-
 	playhead_area.area_entered.connect(playhead_entered)
 
 
@@ -81,16 +79,17 @@ func _on_miss_area_entered(area: Area2D) -> void:
 	area.get_parent().queue_free()
 
 
-func show_accuracy(level: int) -> void:
+func show_accuracy(accuracy: int) -> void:
 	var new_text: Sprite2D = $AccuracyText.duplicate()
 	add_child(new_text)
-	new_text.frame = level
+	new_text.frame_coords.y = accuracy
 	new_text.show()
 
-	var tw := get_tree().create_tween()
+	if accuracy == PERFECT:
+		$PerfectSparks.play("default")
 
-	tw.tween_property(new_text, "position:y", -30, 0.7).as_relative()
-	tw.parallel().tween_property(new_text, "modulate:a", 0, 0.7)
+	var tw := get_tree().create_tween()
+	tw.parallel().tween_property(new_text, "frame_coords:x", 4, 0.5	)
 	tw.finished.connect(
 		func(): if new_text: new_text.queue_free()
 	)

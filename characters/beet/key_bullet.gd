@@ -1,4 +1,3 @@
-@tool
 extends Hitbox
 
 @export var dark := false :

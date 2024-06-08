@@ -139,7 +139,6 @@ radius = 5.0
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 17
 script = ExtResource("1_2ud0j")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
@@ -151,6 +150,8 @@ autoplay = "idle"
 shape = SubResource("CapsuleShape2D_5fs8f")
 
 [node name="Hurtbox" type="Area2D" parent="." node_paths=PackedStringArray("health")]
+collision_layer = 0
+collision_mask = 48
 script = ExtResource("6_bxhf7")
 health = NodePath("../Health")
 

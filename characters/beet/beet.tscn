@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://vbtwg3dccnv2"]
+[gd_scene load_steps=10 format=3 uid="uid://vbtwg3dccnv2"]
 
 [ext_resource type="Script" path="res://characters/beet/beet.gd" id="1_c4stk"]
 [ext_resource type="Texture2D" uid="uid://ggvjig4eivxw" path="res://characters/beet/beet_hoven.png" id="1_ta73l"]
+[ext_resource type="Script" path="res://characters/hurtbox.gd" id="3_tw618"]
+[ext_resource type="Script" path="res://characters/health.gd" id="4_t7shv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k4ch6"]
 atlas = ExtResource("1_ta73l")
@@ -32,23 +34,30 @@ animations = [{
 "speed": 8.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ign6h"]
-size = Vector2(58, 40)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fhkyb"]
+height = 56.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qsnsb"]
-size = Vector2(110, 9)
-
-[node name="Beet" type="CharacterBody2D"]
+[node name="Beet" type="Node2D"]
 script = ExtResource("1_c4stk")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ikcpb")
 autoplay = "default"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -3)
-shape = SubResource("RectangleShape2D_ign6h")
+[node name="Health" type="Node" parent="."]
+script = ExtResource("4_t7shv")
+max_health = 50
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(0, 20.5)
-shape = SubResource("RectangleShape2D_qsnsb")
+[node name="Hurtbox" type="Area2D" parent="." node_paths=PackedStringArray("health")]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("3_tw618")
+health = NodePath("../Health")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, -8)
+rotation = 1.57079
+shape = SubResource("CapsuleShape2D_fhkyb")
+
+[connection signal="depleted" from="Health" to="." method="_on_health_depleted"]
+[connection signal="hurt" from="Health" to="." method="_on_health_hurt"]

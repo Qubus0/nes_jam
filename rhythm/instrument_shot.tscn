@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://s8w3s5etmyhv"]
+[gd_scene load_steps=7 format=3 uid="uid://s8w3s5etmyhv"]
 
 [ext_resource type="Script" path="res://rhythm/instrument_shot.gd" id="1_ugbto"]
 [ext_resource type="Texture2D" uid="uid://dhterisnmpg3" path="res://rhythm/note_big.png" id="2_bhioj"]
+[ext_resource type="Script" path="res://characters/hitbox.gd" id="3_u606b"]
 
 [sub_resource type="Curve" id="Curve_qwbof"]
 min_value = 0.2
@@ -14,8 +15,10 @@ max_value = 6.0
 _data = [Vector2(0, 6), 0.0, 0.0, 0, 0, Vector2(0.0204082, 5.1115), -43.5367, -19.1511, 1, 0, Vector2(0.0591837, 4.1826), 0.0, 0.0, 0, 0, Vector2(0.0918367, 3.14601), 0.0, 0.0, 0, 0, Vector2(0.12449, 2.23058), 0.0, 0.0, 0, 0, Vector2(0.165306, 1.22092), 0.0, 0.0, 0, 0, Vector2(0.220408, 0.13048), 0.0, 0.0, 0, 0, Vector2(0.755102, 1.19399), 0.0, 0.0, 0, 0, Vector2(0.853061, 2.21712), 0.0, 0.0, 0, 0, Vector2(0.997959, 2.90369), 4.73832, 0.0, 1, 0, Vector2(1, 1), -932.843, 0.0, 1, 0]
 point_count = 11
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_s3n6h"]
+radius = 5.0
+
 [node name="InstrumentShot" type="PathFollow2D"]
-position = Vector2(108, -180)
 rotates = false
 loop = false
 script = ExtResource("1_ugbto")
@@ -26,4 +29,11 @@ frame = SubResource("Curve_2sshp")
 unique_name_in_owner = true
 texture = ExtResource("2_bhioj")
 hframes = 6
-frame = 1
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 8
+script = ExtResource("3_u606b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_s3n6h")
