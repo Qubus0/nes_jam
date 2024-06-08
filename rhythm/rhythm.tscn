@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://7b4uamk1ww8p"]
+[gd_scene load_steps=24 format=3 uid="uid://7b4uamk1ww8p"]
 
 [ext_resource type="Script" path="res://rhythm/rhythm.gd" id="1_1kst2"]
 [ext_resource type="Texture2D" uid="uid://kyjutf2rjloh" path="res://rhythm/instrument.png" id="1_44xy3"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://cmawg8gkpnnnj" path="res://rhythm/beat.png" id="4_2dx05"]
 [ext_resource type="Texture2D" uid="uid://ctirhumb61rjh" path="res://rhythm/accuracy.png" id="5_eqend"]
 [ext_resource type="Texture2D" uid="uid://ch5me3syp0rie" path="res://rhythm/perfect_sparks.png" id="6_y20u0"]
+[ext_resource type="Texture2D" uid="uid://bxr8a2jy8hiql" path="res://rhythm/hints.png" id="7_5dalc"]
+[ext_resource type="FontFile" uid="uid://dr8jhk3d5ka4x" path="res://interface/font/the-video-arcade-game-font/the-video-arcade-game-font.ttf" id="8_vwjn3"]
 
 [sub_resource type="Curve2D" id="Curve2D_o7k0u"]
 _data = {
@@ -34,12 +36,12 @@ radius = 1.0
 
 [sub_resource type="Curve2D" id="Curve2D_r5gad"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 400, 0)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 200, 0)
 }
 point_count = 2
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_jumcl"]
-radius = 1.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y5awv"]
+size = Vector2(1, 4)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vbmrn"]
 atlas = ExtResource("6_y20u0")
@@ -84,6 +86,11 @@ animations = [{
 "speed": 16.0
 }]
 
+[sub_resource type="LabelSettings" id="LabelSettings_modp7"]
+font = ExtResource("8_vwjn3")
+font_size = 8
+font_color = Color(0, 0, 0, 1)
+
 [node name="Rhythm" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -110,6 +117,7 @@ texture = ExtResource("1_44xy3")
 metadata/_edit_use_anchors_ = true
 
 [node name="Track" type="Path2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.5)
 position = Vector2(207, 190)
 curve = SubResource("Curve2D_o7k0u")
 
@@ -174,10 +182,18 @@ monitorable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Track/Miss/Miss"]
 shape = SubResource("CircleShape2D_fs7cm")
 
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_top = 248.0
+offset_right = 123.0
+offset_bottom = 271.0
+text = "10px = 1 second"
+
 [node name="Tracks" type="Node2D" parent="."]
-position = Vector2(0, 269)
+position = Vector2(0, 289)
 
 [node name="Track1" type="Path2D" parent="Tracks"]
+self_modulate = Color(1, 1, 1, 0.258824)
 curve = SubResource("Curve2D_r5gad")
 
 [node name="TestTrackPlayhead" type="PathFollow2D" parent="Tracks/Track1"]
@@ -188,7 +204,8 @@ collision_layer = 0
 collision_mask = 256
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tracks/Track1/TestTrackPlayhead/Area"]
-shape = SubResource("CircleShape2D_jumcl")
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_y5awv")
 
 [node name="Marker" type="Sprite2D" parent="Tracks/Track1/TestTrackPlayhead"]
 position = Vector2(0, -11)
@@ -198,42 +215,101 @@ hframes = 6
 frame = 4
 
 [node name="Beat" parent="Tracks/Track1" instance=ExtResource("3_groqn")]
-position = Vector2(5.12453, 0)
-progress = 5.0
 theme = 2
 
 [node name="Beat2" parent="Tracks/Track1" instance=ExtResource("3_groqn")]
-position = Vector2(25.1476, 0)
-progress = 25.0
+position = Vector2(19.9778, 0)
+progress = 20.0
 face_left = false
 theme = 3
 
 [node name="Beat3" parent="Tracks/Track1" instance=ExtResource("3_groqn")]
-position = Vector2(49.9915, 0)
-progress = 50.0
+position = Vector2(23.9884, 0)
+progress = 24.0
 face_left = false
 theme = 3
 
 [node name="Beat4" parent="Tracks/Track1" instance=ExtResource("3_groqn")]
-position = Vector2(69.9972, 0)
-progress = 70.0
+position = Vector2(29.9827, 0)
+progress = 30.0
 theme = 2
 
 [node name="Beat5" parent="Tracks/Track1" instance=ExtResource("3_groqn")]
-position = Vector2(99.9955, 0)
-progress = 100.0
+position = Vector2(49.9948, 0)
+progress = 50.0
 theme = 2
 
 [node name="Beat6" parent="Tracks/Track1" instance=ExtResource("3_groqn")]
-position = Vector2(149.998, 0)
-progress = 150.0
+position = Vector2(69.9926, 0)
+progress = 70.0
 theme = 2
 
 [node name="Beat7" parent="Tracks/Track1" instance=ExtResource("3_groqn")]
-position = Vector2(179.999, 0)
+position = Vector2(75.9967, 0)
+progress = 76.0
+face_left = false
+theme = 3
+
+[node name="Beat8" parent="Tracks/Track1" instance=ExtResource("3_groqn")]
+position = Vector2(85.9999, 0)
+progress = 86.0
+face_left = false
+theme = 3
+
+[node name="Beat9" parent="Tracks/Track1" instance=ExtResource("3_groqn")]
+position = Vector2(97.9995, 0)
+progress = 98.0
+theme = 2
+
+[node name="Beat10" parent="Tracks/Track1" instance=ExtResource("3_groqn")]
+position = Vector2(120.004, 0)
+progress = 120.0
+theme = 2
+
+[node name="Beat11" parent="Tracks/Track1" instance=ExtResource("3_groqn")]
+position = Vector2(126.006, 0)
+progress = 126.0
+face_left = false
+theme = 3
+
+[node name="Beat12" parent="Tracks/Track1" instance=ExtResource("3_groqn")]
+position = Vector2(132.002, 0)
+progress = 132.0
+theme = 2
+
+[node name="Beat13" parent="Tracks/Track1" instance=ExtResource("3_groqn")]
+position = Vector2(150.005, 0)
+progress = 150.0
+face_left = false
+theme = 3
+
+[node name="Beat14" parent="Tracks/Track1" instance=ExtResource("3_groqn")]
+position = Vector2(156.014, 0)
+progress = 156.0
+face_left = false
+theme = 3
+
+[node name="Beat15" parent="Tracks/Track1" instance=ExtResource("3_groqn")]
+position = Vector2(162.008, 0)
+progress = 162.0
+face_left = false
+theme = 3
+
+[node name="Beat17" parent="Tracks/Track1" instance=ExtResource("3_groqn")]
+position = Vector2(180.022, 0)
 progress = 180.0
 face_left = false
 theme = 3
+
+[node name="Beat18" parent="Tracks/Track1" instance=ExtResource("3_groqn")]
+position = Vector2(185.862, 0)
+progress = 186.0
+theme = 2
+
+[node name="Beat19" parent="Tracks/Track1" instance=ExtResource("3_groqn")]
+position = Vector2(190, 0)
+progress = 190.0
+theme = 2
 
 [node name="AccuracyText" type="Sprite2D" parent="."]
 visible = false
@@ -247,5 +323,35 @@ position = Vector2(33, 192)
 sprite_frames = SubResource("SpriteFrames_cxn1q")
 frame = 4
 frame_progress = 1.0
+
+[node name="HintLeft" type="Sprite2D" parent="."]
+position = Vector2(233, 196)
+texture = ExtResource("7_5dalc")
+hframes = 2
+
+[node name="Label" type="Label" parent="HintLeft"]
+offset_left = -2.0
+offset_top = -5.0
+offset_right = 38.0
+offset_bottom = 18.0
+text = "B"
+label_settings = SubResource("LabelSettings_modp7")
+metadata/_edit_use_anchors_ = true
+
+[node name="HintRight" type="Sprite2D" parent="."]
+position = Vector2(240, 218)
+texture = ExtResource("7_5dalc")
+flip_h = true
+hframes = 2
+frame = 1
+
+[node name="Label" type="Label" parent="HintRight"]
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 35.0
+offset_bottom = 18.0
+text = "A
+"
+label_settings = SubResource("LabelSettings_modp7")
 
 [connection signal="area_entered" from="Track/Miss/Miss" to="." method="_on_miss_area_entered"]

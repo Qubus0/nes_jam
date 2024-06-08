@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var pattern_speed := 50
+@export var pattern_speed := 40
 
 
 const INSTRUMENT_SHOT = preload("res://rhythm/instrument_shot.tscn")
@@ -12,8 +12,15 @@ enum {
 	WRONG
 }
 
+func _ready() -> void:
+	# since the layout is offset to the top to be easier to edit,
+	# that needs to be undone to start the game
+	var curve := $PianoKeys.curve as Curve2D
+	var last_y := curve.get_point_position(1).y
+	$PianoKeys.position.y = -last_y
+
 func _process(delta: float) -> void:
-	$TopPattern.position.y += pattern_speed * delta
+	%PianoPattern.progress -= pattern_speed * delta
 
 
 func _on_rhythm_beat_hit(accuracy: int) -> void:
@@ -31,4 +38,8 @@ func _on_rhythm_beat_hit(accuracy: int) -> void:
 
 
 func _on_beet_defeated() -> void:
-	pass # Replace with function body.
+	$Beet.queue_free()
+	%Win.show()
+	await get_tree().create_timer(2).timeout
+	get_tree().change_scene_to_file("res://main.tscn")
+

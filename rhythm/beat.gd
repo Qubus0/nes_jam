@@ -2,13 +2,22 @@
 class_name Beat
 extends PathFollow2D
 
+enum Themes {
+	WHITE,
+	YELLOW,
+	PINK,
+	GREEN,
+	ORANGE,
+	BLUE,
+}
 
 var speed := 0
 @export var face_left := true :
 	set(val):
 		face_left = val
 		$Sprite.flip_h = not face_left
-@export var theme := 0 :
+
+@export var theme: Themes = 0 :
 	set(val):
 		theme = val
 		$Sprite.frame_coords.x = val

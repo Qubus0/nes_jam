@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://d25fo6tavx8fs"]
+[gd_scene load_steps=23 format=3 uid="uid://d25fo6tavx8fs"]
 
 [ext_resource type="Script" path="res://characters/beet/beet_arena.gd" id="1_kslb5"]
 [ext_resource type="PackedScene" uid="uid://7b4uamk1ww8p" path="res://rhythm/rhythm.tscn" id="2_8hul5"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c8cq6yojoo4gy" path="res://characters/player/player.tscn" id="4_7csfv"]
 [ext_resource type="Texture2D" uid="uid://d07tt0gjgaq1w" path="res://characters/health.png" id="4_cefrg"]
 [ext_resource type="PackedScene" uid="uid://c44itudm3s8x8" path="res://characters/beet/key_bullet.tscn" id="5_a44xy"]
+[ext_resource type="FontFile" uid="uid://dr8jhk3d5ka4x" path="res://interface/font/the-video-arcade-game-font/the-video-arcade-game-font.ttf" id="5_w7rvy"]
 
 [sub_resource type="Curve2D" id="Curve2D_xo3am"]
 _data = {
@@ -16,7 +17,7 @@ point_count = 4
 
 [sub_resource type="Curve2D" id="Curve2D_7e71l"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 5, 5, -2.17947, 10.2152, 2.17947, -10.2152, -14, -34, -7.77829, 15.977, 7.77829, -15.977, 27, -80, -5.88627, 7.98852, 5.88627, -7.98852, 42, -153, 0, 0, 0, 0, 106, -177)
+"points": PackedVector2Array(0, 0, 0, 0, 5, 5, -2.17947, 10.2152, 2.17947, -10.2152, -14, -34, -7.77829, 15.977, 7.77829, -15.977, 27, -80, -12.2268, 18.1667, 12.2268, -18.1667, 42, -153, 0, 0, 0, 0, 106, -177)
 }
 point_count = 5
 
@@ -77,6 +78,15 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="LabelSettings" id="LabelSettings_gije1"]
+font = ExtResource("5_w7rvy")
+
+[sub_resource type="Curve2D" id="Curve2D_y5ohi"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -472)
+}
+point_count = 2
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y43yp"]
 size = Vector2(256, 8)
 
@@ -104,10 +114,12 @@ position = Vector2(24, 202)
 
 [node name="Perfect" type="Path2D" parent="Interface/InstrumentAttacks"]
 unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0.3)
 curve = SubResource("Curve2D_xo3am")
 
 [node name="Attack" type="Path2D" parent="Interface/InstrumentAttacks"]
 unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0.3)
 curve = SubResource("Curve2D_7e71l")
 
 [node name="HealthBarTest" type="Control" parent="Interface"]
@@ -124,31 +136,89 @@ metadata/_edit_group_ = true
 position = Vector2(35, 19)
 sprite_frames = SubResource("SpriteFrames_heri7")
 
+[node name="Win" type="Label" parent="Interface"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -11.5
+offset_right = 56.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "You Win"
+label_settings = SubResource("LabelSettings_gije1")
+
 [node name="Beet" parent="." instance=ExtResource("3_a4f4u")]
 position = Vector2(131, 32)
 
-[node name="TopPattern" type="Node2D" parent="."]
+[node name="PianoKeys" type="Path2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.3)
+curve = SubResource("Curve2D_y5ohi")
+
+[node name="PianoPattern" type="PathFollow2D" parent="PianoKeys"]
+unique_name_in_owner = true
+rotates = false
+
+[node name="KeyBullet" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
 position = Vector2(128, -32)
 
-[node name="KeyBullet" parent="TopPattern" instance=ExtResource("5_a44xy")]
+[node name="KeyBullet2" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(96, -32)
 
-[node name="KeyBullet2" parent="TopPattern" instance=ExtResource("5_a44xy")]
-position = Vector2(-32, 0)
-
-[node name="KeyBullet3" parent="TopPattern" instance=ExtResource("5_a44xy")]
-position = Vector2(-48, -56)
+[node name="KeyBullet3" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(80, -88)
 short = true
 
-[node name="KeyBullet4" parent="TopPattern" instance=ExtResource("5_a44xy")]
-position = Vector2(0, -56)
+[node name="KeyBullet4" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(128, -88)
 short = true
 
-[node name="KeyBullet5" parent="TopPattern" instance=ExtResource("5_a44xy")]
-position = Vector2(32, -96)
+[node name="KeyBullet5" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(160, -128)
 dark = true
 
-[node name="KeyBullet6" parent="TopPattern" instance=ExtResource("5_a44xy")]
-position = Vector2(72, -96)
+[node name="KeyBullet6" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(200, -128)
+
+[node name="KeyBullet7" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(52, -155)
+dark = true
+short = true
+
+[node name="KeyBullet9" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(30, -155)
+short = true
+
+[node name="KeyBullet8" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(128, -32)
+scale = Vector2(1e-05, 1e-05)
+short = true
+
+[node name="KeyBullet10" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(100, -155)
+short = true
+
+[node name="KeyBullet11" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(126, -196)
+dark = true
+
+[node name="KeyBullet12" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(100, -196)
+
+[node name="KeyBullet13" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(209, -260)
+
+[node name="KeyBullet14" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(183, -260)
+dark = true
+
+[node name="KeyBullet15" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(117, -260)
 
 [node name="Player" parent="." instance=ExtResource("4_7csfv")]
 position = Vector2(55, 136)

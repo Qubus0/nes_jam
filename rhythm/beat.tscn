@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://rhythm/beat.gd" id="1_5hotr"]
 [ext_resource type="Texture2D" uid="uid://cmawg8gkpnnnj" path="res://rhythm/beat.png" id="1_wyp7u"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_65vx2"]
-radius = 1.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1yl6s"]
+size = Vector2(1, 4)
 
 [node name="Beat" type="PathFollow2D"]
 rotates = false
@@ -20,4 +20,5 @@ collision_layer = 256
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_65vx2")
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_1yl6s")

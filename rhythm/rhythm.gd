@@ -21,7 +21,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	playhead.progress += beat_speed * delta
+	playhead.progress += 10 * delta
 
 	handle_input()
 
@@ -31,6 +31,7 @@ func play_track(track_name: String) -> void:
 		playhead_area.area_entered.disconnect(playhead_entered)
 
 	playhead = get_node("%" + track_name + "Playhead")
+	playhead.progress_ratio = 0
 	playhead_area = playhead.get_node("Area")
 	playhead_area.area_entered.connect(playhead_entered)
 
