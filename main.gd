@@ -2,7 +2,7 @@ extends Node2D
 
 
 func _ready() -> void:
-	pass
+	$CanvasLayer/Control/BoxContainer/Lemon.grab_focus()
 
 
 func _on_lemon_pressed() -> void:

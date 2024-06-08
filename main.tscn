@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dogfroq83k01i"]
+[gd_scene load_steps=3 format=3 uid="uid://dogfroq83k01i"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_kslb5"]
+[ext_resource type="Theme" uid="uid://ckpsaqo81fdqi" path="res://interface/default.theme" id="2_48kox"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_kslb5")
@@ -14,15 +15,20 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_48kox")
 
 [node name="BoxContainer" type="BoxContainer" parent="CanvasLayer/Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 65.0
+offset_right = -65.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 10
 alignment = 1
+vertical = true
 
 [node name="Lemon" type="Button" parent="CanvasLayer/Control/BoxContainer"]
 layout_mode = 2

@@ -8,7 +8,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_o7k0u"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -133, 26)
+"points": PackedVector2Array(0, 0, 0, 0, -9, 2, 0, 0, 0, 0, -133, 26)
 }
 point_count = 2
 
@@ -66,35 +66,29 @@ texture = ExtResource("1_44xy3")
 metadata/_edit_use_anchors_ = true
 
 [node name="Track" type="Path2D" parent="."]
-position = Vector2(216, 187)
+position = Vector2(207, 190)
 curve = SubResource("Curve2D_o7k0u")
 
-[node name="Valid" type="PathFollow2D" parent="Track"]
-position = Vector2(-124.771, 24.3913)
-rotation = 2.94854
-scale = Vector2(1, 1)
-progress = 127.115
+[node name="Accuracy" type="PathFollow2D" parent="Track"]
+position = Vector2(-123.852, 24.2294)
+rotation = 2.95041
+progress = 116.93
 
-[node name="ValidArea" type="Area2D" parent="Track/Valid"]
+[node name="ValidArea" type="Area2D" parent="Track/Accuracy"]
 unique_name_in_owner = true
 rotation = 1.5708
+scale = Vector2(1, 1)
 collision_layer = 0
 collision_mask = 256
 monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Track/Valid/ValidArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Track/Accuracy/ValidArea"]
 shape = SubResource("CapsuleShape2D_u0hhw")
 debug_color = Color(0.334564, 1, 0.304688, 0.42)
-
-[node name="Accuracy" type="PathFollow2D" parent="Track"]
-position = Vector2(-124.771, 24.3914)
-rotation = 2.94854
-progress = 127.115
 
 [node name="Weak" type="Area2D" parent="Track/Accuracy"]
 unique_name_in_owner = true
 rotation = 1.5708
-scale = Vector2(1, 1)
 collision_layer = 0
 collision_mask = 256
 monitorable = false
@@ -106,7 +100,6 @@ debug_color = Color(0.7, 0.155859, 0, 0.42)
 [node name="Solid" type="Area2D" parent="Track/Accuracy"]
 unique_name_in_owner = true
 rotation = 1.5708
-scale = Vector2(1, 1)
 collision_layer = 0
 collision_mask = 256
 monitorable = false
@@ -127,8 +120,8 @@ shape = SubResource("CapsuleShape2D_yneav")
 
 [node name="Miss" type="PathFollow2D" parent="Track"]
 position = Vector2(-133, 26)
-rotation = 2.94854
-progress = 135.518
+rotation = 2.95041
+progress = 126.301
 
 [node name="Miss" type="Area2D" parent="Track/Miss"]
 collision_layer = 0
@@ -143,6 +136,7 @@ modulate = Color(1, 1, 1, 0.372549)
 position = Vector2(24, 173)
 
 [node name="Track1" type="Path2D" parent="Tracks"]
+visible = false
 curve = SubResource("Curve2D_r5gad")
 
 [node name="TestTrack" type="PathFollow2D" parent="Tracks/Track1"]
@@ -159,6 +153,7 @@ shape = SubResource("CircleShape2D_jumcl")
 position = Vector2(0, -11)
 rotation = -1.5708
 texture = ExtResource("4_2dx05")
+hframes = 6
 
 [node name="Beat" parent="Tracks/Track1" instance=ExtResource("3_groqn")]
 position = Vector2(5.12453, 0)
@@ -193,8 +188,8 @@ face_left = false
 
 [node name="AccuracyText" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(113, 191)
+position = Vector2(99, 197)
 texture = ExtResource("5_13nrc")
-vframes = 4
+vframes = 5
 
 [connection signal="area_entered" from="Track/Miss/Miss" to="." method="_on_miss_area_entered"]

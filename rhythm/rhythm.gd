@@ -1,11 +1,14 @@
 extends Control
 
-var beat_speed := 40
+signal beat_hit(accuracy)
+
+var beat_speed := 30
 enum {
 	PERFECT,
 	SOLID,
 	WEAK,
-	MISS
+	MISS,
+	WRONG
 }
 
 @onready var valid := %ValidArea
@@ -56,27 +59,29 @@ func handle_input() -> void:
 	if Input.is_action_just_pressed("A") or Input.is_action_just_pressed("B"):
 		var direction := -1 if beat.face_left else 1
 		if not Input.get_axis("B", "A") == direction:
-			accuracy(MISS)
+			show_accuracy(WRONG)
 		elif %Perfect.has_overlapping_areas():
-			accuracy(PERFECT)
+			show_accuracy(PERFECT)
+			beat_hit.emit(PERFECT)
 		elif %Solid.has_overlapping_areas():
-			accuracy(SOLID)
+			show_accuracy(SOLID)
+			beat_hit.emit(SOLID)
 		elif %Weak.has_overlapping_areas():
-			accuracy(WEAK)
+			show_accuracy(WEAK)
+			beat_hit.emit(WEAK)
 		else:
-			accuracy(MISS)
+			show_accuracy(MISS)
 
 		beat.get_parent().remove_child(beat)
 		beat.queue_free()
 
 
 func _on_miss_area_entered(area: Area2D) -> void:
-	accuracy(MISS)
+	show_accuracy(MISS)
 	area.get_parent().queue_free()
 
 
-func accuracy(level: int) -> void:
-	print(level)
+func show_accuracy(level: int) -> void:
 	var new_text: Sprite2D = $AccuracyText.duplicate()
 	add_child(new_text)
 	new_text.frame = level
