@@ -15,5 +15,5 @@ func _on_area_entered(hitbox: Hitbox) -> void:
 		return
 
 	if health:
-		invincibility.start()
+		if invincibility: invincibility.start()
 		health.damage(hitbox.damage)
