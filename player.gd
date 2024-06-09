@@ -18,6 +18,7 @@ func _physics_process(delta: float) -> void:
 
 	if Input.is_action_just_pressed("up") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		$Jump.play()
 
 	if Input.is_action_just_released("up") and velocity.y < 0:
 		velocity.y = 0
@@ -64,6 +65,7 @@ func _on_health_depleted() -> void:
 
 func _on_health_hurt() -> void:
 	sprite.play("hurt")
+	$Hurt.play()
 	keep_animation = 3
 
 

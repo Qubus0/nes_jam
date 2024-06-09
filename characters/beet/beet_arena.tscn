@@ -135,6 +135,7 @@ metadata/_edit_group_ = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Interface"]
 position = Vector2(35, 19)
 sprite_frames = SubResource("SpriteFrames_heri7")
+frame = 6
 
 [node name="Win" type="Label" parent="Interface"]
 unique_name_in_owner = true
