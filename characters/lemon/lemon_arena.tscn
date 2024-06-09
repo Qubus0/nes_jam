@@ -1,0 +1,272 @@
+[gd_scene load_steps=12 format=3 uid="uid://dhuqdrg0d1acn"]
+
+[ext_resource type="Texture2D" uid="uid://dgvwyyf21awc5" path="res://characters/lemon/we_all_shiv_in_a_yellow_submarine.png" id="1_14pqb"]
+[ext_resource type="PackedScene" uid="uid://7b4uamk1ww8p" path="res://rhythm/rhythm.tscn" id="1_o151y"]
+[ext_resource type="Script" path="res://characters/lemon/lemon_arena.gd" id="1_ql2a3"]
+[ext_resource type="PackedScene" uid="uid://c8cq6yojoo4gy" path="res://characters/player/player.tscn" id="2_ptbrl"]
+[ext_resource type="FontFile" uid="uid://dr8jhk3d5ka4x" path="res://interface/font/the-video-arcade-game-font/the-video-arcade-game-font.ttf" id="3_7elt5"]
+[ext_resource type="PackedScene" uid="uid://iivny0b5cmmp" path="res://characters/lemon/lemon.tscn" id="3_o10qq"]
+
+[sub_resource type="Curve2D" id="Curve2D_1bdqc"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 5, 4, 0.459098, 13.0593, -0.459098, -13.0593, -10, -25, -17.263, 32.1449, 17.263, -32.1449, 8.91603, -94.7317, 0, 0, 0, 0, 71.0687, -145.593, 0, 0, 0, 0, 114.305, -196.455)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_wfufv"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 5, 5, -2.17947, 10.2152, 2.17947, -10.2152, -3, -21, 0, 0, 0, 0, 26, -62, -7.77829, 15.977, 7.77829, -15.977, 58, -95, 0, 0, 0, 0, 114, -115, 0, 0, 0, 0, 129, -130)
+}
+point_count = 6
+
+[sub_resource type="LabelSettings" id="LabelSettings_6mjjq"]
+font = ExtResource("3_7elt5")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7yu2p"]
+texture = ExtResource("1_14pqb")
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+11:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:1/0 = 0
+6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:1/0 = 0
+7:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:1/0 = 0
+8:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:1/0 = 0
+9:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+10:1/0 = 0
+10:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+11:1/0 = 0
+12:1/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:2/0 = 0
+6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:2/0 = 0
+7:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:2/0 = 0
+8:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:2/0 = 0
+9:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+10:2/0 = 0
+10:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+11:2/0 = 0
+12:2/0 = 0
+5:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+10:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+11:3/0 = 0
+11:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+12:3/0 = 0
+12:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+13:3/0 = 0
+14:3/0 = 0
+14:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:4/0 = 0
+2:4/0 = 0
+5:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+9:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+10:4/0 = 0
+12:4/0 = 0
+13:4/0 = 0
+13:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+14:4/0 = 0
+14:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:5/0 = 0
+2:5/0 = 0
+5:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+9:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+13:5/0 = 0
+13:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+6:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:6/0 = 0
+7:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:6/0 = 0
+9:6/0 = 0
+9:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+10:6/0 = 0
+12:6/0 = 0
+13:6/0 = 0
+13:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:7/0 = 0
+5:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:7/0 = 0
+7:7/0 = 0
+8:7/0 = 0
+8:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:7/0 = 0
+10:7/0 = 0
+10:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+11:7/0 = 0
+11:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+12:7/0 = 0
+12:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+13:7/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+5:9/0 = 0
+6:9/0 = 0
+0:16/0 = 0
+1:16/0 = 0
+2:16/0 = 0
+3:16/0 = 0
+4:16/0 = 0
+5:16/0 = 0
+6:16/0 = 0
+7:16/0 = 0
+8:16/0 = 0
+9:16/0 = 0
+10:16/0 = 0
+11:16/0 = 0
+12:16/0 = 0
+13:16/0 = 0
+14:16/0 = 0
+15:16/0 = 0
+0:17/0 = 0
+1:17/0 = 0
+2:17/0 = 0
+3:17/0 = 0
+4:17/0 = 0
+5:17/0 = 0
+6:17/0 = 0
+7:17/0 = 0
+8:17/0 = 0
+9:17/0 = 0
+10:17/0 = 0
+11:17/0 = 0
+12:17/0 = 0
+13:17/0 = 0
+14:17/0 = 0
+15:17/0 = 0
+0:18/0 = 0
+1:18/0 = 0
+2:18/0 = 0
+3:18/0 = 0
+4:18/0 = 0
+5:18/0 = 0
+6:18/0 = 0
+7:18/0 = 0
+8:18/0 = 0
+9:18/0 = 0
+10:18/0 = 0
+11:18/0 = 0
+12:18/0 = 0
+13:18/0 = 0
+14:18/0 = 0
+15:18/0 = 0
+0:19/0 = 0
+1:19/0 = 0
+2:19/0 = 0
+3:19/0 = 0
+4:19/0 = 0
+5:19/0 = 0
+6:19/0 = 0
+7:19/0 = 0
+8:19/0 = 0
+9:19/0 = 0
+10:19/0 = 0
+11:19/0 = 0
+12:19/0 = 0
+13:19/0 = 0
+14:19/0 = 0
+15:19/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_2604f"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_7yu2p")
+
+[node name="LemonArena" type="Node2D"]
+script = ExtResource("1_ql2a3")
+
+[node name="Interface" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="Interface"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 176.0
+offset_right = 256.0
+offset_bottom = 240.0
+
+[node name="Rhythm" parent="Interface/Control" instance=ExtResource("1_o151y")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.046875
+anchor_top = -2.76563
+anchor_right = 1.04688
+anchor_bottom = 0.984375
+
+[node name="InstrumentAttacks" type="Node2D" parent="Interface"]
+position = Vector2(24, 202)
+
+[node name="Perfect" type="Path2D" parent="Interface/InstrumentAttacks"]
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0.3)
+position = Vector2(1.1017, 1.32609)
+scale = Vector2(1.11017, 0.668478)
+curve = SubResource("Curve2D_1bdqc")
+
+[node name="Attack" type="Path2D" parent="Interface/InstrumentAttacks"]
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0.3)
+curve = SubResource("Curve2D_wfufv")
+
+[node name="Win" type="Label" parent="Interface"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -11.5
+offset_right = 56.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "You Win"
+label_settings = SubResource("LabelSettings_6mjjq")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_2604f")
+format = 2
+layer_0/tile_data = PackedInt32Array(524288, 458752, 6, 524289, 524288, 6, 589826, 458752, 6, 589827, 524288, 6, 589824, 458752, 7, 589825, 524288, 7, 655362, 458752, 7, 655363, 524288, 7, 524302, 327680, 6, 589838, 327680, 7, 524303, 393216, 6, 589839, 393216, 7, 589836, 327680, 6, 655372, 327680, 7, 589837, 393216, 6, 655373, 393216, 7, 655364, 720896, 7, 655365, 720896, 7, 655366, 720896, 7, 655367, 720896, 7, 655368, 720896, 7, 655369, 720896, 7, 655370, 720896, 7, 655371, 720896, 7, 589828, 327680, 1, 589829, 393216, 1, 589830, 458752, 1, 589831, 524288, 1, 589832, 393216, 1, 589833, 458752, 1, 589834, 524288, 1, 589835, 589824, 1, 524292, 327680, 0, 524293, 393216, 0, 524294, 458752, 0, 524295, 524288, 0, 524296, 393216, 0, 524297, 327680, 5, 524298, 524288, 0, 524299, 655360, 0, 327695, 851968, 5, 262159, 851968, 4, 262144, 851968, 5, 327680, 851968, 5, 196608, 589824, 4, 131073, 327680, 6, 196609, 327680, 7, 196622, 786432, 3, 262158, 786432, 4, 196623, 851968, 3, 196621, 720896, 3, 131083, 458752, 6, 196619, 458752, 7, 131084, 524288, 6, 196620, 524288, 7, 65545, 458752, 6, 131081, 458752, 7, 65546, 524288, 6, 131082, 524288, 7, 65544, 720896, 7, 65542, 720896, 7, 65543, 720896, 7, 65539, 327680, 6, 131075, 327680, 7, 65540, 393216, 6, 131076, 393216, 7, 131074, 393216, 6, 196610, 393216, 7, 262145, 720896, 0, 262146, 720896, 0, 327681, 458752, 5, 327682, 524288, 5, 262147, 458752, 4, 327683, 458752, 5, 262148, 524288, 4, 327684, 524288, 5, 262149, 458752, 4, 327685, 458752, 5, 262150, 524288, 4, 327686, 524288, 5, 262151, 524288, 4, 327687, 524288, 5, 262155, 458752, 4, 327691, 458752, 5, 262156, 524288, 4, 327692, 524288, 5, 262157, 458752, 4, 327693, 458752, 5, 327694, 524288, 5, 393225, 327680, 3, 458761, 327680, 4, 393227, 720896, 1, 458763, 720896, 2, 393228, 786432, 1, 458764, 786432, 2, 393218, 720896, 1, 458754, 720896, 2, 393219, 786432, 1, 458755, 786432, 2, 393229, 65536, 4, 458765, 65536, 5, 393230, 131072, 4, 458766, 131072, 5, 14, 196608, 6, 15, 262144, 6, 655360, 327680, 8, 655375, 393216, 8, 458752, 65536, 0, 393216, 65536, 0, 393231, 65536, 0, 458767, 65536, 0)
+
+[node name="Lemon" parent="." instance=ExtResource("3_o10qq")]
+position = Vector2(152, 72)
+
+[node name="Player" parent="." instance=ExtResource("2_ptbrl")]
+position = Vector2(88, 25)
+
+[connection signal="beat_hit" from="Interface/Control/Rhythm" to="." method="_on_rhythm_beat_hit"]
+[connection signal="defeated" from="Lemon" to="." method="_on_lemon_defeated"]

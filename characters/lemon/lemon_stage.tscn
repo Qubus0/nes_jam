@@ -1,14 +1,15 @@
-[gd_scene load_steps=27 format=3 uid="uid://v0c6se8o27e1"]
+[gd_scene load_steps=29 format=3 uid="uid://v0c6se8o27e1"]
 
 [ext_resource type="Texture2D" uid="uid://ctulntoqjext0" path="res://characters/lemon/lemon_tilemap.png" id="1_7v8mq"]
 [ext_resource type="Script" path="res://characters/lemon/health_bar_test.gd" id="1_kx4xt"]
 [ext_resource type="PackedScene" uid="uid://c8cq6yojoo4gy" path="res://characters/player/player.tscn" id="2_17tq7"]
-[ext_resource type="PackedScene" path="res://characters/lemon/killzone.tscn" id="3_co1y5"]
+[ext_resource type="PackedScene" uid="uid://sm8ieqfo1brp" path="res://characters/lemon/killzone.tscn" id="3_co1y5"]
 [ext_resource type="Texture2D" uid="uid://d07tt0gjgaq1w" path="res://characters/health.png" id="3_j7boc"]
 [ext_resource type="Script" path="res://characters/lemon/submarine.gd" id="4_64uch"]
 [ext_resource type="Texture2D" uid="uid://dyf2fr8jc4qlc" path="res://characters/lemon/submarine.png" id="4_hox0k"]
 [ext_resource type="Texture2D" uid="uid://bwi82i62fj65q" path="res://characters/lemon/lemon_turret_hinge.png" id="6_vfxdc"]
 [ext_resource type="Texture2D" uid="uid://bmvc8d82xo0bn" path="res://characters/lemon/lemon_turret_barrel.png" id="7_ip7gc"]
+[ext_resource type="Script" path="res://characters/lemon/boss_transition.gd" id="10_ol2tt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6d6cw"]
 atlas = ExtResource("3_j7boc")
@@ -314,6 +315,9 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x7rvd"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4xrhd"]
+size = Vector2(12, 13)
+
 [node name="LemonStage" type="Node2D"]
 
 [node name="Interface" type="CanvasLayer" parent="."]
@@ -436,6 +440,17 @@ target_position = Vector2(0, 0)
 collision_mask = 2
 
 [node name="SubDiveArea" type="RayCast2D" parent="."]
-position = Vector2(3400, -3)
+position = Vector2(3424, -3)
 target_position = Vector2(0, 200)
 collision_mask = 8
+
+[node name="BossTransition" type="Area2D" parent="."]
+position = Vector2(3982, 90)
+collision_mask = 2
+script = ExtResource("10_ol2tt")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BossTransition"]
+shape = SubResource("RectangleShape2D_4xrhd")
+
+[connection signal="body_entered" from="BossTransition" to="BossTransition" method="_on_body_entered"]
