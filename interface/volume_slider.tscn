@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://babe2f4kirx5i"]
+
+[ext_resource type="Script" path="res://interface/volume_slider.gd" id="1_uxj6c"]
+
+[node name="VolumeSlider" type="HSlider"]
+custom_minimum_size = Vector2(140, 0)
+size_flags_horizontal = 4
+max_value = 1.0
+step = 0.1
+value = 0.6
+script = ExtResource("1_uxj6c")
+
+[node name="Sample" type="AudioStreamPlayer" parent="."]
+
+[connection signal="value_changed" from="." to="." method="_on_value_changed"]

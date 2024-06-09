@@ -17,7 +17,7 @@ var speed := 0
 		face_left = val
 		$Sprite.flip_h = not face_left
 
-@export var theme: Themes = 0 :
+@export var theme: Themes = Themes.WHITE :
 	set(val):
 		theme = val
 		$Sprite.frame_coords.x = val

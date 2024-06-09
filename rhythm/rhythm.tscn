@@ -416,16 +416,16 @@ label_settings = SubResource("LabelSettings_modp7")
 
 [node name="BeatHit" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_6tt10")
-bus = &"Sounds"
+bus = &"Sound"
 
 [node name="BeatWrong" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_n5vca")
 volume_db = -6.005
-bus = &"Sounds"
+bus = &"Sound"
 
 [node name="BeatPerfect" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_mcqv1")
 volume_db = -6.005
-bus = &"Sounds"
+bus = &"Sound"
 
 [connection signal="area_entered" from="Track/Miss/Miss" to="." method="_on_miss_area_entered"]
