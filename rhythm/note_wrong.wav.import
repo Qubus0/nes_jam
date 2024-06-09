@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://c3spo8wbf4dr5"
-path="res://.godot/imported/bump.wav-7c012fd69b2254074cdd102886f3c440.sample"
+uid="uid://bc6uiv5602rcu"
+path="res://.godot/imported/note_wrong.wav-af5fe89f5952b3cd707e235dafc32f8b.sample"
 
 [deps]
 
-source_file="res://characters/player/bump.wav"
-dest_files=["res://.godot/imported/bump.wav-7c012fd69b2254074cdd102886f3c440.sample"]
+source_file="res://rhythm/note_wrong.wav"
+dest_files=["res://.godot/imported/note_wrong.wav-af5fe89f5952b3cd707e235dafc32f8b.sample"]
 
 [params]
 

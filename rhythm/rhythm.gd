@@ -86,8 +86,16 @@ func show_accuracy(accuracy: int) -> void:
 	new_text.frame_coords.y = accuracy
 	new_text.show()
 
-	if accuracy == PERFECT:
-		$PerfectSparks.play("default")
+	match accuracy:
+		PERFECT:
+			$PerfectSparks.play(&"default")
+			$BeatPerfect.play()
+		WRONG, MISS:
+			$BeatWrong.play()
+		_:
+			$BeatHit.play()
+
+	$BeatSparks.play(&"default")
 
 	var tw := get_tree().create_tween()
 	tw.parallel().tween_property(new_text, "frame_coords:x", 4, 0.5	)

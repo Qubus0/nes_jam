@@ -1,13 +1,17 @@
-[gd_scene load_steps=24 format=3 uid="uid://7b4uamk1ww8p"]
+[gd_scene load_steps=35 format=3 uid="uid://7b4uamk1ww8p"]
 
 [ext_resource type="Script" path="res://rhythm/rhythm.gd" id="1_1kst2"]
 [ext_resource type="Texture2D" uid="uid://kyjutf2rjloh" path="res://rhythm/instrument.png" id="1_44xy3"]
 [ext_resource type="PackedScene" uid="uid://xrk332tlwqw4" path="res://rhythm/beat.tscn" id="3_groqn"]
+[ext_resource type="Texture2D" uid="uid://bq26bj5rv7bxc" path="res://rhythm/note_sparks.png" id="3_wea3y"]
 [ext_resource type="Texture2D" uid="uid://cmawg8gkpnnnj" path="res://rhythm/beat.png" id="4_2dx05"]
 [ext_resource type="Texture2D" uid="uid://ctirhumb61rjh" path="res://rhythm/accuracy.png" id="5_eqend"]
 [ext_resource type="Texture2D" uid="uid://ch5me3syp0rie" path="res://rhythm/perfect_sparks.png" id="6_y20u0"]
 [ext_resource type="Texture2D" uid="uid://bxr8a2jy8hiql" path="res://rhythm/hints.png" id="7_5dalc"]
 [ext_resource type="FontFile" uid="uid://dr8jhk3d5ka4x" path="res://interface/font/the-video-arcade-game-font/the-video-arcade-game-font.ttf" id="8_vwjn3"]
+[ext_resource type="AudioStream" uid="uid://c3spo8wbf4dr5" path="res://rhythm/note_hit.wav" id="9_6tt10"]
+[ext_resource type="AudioStream" uid="uid://bc6uiv5602rcu" path="res://rhythm/note_wrong.wav" id="10_n5vca"]
+[ext_resource type="AudioStream" uid="uid://ckqcxck2vld01" path="res://rhythm/note_perfect.wav" id="11_mcqv1"]
 
 [sub_resource type="Curve2D" id="Curve2D_o7k0u"]
 _data = {
@@ -80,6 +84,56 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_rg65v")
+}],
+"loop": false,
+"name": &"default",
+"speed": 16.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7xg0g"]
+atlas = ExtResource("3_wea3y")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_keyu1"]
+atlas = ExtResource("3_wea3y")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7fmp8"]
+atlas = ExtResource("3_wea3y")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1skha"]
+atlas = ExtResource("3_wea3y")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rrign"]
+atlas = ExtResource("3_wea3y")
+region = Rect2(32, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2tf6w"]
+atlas = ExtResource("3_wea3y")
+region = Rect2(40, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xugdl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7xg0g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_keyu1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7fmp8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1skha")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rrign")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2tf6w")
 }],
 "loop": false,
 "name": &"default",
@@ -324,6 +378,12 @@ sprite_frames = SubResource("SpriteFrames_cxn1q")
 frame = 4
 frame_progress = 1.0
 
+[node name="BeatSparks" type="AnimatedSprite2D" parent="."]
+position = Vector2(82.0997, 206.239)
+sprite_frames = SubResource("SpriteFrames_xugdl")
+frame = 5
+frame_progress = 1.0
+
 [node name="HintLeft" type="Sprite2D" parent="."]
 position = Vector2(233, 196)
 texture = ExtResource("7_5dalc")
@@ -353,5 +413,19 @@ offset_bottom = 18.0
 text = "A
 "
 label_settings = SubResource("LabelSettings_modp7")
+
+[node name="BeatHit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_6tt10")
+bus = &"Sounds"
+
+[node name="BeatWrong" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_n5vca")
+volume_db = -6.005
+bus = &"Sounds"
+
+[node name="BeatPerfect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_mcqv1")
+volume_db = -6.005
+bus = &"Sounds"
 
 [connection signal="area_entered" from="Track/Miss/Miss" to="." method="_on_miss_area_entered"]
