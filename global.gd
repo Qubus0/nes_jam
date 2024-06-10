@@ -1,26 +1,28 @@
 extends Node
 
-const PAUSE_MENU = preload("res://interface/pause_menu.tscn")
-const TRANSITION = preload("res://interface/transition.tscn")
 
-var pause_menu: PauseMenu
-var transition: Transition
+@onready var pause_menu: PauseMenu = $PauseMenu
+@onready var transition: Transition = $Transition
+@onready var game_over_screen: GameOver = $GameOver
 
 
 func _ready() -> void:
-	pause_menu = PAUSE_MENU.instantiate()
-	add_child(pause_menu)
-	transition = TRANSITION.instantiate()
-	add_child(transition)
-
-	transition.trans_in()
+	await transition.trans_in()
 	pause_menu.unpause()
+
+	#game_over()
 
 
 func change_scene_to_file(path: String) -> void:
 	await transition.trans_out()
 	get_tree().change_scene_to_file(path)
 	await transition.trans_in()
+
+
+func game_over() -> void:
+	get_tree().paused = true
+	game_over_screen.show()
+	game_over_screen.start()
 
 
 

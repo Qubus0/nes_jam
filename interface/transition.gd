@@ -1,5 +1,5 @@
 class_name Transition
-extends CanvasLayer
+extends Control
 
 @onready var mat := $ColorRect.material as ShaderMaterial
 var viewport_size := Vector2(

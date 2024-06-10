@@ -89,7 +89,7 @@ func animate() -> void:
 
 
 func _on_health_depleted() -> void:
-	get_tree().reload_current_scene()
+	Global.game_over()
 
 
 func _on_health_hurt() -> void:

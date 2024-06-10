@@ -1,5 +1,6 @@
 extends TextureRect
 
+
 # doesn't work on first load
 #func _ready() -> void:
 	#get_viewport().gui_focus_changed.connect(_on_gui_focus_changed)

@@ -1,5 +1,5 @@
 class_name PauseMenu
-extends CanvasLayer
+extends Control
 
 var last_focussed: Control
 
@@ -37,6 +37,3 @@ func _on_menu_pressed() -> void:
 	unpause()
 	Global.change_scene_to_file("res://main.tscn")
 
-
-func _on_blink_timeout() -> void:
-	%PausedLabel.self_modulate.a = int(not %PausedLabel.self_modulate.a)

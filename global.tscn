@@ -1,0 +1,89 @@
+[gd_scene load_steps=12 format=3 uid="uid://bisd8m0b2oclw"]
+
+[ext_resource type="Script" path="res://global.gd" id="1_dnvdf"]
+[ext_resource type="PackedScene" uid="uid://dm7tl1wq8tl45" path="res://interface/pause_menu.tscn" id="2_8oaxg"]
+[ext_resource type="PackedScene" uid="uid://dobwp2fov6j5k" path="res://interface/transition.tscn" id="3_v4sqy"]
+[ext_resource type="Theme" uid="uid://ckpsaqo81fdqi" path="res://interface/default.theme" id="4_madg6"]
+[ext_resource type="Script" path="res://interface/game_over.gd" id="4_w52sl"]
+[ext_resource type="Texture2D" uid="uid://ckdmgcbqytgyh" path="res://interface/game_over.png" id="5_xn860"]
+[ext_resource type="AudioStream" uid="uid://dqoeb7ik8tedx" path="res://characters/player/hurt.wav" id="7_v7dbj"]
+[ext_resource type="Texture2D" uid="uid://cm5d8q0e5fi5s" path="res://interface/focus_arrow.png" id="8_dbftv"]
+[ext_resource type="Script" path="res://interface/focus_arrow.gd" id="9_leqpc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_j7xih"]
+font_size = 24
+font_color = Color(0.972549, 0.721569, 0.00784314, 1)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_hm2wx"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("7_v7dbj")
+
+[node name="Global" type="CanvasLayer"]
+process_mode = 3
+layer = 2
+script = ExtResource("1_dnvdf")
+
+[node name="PauseMenu" parent="." instance=ExtResource("2_8oaxg")]
+visible = false
+
+[node name="GameOver" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_madg6")
+script = ExtResource("4_w52sl")
+
+[node name="TextureRect" type="TextureRect" parent="GameOver"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("5_xn860")
+
+[node name="Text" type="Label" parent="GameOver"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = 43.5
+offset_right = 64.0
+offset_bottom = 100.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "GAME 
+  OVER"
+label_settings = SubResource("LabelSettings_j7xih")
+
+[node name="Sound" type="AudioStreamPlayer" parent="GameOver"]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_hm2wx")
+volume_db = -11.23
+bus = &"Sound"
+
+[node name="FocusPointer" type="TextureRect" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(16, 8)
+texture = ExtResource("8_dbftv")
+stretch_mode = 5
+script = ExtResource("9_leqpc")
+
+[node name="Transition" parent="." instance=ExtResource("3_v4sqy")]

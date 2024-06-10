@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://interface/volume_slider.gd" id="1_uxj6c"]
 
 [node name="VolumeSlider" type="HSlider"]
-custom_minimum_size = Vector2(140, 0)
+custom_minimum_size = Vector2(100, 0)
 size_flags_horizontal = 4
 max_value = 1.0
 step = 0.1
