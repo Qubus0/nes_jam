@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody2D
 
 @export_group("Jump")
@@ -10,6 +11,8 @@ extends CharacterBody2D
 @export_group("Movement")
 @export var speed := 110.0
 @export var friction := -1.0
+@export var min_slope_angle_degrees := 90
+@export var max_slope_acceleration := 500
 
 @export_group("Components")
 @export var health: Health
@@ -24,7 +27,6 @@ extends CharacterBody2D
 var keep_animation := false
 var has_coyote := false
 var start_height := 0.0
-var moving := false
 var current_health := 0
 
 
@@ -49,13 +51,27 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	var direction := Input.get_axis(&"left", &"right")
 	if direction:
-		velocity.x = direction * speed
-		moving = true
+		velocity.x = direction * clampf(absf(velocity.x), speed, absf(velocity.x))
 	else:
-		velocity.x = move_toward(velocity.x, 0, friction if friction > 0 else speed)
-		moving = false
+		var fric := friction * delta if friction > 0 else speed
+		velocity.x = move_toward(velocity.x, 0, fric)
+
+	# sliding down slopes
+	var floor_angle := rad_to_deg(get_floor_normal().angle_to(Vector2.UP))
+	var can_slide: bool = min_slope_angle_degrees <= absf(floor_angle)
+	if is_on_floor() and can_slide:
+		apply_slope_slide(get_floor_normal(), signf(floor_angle), delta)
 
 	move_and_slide()
+
+
+func apply_slope_slide(floor_normal: Vector2, direction: float, delta: float) -> void:
+	# get the direction to slide in
+	var slide_direction := floor_normal.orthogonal().normalized() * direction
+	var slide_force := slide_direction * max_slope_acceleration * delta
+	# scale the force so that steeper slope will have more force
+	slide_force *= absf(slide_direction.y)
+	velocity += slide_force
 
 
 func _process(_delta: float) -> void:
@@ -68,19 +84,31 @@ func get_calculated_gravity() -> float:
 
 
 func animate() -> void:
-	if velocity.x != 0:
+	var is_moving := not is_zero_approx(velocity.x)
+	if is_moving:
 		sprite.flip_h = velocity.x < 0
 
+	# keep playing the hurt anim no matter what
 	if keep_animation:
 		return
 
-	if velocity.y < 0:
+	var is_falling := velocity.y > 0
+	var is_rising := velocity.y < 0
+	var is_controlled_movement := Input.get_axis(&"left", &"right")
+
+	if is_rising:
+		# only start the animation once, to get the charge up
 		if not sprite.animation == &"jump":
 			sprite.play(&"jump")
-	elif velocity.y > 0:
-		sprite.play(&"fall")
-	elif moving:
+	elif is_falling:
+		if is_on_floor() or has_coyote:
+			sprite.play(&"slide")
+		else:
+			sprite.play(&"fall")
+	elif is_controlled_movement:
 		sprite.play(&"walk")
+	elif is_moving:
+		sprite.play(&"slide")
 	else:
 		if Input.is_action_pressed(&"down"):
 			sprite.play(&"duck")

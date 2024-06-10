@@ -44,5 +44,13 @@ size_flags_vertical = 4
 text = "Beet"
 flat = true
 
+[node name="Cherry" type="Button" parent="CanvasLayer/Control/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Cherry"
+flat = true
+
 [connection signal="pressed" from="CanvasLayer/Control/BoxContainer/Lemon" to="." method="_on_lemon_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/BoxContainer/Beet" to="." method="_on_beet_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/BoxContainer/Cherry" to="." method="_on_cherry_pressed"]

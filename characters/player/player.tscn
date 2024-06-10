@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://c8cq6yojoo4gy"]
+[gd_scene load_steps=31 format=3 uid="uid://c8cq6yojoo4gy"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_2ud0j"]
 [ext_resource type="Texture2D" uid="uid://wu6lqapntd2r" path="res://characters/player/player_jumpstart.png" id="2_f8foi"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://ds1nuhjm8q5ue" path="res://characters/player/player_jump.png" id="5_u0ple"]
 [ext_resource type="Script" path="res://characters/hurtbox.gd" id="6_bxhf7"]
 [ext_resource type="Script" path="res://characters/health.gd" id="7_or4q8"]
+[ext_resource type="Texture2D" uid="uid://dubdnvhwnr3l1" path="res://characters/player/player_slide.png" id="7_tspxa"]
 [ext_resource type="AudioStream" uid="uid://dndqkhh060b8o" path="res://characters/player/jump.wav" id="9_pc8a4"]
 [ext_resource type="AudioStream" uid="uid://dqoeb7ik8tedx" path="res://characters/player/hurt.wav" id="10_ev1b7"]
 
@@ -43,6 +44,18 @@ region = Rect2(0, 0, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_iymgk"]
 atlas = ExtResource("2_f8foi")
 region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pmyiv"]
+atlas = ExtResource("7_tspxa")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0pyge"]
+atlas = ExtResource("7_tspxa")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_blufb"]
+atlas = ExtResource("7_tspxa")
+region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oe3mc"]
 atlas = ExtResource("4_lmgrm")
@@ -143,6 +156,20 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_pmyiv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0pyge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_blufb")
+}],
+"loop": true,
+"name": &"slide",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_oe3mc")
 }, {
 "duration": 1.0,
@@ -168,6 +195,7 @@ radius = 5.0
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("health", "sprite", "coyote_timer") groups=["player"]]
 collision_layer = 2
+floor_max_angle = 1.0472
 script = ExtResource("1_2ud0j")
 health = NodePath("Health")
 sprite = NodePath("Sprite")
@@ -175,10 +203,9 @@ coyote_timer = NodePath("CoyoteTimer")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7sitx")
-animation = &"hurt"
+animation = &"idle"
 autoplay = "idle"
-frame = 5
-frame_progress = 1.0
+frame_progress = 0.389592
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_5fs8f")
