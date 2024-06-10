@@ -61,6 +61,8 @@ grow_vertical = 2
 text = "GAME 
   OVER"
 label_settings = SubResource("LabelSettings_j7xih")
+visible_characters = 0
+visible_ratio = 0.0
 
 [node name="Sound" type="AudioStreamPlayer" parent="GameOver"]
 unique_name_in_owner = true

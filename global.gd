@@ -10,8 +10,6 @@ func _ready() -> void:
 	await transition.trans_in()
 	pause_menu.unpause()
 
-	#game_over()
-
 
 func change_scene_to_file(path: String) -> void:
 	await transition.trans_out()
@@ -20,8 +18,10 @@ func change_scene_to_file(path: String) -> void:
 
 
 func game_over() -> void:
+	await transition.trans_out()
 	get_tree().paused = true
-	game_over_screen.show()
+	game_over_screen.appear()
+	await transition.trans_in()
 	game_over_screen.start()
 
 

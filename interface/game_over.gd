@@ -2,9 +2,13 @@ class_name GameOver
 extends Control
 
 
-func start() -> void:
-	%Text.visible_characters = 0
 
+func appear() -> void:
+	%Text.visible_characters = 0
+	show()
+
+
+func start() -> void:
 	for character: String in %Text.text:
 		%Text.visible_characters += 1
 		await get_tree().create_timer(0.15).timeout
