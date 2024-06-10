@@ -46,4 +46,4 @@ func _on_lemon_defeated() -> void:
 	$Lemon.queue_free()
 	%Win.show()
 	await get_tree().create_timer(2).timeout
-	get_tree().change_scene_to_file("res://main.tscn")
+	Global.change_scene_to_file("res://main.tscn")

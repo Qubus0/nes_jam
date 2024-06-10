@@ -17,6 +17,7 @@ font_color = Color(0.972549, 0.721569, 0, 1)
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
+layer = 3
 script = ExtResource("1_j1th8")
 
 [node name="Menu" type="PanelContainer" parent="."]

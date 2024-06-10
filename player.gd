@@ -35,8 +35,8 @@ func _physics_process(delta: float) -> void:
 
 func _process(_delta: float) -> void:
 	current_health = health.health
-	if Input.is_action_just_pressed("debug"):
-		$Health.damage(1)
+	#if Input.is_action_just_pressed("debug"):
+		#$Health.damage(1)
 
 	if velocity.x != 0:
 		sprite.flip_h = velocity.x < 0

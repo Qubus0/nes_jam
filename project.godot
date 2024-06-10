@@ -29,6 +29,10 @@ window/stretch/mode="viewport"
 window/stretch/scale_mode="integer"
 window/dpi/allow_hidpi=false
 
+[global_group]
+
+player=""
+
 [input]
 
 ui_accept={
