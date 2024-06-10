@@ -221,8 +221,11 @@ dark = true
 [node name="KeyBullet15" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
 position = Vector2(117, -260)
 
-[node name="Player" parent="." instance=ExtResource("4_7csfv")]
+[node name="Player" parent="." node_paths=PackedStringArray("health", "sprite", "coyote_timer") instance=ExtResource("4_7csfv")]
 position = Vector2(55, 136)
+health = NodePath("Health")
+sprite = NodePath("Sprite")
+coyote_timer = NodePath("CoyoteTimer")
 
 [node name="Room" type="StaticBody2D" parent="."]
 position = Vector2(128, 168)
