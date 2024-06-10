@@ -1,9 +1,17 @@
-[gd_scene load_steps=9 format=3 uid="uid://iivny0b5cmmp"]
+[gd_scene load_steps=11 format=3 uid="uid://iivny0b5cmmp"]
 
 [ext_resource type="Texture2D" uid="uid://ct4mdulrt18be" path="res://characters/lemon/john_lemon.png" id="1_crf1v"]
 [ext_resource type="Script" path="res://characters/lemon/lemon.gd" id="1_quw8o"]
 [ext_resource type="Script" path="res://characters/health.gd" id="2_o3gl8"]
 [ext_resource type="Script" path="res://characters/hurtbox.gd" id="3_vc07i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4sw8"]
+atlas = ExtResource("1_crf1v")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_excnj"]
+atlas = ExtResource("1_crf1v")
+region = Rect2(48, 48, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rirr0"]
 atlas = ExtResource("1_crf1v")
@@ -17,13 +25,24 @@ region = Rect2(48, 0, 48, 48)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_h4sw8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_excnj")
+}],
+"loop": true,
+"name": &"hurt",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_rirr0")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_32oj0")
 }],
 "loop": true,
-"name": &"default",
+"name": &"idle",
 "speed": 2.0
 }]
 
@@ -34,7 +53,8 @@ script = ExtResource("1_quw8o")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_v6wy4")
-autoplay = "default"
+animation = &"hurt"
+autoplay = "idle"
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("2_o3gl8")

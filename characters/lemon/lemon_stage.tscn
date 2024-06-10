@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://ctulntoqjext0" path="res://characters/lemon/lemon_tilemap.png" id="1_7v8mq"]
 [ext_resource type="Script" path="res://characters/lemon/health_bar_test.gd" id="1_kx4xt"]
 [ext_resource type="PackedScene" uid="uid://c8cq6yojoo4gy" path="res://characters/player/player.tscn" id="2_17tq7"]
-[ext_resource type="PackedScene" path="res://characters/lemon/killzone.tscn" id="3_co1y5"]
+[ext_resource type="PackedScene" uid="uid://sm8ieqfo1brp" path="res://characters/lemon/killzone.tscn" id="3_co1y5"]
 [ext_resource type="Texture2D" uid="uid://d07tt0gjgaq1w" path="res://characters/health.png" id="3_j7boc"]
 [ext_resource type="Script" path="res://characters/lemon/submarine.gd" id="4_64uch"]
 [ext_resource type="Texture2D" uid="uid://dyf2fr8jc4qlc" path="res://characters/lemon/submarine.png" id="4_hox0k"]
