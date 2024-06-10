@@ -8,6 +8,7 @@ extends TextureRect
 
 func _process(_delta: float) -> void:
 	var focussed := get_viewport().gui_get_focus_owner()
+	visible = is_instance_valid(focussed)
 	if focussed:
 		_on_gui_focus_changed(focussed)
 

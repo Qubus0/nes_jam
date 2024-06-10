@@ -35,7 +35,7 @@ layout_mode = 2
 [node name="BoxContainer" type="BoxContainer" parent="Menu/PanelContainer"]
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_constants/separation = 16
+theme_override_constants/separation = 8
 alignment = 1
 vertical = true
 
@@ -49,6 +49,9 @@ horizontal_alignment = 1
 [node name="Blink" type="Timer" parent="Menu/PanelContainer/BoxContainer/PausedLabel"]
 unique_name_in_owner = true
 wait_time = 0.7
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu/PanelContainer/BoxContainer"]
+layout_mode = 2
 
 [node name="BoxContainer" type="BoxContainer" parent="Menu/PanelContainer/BoxContainer"]
 layout_mode = 2
@@ -78,6 +81,12 @@ layout_mode = 2
 texture = ExtResource("4_r7guv")
 stretch_mode = 5
 
+[node name="Menu" type="Button" parent="Menu/PanelContainer/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Main Menu"
+flat = true
+
 [node name="Resume" type="Button" parent="Menu/PanelContainer/BoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
@@ -92,6 +101,7 @@ text = "3"
 horizontal_alignment = 1
 
 [node name="FocusPointer" type="TextureRect" parent="."]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -109,4 +119,5 @@ stretch_mode = 5
 script = ExtResource("4_pragx")
 
 [connection signal="timeout" from="Menu/PanelContainer/BoxContainer/PausedLabel/Blink" to="." method="_on_blink_timeout"]
+[connection signal="pressed" from="Menu/PanelContainer/BoxContainer/Menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="Menu/PanelContainer/BoxContainer/Resume" to="." method="_on_resume_pressed"]
