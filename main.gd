@@ -6,8 +6,8 @@ func _ready() -> void:
 
 
 func _on_lemon_pressed() -> void:
-	Global.change_scene_to_file("res://characters/lemon/lemon_stage.tscn")
-	#Global.change_scene_to_file("res://characters/lemon/lemon_arena.tscn")
+	#Global.change_scene_to_file("res://characters/lemon/lemon_stage.tscn")
+	Global.change_scene_to_file("res://characters/lemon/lemon_arena.tscn")
 
 
 func _on_beet_pressed() -> void:

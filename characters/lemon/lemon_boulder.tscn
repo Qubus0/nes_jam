@@ -1,0 +1,60 @@
+[gd_scene load_steps=10 format=3 uid="uid://dn02mtxa28ty0"]
+
+[ext_resource type="Script" path="res://characters/lemon/lemon_boulder.gd" id="1_k0g4d"]
+[ext_resource type="Texture2D" uid="uid://d0hhfdhu4qfkg" path="res://characters/lemon/lemon_boulder_projectile.png" id="1_v1pw6"]
+[ext_resource type="Script" path="res://characters/hitbox.gd" id="2_8yte8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xcmsk"]
+atlas = ExtResource("1_v1pw6")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5wp8f"]
+atlas = ExtResource("1_v1pw6")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_25upe"]
+atlas = ExtResource("1_v1pw6")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6fhj"]
+atlas = ExtResource("1_v1pw6")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t2ko6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xcmsk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5wp8f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_25upe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6fhj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7vx6u"]
+radius = 7.0
+
+[node name="LemonBoulder" type="PathFollow2D"]
+script = ExtResource("1_k0g4d")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_t2ko6")
+autoplay = "default"
+frame_progress = 0.655092
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 64
+script = ExtResource("2_8yte8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_7vx6u")
