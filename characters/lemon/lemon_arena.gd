@@ -77,3 +77,7 @@ func _on_sprite_frame_changed() -> void:
 			bouncing = true
 		if boulder_instance.progress_ratio >= 0.99:
 			blender_sprite.play(&"lemon_enter")
+
+func _on_killzone_area_entered(area: Area2D) -> void:
+	blender_sprite.play(&"get_juiced")
+	$Player.queue_free()

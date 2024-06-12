@@ -18,3 +18,7 @@ func _on_beet_pressed() -> void:
 
 func _on_cherry_pressed() -> void:
 	Global.change_scene_to_file("res://characters/cherry/cherry_stage.tscn")
+
+
+func _on_brussel_pressed() -> void:
+	Global.change_scene_to_file("res://characters/brussel/brussel_stage.tscn")
