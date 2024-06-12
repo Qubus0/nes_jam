@@ -131,7 +131,7 @@ func animate() -> void:
 
 
 func _on_health_depleted() -> void:
-	Global.game_over()
+	Global.game_over(self)
 
 
 func _on_health_hurt() -> void:

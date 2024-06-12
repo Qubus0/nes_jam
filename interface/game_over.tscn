@@ -1,0 +1,83 @@
+[gd_scene load_steps=9 format=3 uid="uid://dae7c3bqwkx12"]
+
+[ext_resource type="Theme" uid="uid://ckpsaqo81fdqi" path="res://interface/default.theme" id="1_evdff"]
+[ext_resource type="Script" path="res://interface/game_over.gd" id="2_nj0gw"]
+[ext_resource type="Texture2D" uid="uid://ckdmgcbqytgyh" path="res://interface/game_over.png" id="3_2a07y"]
+[ext_resource type="AudioStream" uid="uid://dqoeb7ik8tedx" path="res://characters/player/hurt.wav" id="4_jkkgv"]
+[ext_resource type="Script" path="res://interface/blink_label.gd" id="5_4ljbp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_j7xih"]
+font_size = 24
+font_color = Color(0.972549, 0.721569, 0.00784314, 1)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_hm2wx"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("4_jkkgv")
+
+[sub_resource type="LabelSettings" id="LabelSettings_jyn4a"]
+font_size = 8
+font_color = Color(0.972549, 0.721569, 0.00784314, 1)
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_evdff")
+script = ExtResource("2_nj0gw")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_2a07y")
+
+[node name="Text" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = 43.5
+offset_right = 64.0
+offset_bottom = 100.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "GAME 
+  OVER"
+label_settings = SubResource("LabelSettings_j7xih")
+visible_ratio = -0.0833333
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_hm2wx")
+volume_db = -11.23
+bus = &"Sound"
+
+[node name="Start" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -44.0
+offset_top = 7.0
+offset_right = 44.0
+offset_bottom = 25.0
+grow_horizontal = 2
+text = "- Press Start -"
+label_settings = SubResource("LabelSettings_jyn4a")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("5_4ljbp")
+
+[node name="Blink" type="Timer" parent="Start"]
+wait_time = 0.6
+
+[connection signal="timeout" from="Start/Blink" to="Start" method="_on_blink_timeout"]

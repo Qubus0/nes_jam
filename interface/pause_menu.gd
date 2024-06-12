@@ -4,14 +4,6 @@ extends Control
 var last_focussed: Control
 
 
-func _unhandled_key_input(event: InputEvent) -> void:
-	if event.is_action_pressed("Start"):
-		if get_tree().paused:
-			unpause()
-		else:
-			pause()
-
-
 func pause() -> void:
 	get_tree().paused = true
 	show()

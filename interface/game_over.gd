@@ -2,10 +2,10 @@ class_name GameOver
 extends Control
 
 
-
-func appear() -> void:
+func _ready() -> void:
 	%Text.visible_characters = 0
-	show()
+	await Global.transition_finished
+	start()
 
 
 func start() -> void:
@@ -15,4 +15,6 @@ func start() -> void:
 		if not character.strip_edges().is_empty():
 			%Sound.play()
 
+	$Start.show()
+	$Start/Blink.start()
 
