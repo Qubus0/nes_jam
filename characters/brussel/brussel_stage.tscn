@@ -382,6 +382,7 @@ texture = ExtResource("6_yoa60")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BrusselBlocks/Block1"]
 position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_u0tcj")
+one_way_collision = true
 
 [node name="Block2" type="StaticBody2D" parent="BrusselBlocks"]
 visible = false
@@ -395,6 +396,7 @@ texture = ExtResource("6_yoa60")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BrusselBlocks/Block2"]
 position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_u0tcj")
+one_way_collision = true
 
 [node name="Block3" type="StaticBody2D" parent="BrusselBlocks"]
 position = Vector2(200, 64)
@@ -407,6 +409,7 @@ texture = ExtResource("6_yoa60")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BrusselBlocks/Block3"]
 position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_u0tcj")
+one_way_collision = true
 
 [node name="Block4" type="StaticBody2D" parent="BrusselBlocks"]
 visible = false
@@ -420,6 +423,7 @@ texture = ExtResource("6_yoa60")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BrusselBlocks/Block4"]
 position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_u0tcj")
+one_way_collision = true
 
 [node name="Block5" type="StaticBody2D" parent="BrusselBlocks"]
 position = Vector2(168, -80)
@@ -432,6 +436,7 @@ texture = ExtResource("6_yoa60")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BrusselBlocks/Block5"]
 position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_u0tcj")
+one_way_collision = true
 
 [node name="Block6" type="StaticBody2D" parent="BrusselBlocks"]
 visible = false
@@ -445,6 +450,7 @@ texture = ExtResource("6_yoa60")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BrusselBlocks/Block6"]
 position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_u0tcj")
+one_way_collision = true
 
 [node name="Killzone" parent="." instance=ExtResource("4_qwxdj")]
 position = Vector2(0, 119)

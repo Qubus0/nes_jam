@@ -26,6 +26,7 @@ extends CharacterBody2D
 
 var keep_animation := false
 var has_coyote := false
+var has_wall_jump := false
 var start_height := 0.0
 var current_health := 0
 
@@ -33,6 +34,7 @@ var current_health := 0
 func _physics_process(delta: float) -> void:
 	if is_on_floor():
 		has_coyote = true
+		has_wall_jump = true
 	else:
 		velocity.y += clamp(get_calculated_gravity() * delta, 0 , max_fall_velocity)
 		if coyote_timer.is_stopped() and has_coyote:
@@ -45,16 +47,18 @@ func _physics_process(delta: float) -> void:
 		velocity.y = jump_velocity
 		$Jump.play()
 		start_height = position.y
-	if Input.is_action_just_pressed(&"right") and is_on_wall_only():
-		velocity.y = jump_velocity
-		velocity.x = 30
+	if Input.is_action_just_pressed(&"right") and has_wall_jump == true and is_on_wall_only() and sprite.flip_h == true:
+		velocity.y = jump_velocity*0.75
+		velocity.x = 25
 		$Jump.play()
 		start_height = position.y
-	if Input.is_action_just_pressed(&"left") and is_on_wall_only():
-		velocity.y = jump_velocity
-		velocity.x = -30
+		has_wall_jump = false
+	if Input.is_action_just_pressed(&"left") and has_wall_jump == true and is_on_wall_only() and sprite.flip_h == false:
+		velocity.y = jump_velocity*0.75
+		velocity.x = -25
 		$Jump.play()
 		start_height = position.y
+		has_wall_jump = false
 	elif jumping and not Input.is_action_pressed(&"up") and min_jump_reached:
 		velocity.y = 0
 
