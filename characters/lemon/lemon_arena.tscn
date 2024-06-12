@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://dhuqdrg0d1acn"]
+[gd_scene load_steps=61 format=3 uid="uid://dhuqdrg0d1acn"]
 
 [ext_resource type="Texture2D" uid="uid://dgvwyyf21awc5" path="res://characters/lemon/we_all_shiv_in_a_yellow_submarine.png" id="1_14pqb"]
 [ext_resource type="PackedScene" uid="uid://7b4uamk1ww8p" path="res://rhythm/rhythm.tscn" id="1_o151y"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://iivny0b5cmmp" path="res://characters/lemon/lemon.tscn" id="3_o10qq"]
 [ext_resource type="Script" path="res://characters/lemon/health_bar_test.gd" id="4_w1yb7"]
 [ext_resource type="Texture2D" uid="uid://d07tt0gjgaq1w" path="res://characters/health.png" id="5_ydpp6"]
+[ext_resource type="AudioStream" uid="uid://b7g73y0bqilic" path="res://characters/lemon/lemon_arena_theme.mp3" id="6_dlw8u"]
 [ext_resource type="Texture2D" uid="uid://c77u0pvosh5ki" path="res://characters/lemon/blender.png" id="9_v8vop"]
 [ext_resource type="Texture2D" uid="uid://bv42d57xd636c" path="res://characters/lemon/lemon_note.png" id="10_oeda3"]
 [ext_resource type="PackedScene" uid="uid://sm8ieqfo1brp" path="res://characters/lemon/killzone.tscn" id="11_mn3b6"]
@@ -696,6 +697,10 @@ metadata/_edit_group_ = true
 position = Vector2(35, 19)
 sprite_frames = SubResource("SpriteFrames_ir367")
 frame = 6
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_dlw8u")
+autoplay = true
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_2604f")

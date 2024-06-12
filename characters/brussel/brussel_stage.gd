@@ -1,11 +1,6 @@
 extends Node2D
 
-@onready var background_music: AudioStreamPlayer2D = $BackgroundMusic
+const STAGE_2 = preload("res://characters/brussel/brussel_stage_2.tscn")
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _on_phase_transition_body_entered(body: Node2D) -> void:
+	get_tree().change_scene_to_packed(STAGE_2)
