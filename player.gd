@@ -45,6 +45,16 @@ func _physics_process(delta: float) -> void:
 		velocity.y = jump_velocity
 		$Jump.play()
 		start_height = position.y
+	if Input.is_action_just_pressed(&"right") and is_on_wall_only():
+		velocity.y = jump_velocity
+		velocity.x = 30
+		$Jump.play()
+		start_height = position.y
+	if Input.is_action_just_pressed(&"left") and is_on_wall_only():
+		velocity.y = jump_velocity
+		velocity.x = -30
+		$Jump.play()
+		start_height = position.y
 	elif jumping and not Input.is_action_pressed(&"up") and min_jump_reached:
 		velocity.y = 0
 
