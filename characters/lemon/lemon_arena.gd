@@ -41,10 +41,10 @@ func _process(delta: float) -> void:
 		await get_tree().create_timer(5).timeout
 		lemnote_sprite.play(&"grow")
 	
-	if blender_sprite.animation_finished && blender_sprite.animation == &"lemon_enter":
+	if blender_sprite.frame == 3 and blender_sprite.animation == &"lemon_enter":
 		blender_sprite.play(&"get_juiced")
-	#if blender_sprite.animation_finished && blender_sprite.animation == &"get_juiced":
-		#blender_sprite.play(&"default")
+	if blender_sprite.frame == 9 and blender_sprite.animation == &"get_juiced":
+		blender_sprite.play(&"default")
 
 func _on_rhythm_beat_hit(accuracy: int) -> void:
 	var shot: InstrumentShot = INSTRUMENT_SHOT.instantiate()
@@ -71,13 +71,22 @@ func _on_sprite_frame_changed() -> void:
 		var boulder_instance = LEMON_BOULDER.instantiate()
 		if bouncing == true:
 			%Bouncing.add_child(boulder_instance)
+			boulder_instance.speed = 160
 			bouncing = false
+			await get_tree().create_timer(2.45).timeout
+			blender_sprite.play(&"lemon_enter")
 		else:
 			%Rolling.add_child(boulder_instance)
 			bouncing = true
-		if boulder_instance.progress_ratio >= 0.99:
+			await get_tree().create_timer(2.22).timeout
 			blender_sprite.play(&"lemon_enter")
 
-func _on_killzone_area_entered(area: Area2D) -> void:
+func _on_juicing_zone_body_entered(body: Node2D) -> void:
 	blender_sprite.play(&"get_juiced")
-	$Player.queue_free()
+	$Player.set_visible(false)
+	$Player.position.y -= 5
+	$Player.velocity = Vector2.ZERO
+	$Player.speed = 0
+	$Player.fall_gravity = 0
+	await get_tree().create_timer(1).timeout
+	Global.game_over(self)

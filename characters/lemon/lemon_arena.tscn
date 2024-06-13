@@ -11,7 +11,6 @@
 [ext_resource type="AudioStream" uid="uid://b7g73y0bqilic" path="res://characters/lemon/lemon_arena_theme.mp3" id="6_dlw8u"]
 [ext_resource type="Texture2D" uid="uid://c77u0pvosh5ki" path="res://characters/lemon/blender.png" id="9_v8vop"]
 [ext_resource type="Texture2D" uid="uid://bv42d57xd636c" path="res://characters/lemon/lemon_note.png" id="10_oeda3"]
-[ext_resource type="PackedScene" uid="uid://sm8ieqfo1brp" path="res://characters/lemon/killzone.tscn" id="11_mn3b6"]
 
 [sub_resource type="Curve2D" id="Curve2D_1bdqc"]
 _data = {
@@ -453,6 +452,10 @@ region = Rect2(48, 0, 48, 48)
 atlas = ExtResource("9_v8vop")
 region = Rect2(96, 0, 48, 48)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8h64"]
+atlas = ExtResource("9_v8vop")
+region = Rect2(240, 144, 48, 48)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_3xgyu"]
 animations = [{
 "frames": [{
@@ -513,6 +516,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_cjk8b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8h64")
 }],
 "loop": false,
 "name": &"lemon_enter",
@@ -533,6 +539,9 @@ b = Vector2(0, 11)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_8lhi2"]
 a = Vector2(0, -13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ash3"]
+size = Vector2(17, 5)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xn4nq"]
 atlas = ExtResource("10_oeda3")
@@ -629,9 +638,6 @@ _data = {
 }
 point_count = 8
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sgu7s"]
-size = Vector2(15, 6)
-
 [node name="LemonArena" type="Node2D"]
 script = ExtResource("1_ql2a3")
 
@@ -647,9 +653,7 @@ offset_bottom = 240.0
 [node name="Rhythm" parent="Interface/Control" instance=ExtResource("1_o151y")]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.0507813
 anchor_top = -2.75
-anchor_right = 0.949219
 
 [node name="InstrumentAttacks" type="Node2D" parent="Interface"]
 position = Vector2(24, 202)
@@ -733,6 +737,13 @@ shape = SubResource("SegmentShape2D_4qqjf")
 position = Vector2(18.5, 116)
 shape = SubResource("SegmentShape2D_8lhi2")
 
+[node name="JuicingZone" type="Area2D" parent="Blender"]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blender/JuicingZone"]
+position = Vector2(29.5, 122.5)
+shape = SubResource("RectangleShape2D_3ash3")
+
 [node name="LemonNote" type="Node2D" parent="."]
 
 [node name="Sprite" type="AnimatedSprite2D" parent="LemonNote"]
@@ -763,14 +774,7 @@ coyote_timer = NodePath("CoyoteTimer")
 [node name="ThrownLemonMarker" type="Marker2D" parent="."]
 position = Vector2(149, 74)
 
-[node name="Killzone" parent="." instance=ExtResource("11_mn3b6")]
-position = Vector2(28, 120)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
-position = Vector2(1.5, 2)
-shape = SubResource("RectangleShape2D_sgu7s")
-
 [connection signal="beat_hit" from="Interface/Control/Rhythm" to="." method="_on_rhythm_beat_hit"]
+[connection signal="body_entered" from="Blender/JuicingZone" to="." method="_on_juicing_zone_body_entered"]
 [connection signal="frame_changed" from="LemonNote/Sprite" to="." method="_on_sprite_frame_changed"]
 [connection signal="defeated" from="Lemon" to="." method="_on_lemon_defeated"]
-[connection signal="area_entered" from="Killzone" to="." method="_on_killzone_area_entered"]

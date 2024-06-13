@@ -8,9 +8,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if visible == false:
 		$CollisionShape2D.disabled = true
-		await get_tree().create_timer(1.6).timeout
+		await get_tree().create_timer(1.603).timeout
 		set_visible(true)
 	elif visible == true:
 		$CollisionShape2D.disabled = false
-		await get_tree().create_timer(1.6).timeout
+		await get_tree().create_timer(1.603).timeout
 		set_visible(false)

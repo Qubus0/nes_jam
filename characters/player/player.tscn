@@ -204,9 +204,8 @@ coyote_timer = NodePath("CoyoteTimer")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7sitx")
-animation = &"idle"
+animation = &"duck"
 autoplay = "idle"
-frame_progress = 0.389592
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_5fs8f")
