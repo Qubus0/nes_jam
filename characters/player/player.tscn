@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://c8cq6yojoo4gy"]
+[gd_scene load_steps=44 format=3 uid="uid://c8cq6yojoo4gy"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_2ud0j"]
 [ext_resource type="Texture2D" uid="uid://wu6lqapntd2r" path="res://characters/player/player_jumpstart.png" id="2_f8foi"]
@@ -10,8 +10,11 @@
 [ext_resource type="Script" path="res://characters/hurtbox.gd" id="6_bxhf7"]
 [ext_resource type="Script" path="res://characters/health.gd" id="7_or4q8"]
 [ext_resource type="Texture2D" uid="uid://dubdnvhwnr3l1" path="res://characters/player/player_slide.png" id="7_tspxa"]
+[ext_resource type="Texture2D" uid="uid://bax6gmjlawrl8" path="res://characters/lemon/spray_2.png" id="9_cnff3"]
 [ext_resource type="AudioStream" uid="uid://dndqkhh060b8o" path="res://characters/player/jump.wav" id="9_pc8a4"]
 [ext_resource type="AudioStream" uid="uid://dqoeb7ik8tedx" path="res://characters/player/hurt.wav" id="10_ev1b7"]
+[ext_resource type="Texture2D" uid="uid://bkng8yuvh5oib" path="res://characters/lemon/spray_3.png" id="10_pb4bj"]
+[ext_resource type="Texture2D" uid="uid://bhju31f17h2bd" path="res://characters/lemon/spray_1.png" id="13_vwol8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ok73o"]
 atlas = ExtResource("2_f8foi")
@@ -186,6 +189,92 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_30nws"]
+atlas = ExtResource("9_cnff3")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6y457"]
+atlas = ExtResource("9_cnff3")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1bspf"]
+atlas = ExtResource("9_cnff3")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_va3qj"]
+atlas = ExtResource("10_pb4bj")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tmrh4"]
+atlas = ExtResource("10_pb4bj")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64om3"]
+atlas = ExtResource("10_pb4bj")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p11le"]
+atlas = ExtResource("13_vwol8")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4yko"]
+atlas = ExtResource("13_vwol8")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lwk5j"]
+atlas = ExtResource("13_vwol8")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fw342"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30nws")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6y457")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1bspf")
+}],
+"loop": true,
+"name": &"light",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_va3qj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tmrh4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_64om3")
+}],
+"loop": true,
+"name": &"medium",
+"speed": 8.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"none",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p11le")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v4yko")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lwk5j")
+}],
+"loop": true,
+"name": &"strong",
+"speed": 8.0
+}]
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5fs8f"]
 radius = 6.0
 height = 16.0
@@ -193,19 +282,26 @@ height = 16.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_itlvb"]
 radius = 5.0
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("health", "sprite", "coyote_timer") groups=["player"]]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("health", "sprite", "dust", "coyote_timer") groups=["player"]]
 collision_layer = 2
 floor_max_angle = 1.0472
 safe_margin = 0.09
 script = ExtResource("1_2ud0j")
 health = NodePath("Health")
 sprite = NodePath("Sprite")
+dust = NodePath("Dust")
 coyote_timer = NodePath("CoyoteTimer")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7sitx")
 animation = &"duck"
 autoplay = "idle"
+
+[node name="Dust" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 2)
+sprite_frames = SubResource("SpriteFrames_fw342")
+animation = &"none"
+autoplay = "none"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_5fs8f")
@@ -231,6 +327,7 @@ one_shot = true
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("7_or4q8")
+max_health = 3
 
 [node name="Jump" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_pc8a4")

@@ -29,6 +29,14 @@ window/stretch/mode="viewport"
 window/stretch/scale_mode="integer"
 window/dpi/allow_hidpi=false
 
+[editor]
+
+import/use_multiple_threads=false
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/YATI/plugin.cfg")
+
 [global_group]
 
 player=""

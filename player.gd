@@ -17,6 +17,7 @@ extends CharacterBody2D
 @export_group("Components")
 @export var health: Health
 @export var sprite: AnimatedSprite2D
+@export var dust: AnimatedSprite2D
 @export var coyote_timer: Timer
 
 @onready var jump_velocity := ((2.0 * jump_height) / jump_rise_time) * -1.0
@@ -29,6 +30,8 @@ var has_coyote := false
 var has_wall_jump := false
 var start_height := 0.0
 var current_health := 0
+
+const DUST_STAGES := [&"none", &"light", &"medium", &"strong"]
 
 
 func _physics_process(delta: float) -> void:
@@ -101,6 +104,7 @@ func animate() -> void:
 	var is_moving := not is_zero_approx(velocity.x)
 	if is_moving:
 		sprite.flip_h = velocity.x < 0
+		dust.flip_h = velocity.x > 0 # it faces the other direction
 
 	# keep playing the hurt anim no matter what
 	if keep_animation:
@@ -117,6 +121,7 @@ func animate() -> void:
 	elif is_falling:
 		if is_on_floor() or has_coyote:
 			sprite.play(&"slide")
+			dust.show()
 		else:
 			sprite.play(&"fall")
 	elif is_controlled_movement:
@@ -128,6 +133,13 @@ func animate() -> void:
 			sprite.play(&"duck")
 		else:
 			sprite.play(&"idle")
+
+	var desired_dust := 0
+	if is_moving and not is_controlled_movement:
+		desired_dust = clampi(int(abs(velocity.x) / 90), 0, DUST_STAGES.size() -1) # magic number just by looks
+	if dust.animation != str(DUST_STAGES[desired_dust]):
+		dust.visible = desired_dust != 0
+		dust.play(DUST_STAGES[desired_dust])
 
 
 func _on_health_depleted() -> void:
@@ -146,3 +158,4 @@ func _on_sprite_animation_finished() -> void:
 
 func _on_coyote_timer_timeout() -> void:
 	has_coyote = false
+

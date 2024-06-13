@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pa0h42b3smsf"
-path="res://.godot/imported/cherry_map.png-aa4a8e459e056364742819da84c02078.ctex"
+uid="uid://bax6gmjlawrl8"
+path="res://.godot/imported/spray_2.png-7ca40f8b20697a069971a7557014d9af.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/cherry/cherry_map.png"
-dest_files=["res://.godot/imported/cherry_map.png-aa4a8e459e056364742819da84c02078.ctex"]
+source_file="res://characters/lemon/spray_2.png"
+dest_files=["res://.godot/imported/spray_2.png-7ca40f8b20697a069971a7557014d9af.ctex"]
 
 [params]
 

@@ -17,13 +17,16 @@ func _ready() -> void:
 
 
 func _unhandled_key_input(event: InputEvent) -> void:
-	if not event.is_action_pressed("Start"):
+	if not event.is_action_pressed("Start") and not event.is_action_pressed("Select"):
 		return
 
 	if is_game_over:
 		var path := last_scene_path if last_scene_path else "res://main.tscn"
 		is_game_over = false
 		change_scene_to_file(path)
+		return
+
+	if not event.is_action_pressed("Start"):
 		return
 
 	if get_tree().paused:
