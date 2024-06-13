@@ -342,6 +342,12 @@ limit_left = -32
 limit_top = -120
 limit_bottom = 160
 
+[node name="AimAtLeft" type="Marker2D" parent="Player"]
+position = Vector2(-25, 0)
+
+[node name="AimAtRight" type="Marker2D" parent="Player"]
+position = Vector2(25, 0)
+
 [node name="Killzone" parent="." instance=ExtResource("3_co1y5")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]

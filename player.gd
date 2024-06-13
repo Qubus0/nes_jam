@@ -47,15 +47,15 @@ func _physics_process(delta: float) -> void:
 		velocity.y = jump_velocity
 		$Jump.play()
 		start_height = position.y
-	if Input.is_action_just_pressed(&"right") and has_wall_jump == true and is_on_wall_only() and sprite.flip_h == true:
-		velocity.y = jump_velocity*0.75
-		velocity.x = 25
+	if Input.is_action_just_pressed(&"up") and has_wall_jump == true and is_on_wall_only() and sprite.flip_h == true:
+		velocity.y = jump_velocity*0.8
+		velocity.x += 40
 		$Jump.play()
 		start_height = position.y
 		has_wall_jump = false
-	if Input.is_action_just_pressed(&"left") and has_wall_jump == true and is_on_wall_only() and sprite.flip_h == false:
-		velocity.y = jump_velocity*0.75
-		velocity.x = -25
+	if Input.is_action_just_pressed(&"up") and has_wall_jump == true and is_on_wall_only() and sprite.flip_h == false:
+		velocity.y = jump_velocity*0.8
+		velocity.x -= 40
 		$Jump.play()
 		start_height = position.y
 		has_wall_jump = false
