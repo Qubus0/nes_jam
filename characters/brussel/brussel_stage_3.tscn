@@ -1,5 +1,6 @@
-[gd_scene load_steps=32 format=4 uid="uid://cctw4chjjl4xl"]
+[gd_scene load_steps=33 format=4 uid="uid://cctw4chjjl4xl"]
 
+[ext_resource type="Script" path="res://characters/brussel/brussel_stage_3.gd" id="1_6v0a2"]
 [ext_resource type="PackedScene" uid="uid://b6nnedcuijkdh" path="res://interface/health_bar.tscn" id="1_tiowv"]
 [ext_resource type="AudioStream" uid="uid://pevwu5ujvcyd" path="res://characters/brussel/Brussel_beat_sample_3.wav" id="3_r5oku"]
 [ext_resource type="Texture2D" uid="uid://j3r8j6vk83u3" path="res://characters/brussel/brussel_industries.png" id="4_8dk40"]
@@ -656,9 +657,11 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g1hrw"]
 size = Vector2(10, 44)
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_x3mug"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d6vqq"]
+size = Vector2(256, 20)
 
 [node name="BrusselStage3" type="Node2D"]
+script = ExtResource("1_6v0a2")
 
 [node name="HealthBar" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_tiowv")]
 player = NodePath("../Player")
@@ -915,13 +918,6 @@ animation = &"off_left"
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_g1hrw")
 
-[node name="Killzone" parent="." instance=ExtResource("5_sjgcb")]
-position = Vector2(0, 119)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
-position = Vector2(0, 122)
-shape = SubResource("WorldBoundaryShape2D_x3mug")
-
 [node name="Player" parent="." node_paths=PackedStringArray("health", "sprite", "dust", "coyote_timer") instance=ExtResource("6_miwi1")]
 position = Vector2(119, 168)
 health = NodePath("Health")
@@ -929,8 +925,15 @@ sprite = NodePath("Sprite")
 dust = NodePath("Dust")
 coyote_timer = NodePath("CoyoteTimer")
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(9, 0)
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(128, 168)
 limit_left = 0
 limit_right = 256
 limit_bottom = 240
+
+[node name="Killzone" parent="Camera2D" instance=ExtResource("5_sjgcb")]
+position = Vector2(0, 145)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/Killzone"]
+shape = SubResource("RectangleShape2D_d6vqq")

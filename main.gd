@@ -21,4 +21,7 @@ func _on_cherry_pressed() -> void:
 
 
 func _on_brussel_pressed() -> void:
-	Global.change_scene_to_file("res://characters/brussel/brussel_stage.tscn")
+	if Input.is_key_pressed(KEY_ALT):
+		Global.change_scene_to_file("res://characters/brussel/brussel_stage_3.tscn")
+	else:
+		Global.change_scene_to_file("res://characters/brussel/brussel_stage.tscn")
