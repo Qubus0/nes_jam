@@ -1,47 +1,10 @@
-[gd_scene load_steps=15 format=4 uid="uid://b2pp7o1d0iaij"]
+[gd_scene load_steps=9 format=4 uid="uid://b2pp7o1d0iaij"]
 
 [ext_resource type="Script" path="res://characters/cherry/cherry_stage.gd" id="1_ogeea"]
 [ext_resource type="PackedScene" uid="uid://c8cq6yojoo4gy" path="res://characters/player/player.tscn" id="2_7oiim"]
-[ext_resource type="Script" path="res://characters/lemon/health_bar_test.gd" id="2_w0qcb"]
-[ext_resource type="Texture2D" uid="uid://d07tt0gjgaq1w" path="res://characters/health.png" id="3_n85yh"]
+[ext_resource type="PackedScene" uid="uid://b6nnedcuijkdh" path="res://interface/health_bar.tscn" id="2_vw73b"]
 [ext_resource type="Texture2D" uid="uid://ci6y6n1mbvwcm" path="res://tilemaps/cherry_map.png" id="3_pxj3r"]
 [ext_resource type="Script" path="res://characters/player/friction_probe.gd" id="6_gogsn"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1pr6i"]
-atlas = ExtResource("3_n85yh")
-region = Rect2(0, 96, 64, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lpyhi"]
-atlas = ExtResource("3_n85yh")
-region = Rect2(0, 64, 64, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_262n8"]
-atlas = ExtResource("3_n85yh")
-region = Rect2(0, 32, 64, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ph5s3"]
-atlas = ExtResource("3_n85yh")
-region = Rect2(0, 0, 64, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_wbviu"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1pr6i")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lpyhi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_262n8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ph5s3")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gux42"]
 texture = ExtResource("3_pxj3r")
@@ -577,22 +540,8 @@ sources/0 = SubResource("TileSetAtlasSource_gux42")
 [node name="CherryStage" type="Node2D"]
 script = ExtResource("1_ogeea")
 
-[node name="Interface" type="CanvasLayer" parent="."]
-
-[node name="HealthBarTest" type="Control" parent="Interface"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 3.0
-offset_top = 3.0
-offset_right = 67.0
-offset_bottom = 35.0
-script = ExtResource("2_w0qcb")
-metadata/_edit_group_ = true
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Interface"]
-position = Vector2(35, 19)
-sprite_frames = SubResource("SpriteFrames_wbviu")
-frame = 3
+[node name="HealthBar" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_vw73b")]
+player = NodePath("../Player")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 texture_filter = 1

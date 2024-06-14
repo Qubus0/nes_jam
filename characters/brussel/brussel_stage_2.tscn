@@ -1,50 +1,13 @@
-[gd_scene load_steps=20 format=3 uid="uid://cuxrphhysvlk0"]
+[gd_scene load_steps=14 format=3 uid="uid://cuxrphhysvlk0"]
 
-[ext_resource type="Script" path="res://characters/lemon/health_bar_test.gd" id="1_bhm7r"]
 [ext_resource type="Script" path="res://characters/brussel/brussel_stage_2.gd" id="1_lmypr"]
-[ext_resource type="Texture2D" uid="uid://d07tt0gjgaq1w" path="res://characters/health.png" id="2_hom2y"]
+[ext_resource type="PackedScene" uid="uid://b6nnedcuijkdh" path="res://interface/health_bar.tscn" id="2_ijgkj"]
 [ext_resource type="Texture2D" uid="uid://j3r8j6vk83u3" path="res://characters/brussel/brussel_industries.png" id="3_mynih"]
 [ext_resource type="PackedScene" uid="uid://c8cq6yojoo4gy" path="res://characters/player/player.tscn" id="4_042ug"]
 [ext_resource type="AudioStream" uid="uid://bhllp0bvql25w" path="res://characters/brussel/Brussel_beat_sample_1_and_2.wav" id="4_ldmvb"]
 [ext_resource type="PackedScene" uid="uid://sm8ieqfo1brp" path="res://characters/lemon/killzone.tscn" id="4_qwxdj"]
 [ext_resource type="Script" path="res://characters/brussel/brussel_block.gd" id="6_tygsq"]
 [ext_resource type="Texture2D" uid="uid://bl1knnhq51wih" path="res://characters/brussel/brussel_block_green.png" id="7_uqtta"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1pr6i"]
-atlas = ExtResource("2_hom2y")
-region = Rect2(0, 96, 64, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lpyhi"]
-atlas = ExtResource("2_hom2y")
-region = Rect2(0, 64, 64, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_262n8"]
-atlas = ExtResource("2_hom2y")
-region = Rect2(0, 32, 64, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ph5s3"]
-atlas = ExtResource("2_hom2y")
-region = Rect2(0, 0, 64, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_cpyqi"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1pr6i")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lpyhi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_262n8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ph5s3")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fa6ea"]
 texture = ExtResource("3_mynih")
@@ -324,22 +287,8 @@ size = Vector2(14, 24)
 [node name="BrusselStage2" type="Node2D"]
 script = ExtResource("1_lmypr")
 
-[node name="Interface" type="CanvasLayer" parent="."]
-
-[node name="HealthBarTest" type="Control" parent="Interface"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 3.0
-offset_top = 3.0
-offset_right = 67.0
-offset_bottom = 35.0
-script = ExtResource("1_bhm7r")
-metadata/_edit_group_ = true
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Interface"]
-position = Vector2(35, 19)
-sprite_frames = SubResource("SpriteFrames_cpyqi")
-frame = 3
+[node name="HealthBar" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_ijgkj")]
+player = NodePath("../Player")
 
 [node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_ldmvb")

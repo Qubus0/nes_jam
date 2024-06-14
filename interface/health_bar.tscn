@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://b6nnedcuijkdh"]
+
+[ext_resource type="Script" path="res://interface/health_bar.gd" id="1_ntj3l"]
+[ext_resource type="Texture2D" uid="uid://crlw1q6y5flp6" path="res://interface/health_bar.png" id="2_b8o6x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svbk0"]
+atlas = ExtResource("2_b8o6x")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_edvki"]
+atlas = ExtResource("2_b8o6x")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_endna"]
+atlas = ExtResource("2_b8o6x")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dighn"]
+atlas = ExtResource("2_b8o6x")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h11if"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svbk0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_edvki")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_endna")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dighn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="HealthBar" type="CanvasLayer"]
+script = ExtResource("1_ntj3l")
+
+[node name="HealthBar" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 35.0
+offset_bottom = 35.0
+metadata/_edit_group_ = true
+
+[node name="HealthSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(19, 19)
+sprite_frames = SubResource("SpriteFrames_h11if")
+frame = 3

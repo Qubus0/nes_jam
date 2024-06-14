@@ -58,7 +58,7 @@ autoplay = "idle"
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("2_o3gl8")
-max_health = 35
+max_health = 40
 
 [node name="Hurtbox" type="Area2D" parent="." node_paths=PackedStringArray("health")]
 collision_layer = 0

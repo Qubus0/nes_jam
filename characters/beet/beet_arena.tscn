@@ -1,11 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://d25fo6tavx8fs"]
+[gd_scene load_steps=14 format=3 uid="uid://d25fo6tavx8fs"]
 
 [ext_resource type="Script" path="res://characters/beet/beet_arena.gd" id="1_kslb5"]
+[ext_resource type="PackedScene" uid="uid://b6nnedcuijkdh" path="res://interface/health_bar.tscn" id="2_6onhr"]
 [ext_resource type="PackedScene" uid="uid://7b4uamk1ww8p" path="res://rhythm/rhythm.tscn" id="2_8hul5"]
-[ext_resource type="Script" path="res://characters/lemon/health_bar_test.gd" id="3_3nhtv"]
 [ext_resource type="PackedScene" uid="uid://vbtwg3dccnv2" path="res://characters/beet/beet.tscn" id="3_a4f4u"]
 [ext_resource type="PackedScene" uid="uid://c8cq6yojoo4gy" path="res://characters/player/player.tscn" id="4_7csfv"]
-[ext_resource type="Texture2D" uid="uid://d07tt0gjgaq1w" path="res://characters/health.png" id="4_cefrg"]
 [ext_resource type="PackedScene" uid="uid://c44itudm3s8x8" path="res://characters/beet/key_bullet.tscn" id="5_a44xy"]
 [ext_resource type="FontFile" uid="uid://dr8jhk3d5ka4x" path="res://interface/font/the-video-arcade-game-font/the-video-arcade-game-font.ttf" id="5_w7rvy"]
 
@@ -20,42 +19,6 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 5, 5, -2.17947, 10.2152, 2.17947, -10.2152, -14, -34, -7.77829, 15.977, 7.77829, -15.977, 27, -80, -12.2268, 18.1667, 12.2268, -18.1667, 42, -153, 0, 0, 0, 0, 106, -177)
 }
 point_count = 5
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1pr6i"]
-atlas = ExtResource("4_cefrg")
-region = Rect2(0, 96, 64, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lpyhi"]
-atlas = ExtResource("4_cefrg")
-region = Rect2(0, 64, 64, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_262n8"]
-atlas = ExtResource("4_cefrg")
-region = Rect2(0, 32, 64, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ph5s3"]
-atlas = ExtResource("4_cefrg")
-region = Rect2(0, 0, 64, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_heri7"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1pr6i")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lpyhi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_262n8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ph5s3")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="LabelSettings" id="LabelSettings_gije1"]
 font = ExtResource("5_w7rvy")
@@ -74,6 +37,9 @@ size = Vector2(7, 172)
 
 [node name="BeetArena" type="Node2D"]
 script = ExtResource("1_kslb5")
+
+[node name="HealthBar" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_6onhr")]
+player = NodePath("../Player")
 
 [node name="Interface" type="CanvasLayer" parent="."]
 
@@ -100,21 +66,6 @@ curve = SubResource("Curve2D_xo3am")
 unique_name_in_owner = true
 self_modulate = Color(1, 1, 1, 0.3)
 curve = SubResource("Curve2D_7e71l")
-
-[node name="HealthBarTest" type="Control" parent="Interface"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 3.0
-offset_top = 3.0
-offset_right = 67.0
-offset_bottom = 35.0
-script = ExtResource("3_3nhtv")
-metadata/_edit_group_ = true
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Interface"]
-position = Vector2(35, 19)
-sprite_frames = SubResource("SpriteFrames_heri7")
-frame = 3
 
 [node name="Win" type="Label" parent="Interface"]
 unique_name_in_owner = true

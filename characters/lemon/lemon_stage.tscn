@@ -1,53 +1,16 @@
-[gd_scene load_steps=37 format=3 uid="uid://v0c6se8o27e1"]
+[gd_scene load_steps=31 format=3 uid="uid://v0c6se8o27e1"]
 
 [ext_resource type="Script" path="res://characters/lemon/lemon_stage.gd" id="1_3yalw"]
 [ext_resource type="Texture2D" uid="uid://ctulntoqjext0" path="res://characters/lemon/lemon_tilemap.png" id="1_7v8mq"]
-[ext_resource type="Script" path="res://characters/lemon/health_bar_test.gd" id="1_kx4xt"]
 [ext_resource type="PackedScene" uid="uid://c8cq6yojoo4gy" path="res://characters/player/player.tscn" id="2_17tq7"]
+[ext_resource type="PackedScene" uid="uid://b6nnedcuijkdh" path="res://interface/health_bar.tscn" id="2_fglfq"]
 [ext_resource type="PackedScene" uid="uid://sm8ieqfo1brp" path="res://characters/lemon/killzone.tscn" id="3_co1y5"]
-[ext_resource type="Texture2D" uid="uid://d07tt0gjgaq1w" path="res://characters/health.png" id="3_j7boc"]
 [ext_resource type="Script" path="res://characters/lemon/submarine.gd" id="4_64uch"]
 [ext_resource type="Texture2D" uid="uid://dyf2fr8jc4qlc" path="res://characters/lemon/submarine.png" id="4_hox0k"]
 [ext_resource type="Texture2D" uid="uid://tp151vjtbx1r" path="res://characters/lemon/sploosh.png" id="6_hkiir"]
 [ext_resource type="Texture2D" uid="uid://bwi82i62fj65q" path="res://characters/lemon/lemon_turret_hinge.png" id="6_vfxdc"]
 [ext_resource type="Texture2D" uid="uid://bmvc8d82xo0bn" path="res://characters/lemon/lemon_turret_barrel.png" id="7_ip7gc"]
 [ext_resource type="Script" path="res://characters/lemon/boss_transition.gd" id="10_ol2tt"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1pr6i"]
-atlas = ExtResource("3_j7boc")
-region = Rect2(0, 96, 64, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lpyhi"]
-atlas = ExtResource("3_j7boc")
-region = Rect2(0, 64, 64, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_262n8"]
-atlas = ExtResource("3_j7boc")
-region = Rect2(0, 32, 64, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ph5s3"]
-atlas = ExtResource("3_j7boc")
-region = Rect2(0, 0, 64, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_fyyu5"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1pr6i")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lpyhi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_262n8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ph5s3")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gswfq"]
 texture = ExtResource("1_7v8mq")
@@ -350,22 +313,8 @@ size = Vector2(416, 10)
 [node name="LemonStage" type="Node2D"]
 script = ExtResource("1_3yalw")
 
-[node name="Interface" type="CanvasLayer" parent="."]
-
-[node name="HealthBarTest" type="Control" parent="Interface"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 3.0
-offset_top = 3.0
-offset_right = 67.0
-offset_bottom = 35.0
-script = ExtResource("1_kx4xt")
-metadata/_edit_group_ = true
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Interface"]
-position = Vector2(35, 19)
-sprite_frames = SubResource("SpriteFrames_fyyu5")
-frame = 3
+[node name="HealthBar" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_fglfq")]
+player = NodePath("../Player")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_eoang")
