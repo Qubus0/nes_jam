@@ -6,4 +6,4 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	$Camera2D.position.y -= 50 * delta
+	$Camera2D.position.y -= 40 * delta

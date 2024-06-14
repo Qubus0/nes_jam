@@ -37,7 +37,7 @@ func _process(delta: float) -> void:
 		projectile_instance.projectile_direction = dir_left
 		projectile_instance.projectile_speed = 100
 		await get_tree().create_timer(10).timeout
-		if !$Lemon.hidden:
+		if $Lemon.visible == true:
 			can_shoot = true
 	
 	if lemnote_sprite.frame == 8:
@@ -65,7 +65,7 @@ func _on_rhythm_beat_hit(accuracy: int) -> void:
 
 func _on_lemon_defeated() -> void:
 	#$Lemon.queue_free()
-	$Lemon.hide()
+	$Lemon.set_visible(false)
 	%Win.show()
 	can_shoot = false
 	await get_tree().create_timer(2).timeout

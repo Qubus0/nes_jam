@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b6nnedcuijkdh" path="res://interface/health_bar.tscn" id="2_bl50l"]
 [ext_resource type="Texture2D" uid="uid://j3r8j6vk83u3" path="res://characters/brussel/brussel_industries.png" id="3_mynih"]
 [ext_resource type="PackedScene" uid="uid://c8cq6yojoo4gy" path="res://characters/player/player.tscn" id="4_042ug"]
-[ext_resource type="AudioStream" uid="uid://bhllp0bvql25w" path="res://characters/brussel/Brussel_beat_sample_1_and_2.wav" id="4_ldmvb"]
+[ext_resource type="AudioStream" uid="uid://0b2obaun7is4" path="res://characters/brussel/brussel_stage_theme_1.mp3" id="4_dv527"]
 [ext_resource type="PackedScene" uid="uid://sm8ieqfo1brp" path="res://characters/lemon/killzone.tscn" id="4_qwxdj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u33p8"]
@@ -531,6 +531,21 @@ texture = ExtResource("3_mynih")
 1:3/0 = 0
 1:2/0 = 0
 0:2/0 = 0
+15:1/0 = 0
+15:2/0 = 0
+15:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+16:2/0 = 0
+16:3/0 = 0
+16:4/0 = 0
+16:5/0 = 0
+16:6/0 = 0
+15:6/0 = 0
+15:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+15:5/0 = 0
+15:4/0 = 0
+15:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+15:3/0 = 0
+16:1/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_h0jso"]
 physics_layer_0/collision_layer = 1
@@ -555,7 +570,7 @@ tile_map_data = PackedByteArray("AAAAAAoAAAAAAA8AAAAAAAsAAAAAABAAAAAAAAwAAAAAABE
 tile_set = SubResource("TileSet_yf1ml")
 
 [node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_ldmvb")
+stream = ExtResource("4_dv527")
 autoplay = true
 
 [node name="TileMap" type="TileMap" parent="."]

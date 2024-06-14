@@ -72,5 +72,6 @@ func Shoot():
 				dir_right = ($"../Player/PredictiveAim".global_position - $RightTurretMarker.global_position).normalized()
 			projectile_instance.projectile_direction = dir_left
 			projectile_instance2.projectile_direction = dir_right
+			$ShootSound.play()
 		await get_tree().create_timer(3).timeout
 		can_shoot = true

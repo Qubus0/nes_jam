@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://v0c6se8o27e1"]
+[gd_scene load_steps=32 format=3 uid="uid://v0c6se8o27e1"]
 
 [ext_resource type="Script" path="res://characters/lemon/lemon_stage.gd" id="1_3yalw"]
 [ext_resource type="Texture2D" uid="uid://ctulntoqjext0" path="res://characters/lemon/lemon_tilemap.png" id="1_7v8mq"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bwi82i62fj65q" path="res://characters/lemon/lemon_turret_hinge.png" id="6_vfxdc"]
 [ext_resource type="Texture2D" uid="uid://bmvc8d82xo0bn" path="res://characters/lemon/lemon_turret_barrel.png" id="7_ip7gc"]
 [ext_resource type="Script" path="res://characters/lemon/boss_transition.gd" id="10_ol2tt"]
+[ext_resource type="AudioStream" uid="uid://ddupq01oum683" path="res://characters/lemon/turret_shoot_sound.mp3" id="11_kipwa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gswfq"]
 texture = ExtResource("1_7v8mq")
@@ -428,6 +429,9 @@ scale = Vector2(20, 20)
 shape = SubResource("CircleShape2D_x7rvd")
 target_position = Vector2(0, 0)
 collision_mask = 2
+
+[node name="ShootSound" type="AudioStreamPlayer2D" parent="Submarine"]
+stream = ExtResource("11_kipwa")
 
 [node name="SubDiveArea" type="RayCast2D" parent="."]
 position = Vector2(3424, -3)
