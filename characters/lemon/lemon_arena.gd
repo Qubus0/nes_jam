@@ -21,7 +21,7 @@ enum {
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	await get_tree().create_timer(2).timeout
+	await get_tree().create_timer(4).timeout
 	can_shoot = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -33,7 +33,8 @@ func _process(delta: float) -> void:
 		projectile_instance.transform = $ThrownLemonMarker.global_transform
 		var dir_left = ($Player.global_position - $ThrownLemonMarker.global_position).normalized()
 		projectile_instance.projectile_direction = dir_left
-		await get_tree().create_timer(8).timeout
+		projectile_instance.projectile_speed = 110
+		await get_tree().create_timer(10).timeout
 		can_shoot = true
 	
 	if lemnote_sprite.frame == 8:

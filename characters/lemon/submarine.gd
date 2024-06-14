@@ -65,11 +65,11 @@ func Shoot():
 			if first_value == true:
 				dir_left = (player.global_position - $LeftTurretMarker.global_position).normalized()
 			elif first_value == false:
-				dir_left = ($"../Player/AimAtLeft".global_position - $LeftTurretMarker.global_position).normalized()
+				dir_left = ($"../Player/PredictiveAim".global_position - $LeftTurretMarker.global_position).normalized()
 			if second_value == true:
 				dir_right = (player.global_position - $RightTurretMarker.global_position).normalized()
 			elif second_value == false:
-				dir_right = ($"../Player/AimAtRight".global_position - $RightTurretMarker.global_position).normalized()
+				dir_right = ($"../Player/PredictiveAim".global_position - $RightTurretMarker.global_position).normalized()
 			projectile_instance.projectile_direction = dir_left
 			projectile_instance2.projectile_direction = dir_right
 		await get_tree().create_timer(3).timeout

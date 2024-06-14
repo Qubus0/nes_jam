@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://d25fo6tavx8fs"]
+[gd_scene load_steps=20 format=3 uid="uid://d25fo6tavx8fs"]
 
 [ext_resource type="Script" path="res://characters/beet/beet_arena.gd" id="1_kslb5"]
 [ext_resource type="PackedScene" uid="uid://7b4uamk1ww8p" path="res://rhythm/rhythm.tscn" id="2_8hul5"]
@@ -21,18 +21,6 @@ _data = {
 }
 point_count = 5
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6d6cw"]
-atlas = ExtResource("4_cefrg")
-region = Rect2(0, 192, 64, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tbh7u"]
-atlas = ExtResource("4_cefrg")
-region = Rect2(0, 160, 64, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dlkh7"]
-atlas = ExtResource("4_cefrg")
-region = Rect2(0, 128, 64, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_1pr6i"]
 atlas = ExtResource("4_cefrg")
 region = Rect2(0, 96, 64, 32)
@@ -52,15 +40,6 @@ region = Rect2(0, 0, 64, 32)
 [sub_resource type="SpriteFrames" id="SpriteFrames_heri7"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6d6cw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tbh7u")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dlkh7")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1pr6i")
 }, {
@@ -135,7 +114,7 @@ metadata/_edit_group_ = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Interface"]
 position = Vector2(35, 19)
 sprite_frames = SubResource("SpriteFrames_heri7")
-frame = 6
+frame = 3
 
 [node name="Win" type="Label" parent="Interface"]
 unique_name_in_owner = true
@@ -221,10 +200,11 @@ dark = true
 [node name="KeyBullet15" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
 position = Vector2(117, -260)
 
-[node name="Player" parent="." node_paths=PackedStringArray("health", "sprite", "coyote_timer") instance=ExtResource("4_7csfv")]
+[node name="Player" parent="." node_paths=PackedStringArray("health", "sprite", "dust", "coyote_timer") instance=ExtResource("4_7csfv")]
 position = Vector2(55, 136)
 health = NodePath("Health")
 sprite = NodePath("Sprite")
+dust = NodePath("Dust")
 coyote_timer = NodePath("CoyoteTimer")
 
 [node name="Room" type="StaticBody2D" parent="."]
