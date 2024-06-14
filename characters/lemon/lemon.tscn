@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://iivny0b5cmmp"]
+[gd_scene load_steps=17 format=3 uid="uid://iivny0b5cmmp"]
 
 [ext_resource type="Texture2D" uid="uid://ct4mdulrt18be" path="res://characters/lemon/john_lemon.png" id="1_crf1v"]
 [ext_resource type="Script" path="res://characters/lemon/lemon.gd" id="1_quw8o"]
@@ -20,6 +20,30 @@ region = Rect2(0, 0, 48, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_32oj0"]
 atlas = ExtResource("1_crf1v")
 region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mbn6x"]
+atlas = ExtResource("1_crf1v")
+region = Rect2(0, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0dfgu"]
+atlas = ExtResource("1_crf1v")
+region = Rect2(48, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ng03i"]
+atlas = ExtResource("1_crf1v")
+region = Rect2(96, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3j2fx"]
+atlas = ExtResource("1_crf1v")
+region = Rect2(144, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cta3w"]
+atlas = ExtResource("1_crf1v")
+region = Rect2(192, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pn65y"]
+atlas = ExtResource("1_crf1v")
+region = Rect2(0, 0, 48, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_v6wy4"]
 animations = [{
@@ -44,6 +68,29 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mbn6x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0dfgu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ng03i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3j2fx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cta3w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pn65y")
+}],
+"loop": true,
+"name": &"throw_lemon",
+"speed": 8.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qnfkg"]
@@ -53,8 +100,10 @@ script = ExtResource("1_quw8o")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_v6wy4")
-animation = &"hurt"
+animation = &"throw_lemon"
 autoplay = "idle"
+frame = 4
+frame_progress = 0.999545
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("2_o3gl8")

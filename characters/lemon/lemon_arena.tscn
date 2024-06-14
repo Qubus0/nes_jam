@@ -703,7 +703,7 @@ dust = NodePath("Dust")
 coyote_timer = NodePath("CoyoteTimer")
 
 [node name="ThrownLemonMarker" type="Marker2D" parent="."]
-position = Vector2(149, 74)
+position = Vector2(140, 80)
 
 [connection signal="beat_hit" from="Interface/Control/Rhythm" to="." method="_on_rhythm_beat_hit"]
 [connection signal="body_entered" from="Blender/JuicingZone" to="." method="_on_juicing_zone_body_entered"]

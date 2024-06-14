@@ -28,12 +28,14 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if can_shoot == true:
 		can_shoot = false
+		$Lemon/Sprite.play(&"throw_lemon")
+		await get_tree().create_timer(0.5).timeout
 		var projectile_instance = projectile.instantiate()
 		get_parent().add_child(projectile_instance)
 		projectile_instance.transform = $ThrownLemonMarker.global_transform
 		var dir_left = ($Player.global_position - $ThrownLemonMarker.global_position).normalized()
 		projectile_instance.projectile_direction = dir_left
-		projectile_instance.projectile_speed = 110
+		projectile_instance.projectile_speed = 100
 		await get_tree().create_timer(10).timeout
 		can_shoot = true
 	

@@ -3,6 +3,10 @@ extends Node2D
 signal defeated
 @onready var sprite: AnimatedSprite2D = $Sprite
 
+func _process(delta: float) -> void:
+	if sprite.animation == &"throw_lemon" and sprite.frame == 5:
+		sprite.play(&"idle")
+
 func _on_health_hurt() -> void:
 	var tw := get_tree().create_tween()
 	tw.tween_property($Sprite, "self_modulate", Color.REBECCA_PURPLE, .1)

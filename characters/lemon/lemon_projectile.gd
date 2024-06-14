@@ -1,6 +1,6 @@
 extends Hitbox
 
-var projectile_speed = 190
+var projectile_speed = 200
 var projectile_direction = Vector2.UP
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
