@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1yl6s"]
 size = Vector2(1, 4)
 
-[node name="Beat" type="PathFollow2D"]
+[node name="Beat" type="PathFollow2D" groups=["beat"]]
 rotates = false
 loop = false
 script = ExtResource("1_5hotr")

@@ -2,7 +2,8 @@ extends Control
 
 signal beat_hit(accuracy: int)
 
-var beat_speed := 40
+@export var track: BeatTrack
+
 enum {
 	PERFECT,
 	SOLID,
@@ -12,28 +13,30 @@ enum {
 }
 
 @onready var valid := %ValidArea
-var playhead: PathFollow2D
+@onready var playhead: PathFollow2D = track.get_node("%Playhead")
 var playhead_area: Area2D
+var playhead_offset := 0.0
 
 
 func _ready() -> void:
-	play_track("TestTrack")
+	playhead_area = playhead.get_node("Area")
+	playhead_area.area_entered.connect(playhead_entered)
+	playhead_offset = playhead.progress
 
 
-func _process(delta: float) -> void:
-	playhead.progress += 10 * delta
-
+func _process(_delta: float) -> void:
+	playhead.progress = playhead_offset + track.track_time * 10
 	handle_input()
 
 
-func play_track(track_name: String) -> void:
-	if playhead_area and playhead_area.area_entered.is_connected(playhead_entered):
-		playhead_area.area_entered.disconnect(playhead_entered)
-
-	playhead = get_node("%" + track_name + "Playhead")
-	playhead.progress_ratio = 0
-	playhead_area = playhead.get_node("Area")
-	playhead_area.area_entered.connect(playhead_entered)
+#func play_track(track_name: String) -> void:
+	#if playhead_area and playhead_area.area_entered.is_connected(playhead_entered):
+		#playhead_area.area_entered.disconnect(playhead_entered)
+#
+	#playhead = get_node("%" + track_name + "Playhead")
+	#playhead.progress_ratio = 0
+	#playhead_area = playhead.get_node("Area")
+	#playhead_area.area_entered.connect(playhead_entered)
 
 
 func playhead_entered(area: Area2D) -> void:
@@ -41,8 +44,8 @@ func playhead_entered(area: Area2D) -> void:
 	var new_beat: Beat = beat.duplicate()
 
 	await get_tree().process_frame # gets rid of the error
-	$Track.add_child(new_beat)
-	new_beat.speed = beat_speed
+	%Track.add_child(new_beat)
+	new_beat.speed = track.beat_speed
 	new_beat.progress_ratio = 0
 
 
@@ -51,6 +54,8 @@ func handle_input() -> void:
 		return
 
 	var detected_area: Area2D = valid.get_overlapping_areas().front()
+	#var detected_area := %Track.get_child(0)
+
 	if not detected_area:
 		return
 	var beat: Beat = detected_area.get_parent()
@@ -73,6 +78,7 @@ func handle_input() -> void:
 
 		beat.get_parent().remove_child(beat)
 		beat.queue_free()
+
 
 
 func _on_miss_area_entered(area: Area2D) -> void:

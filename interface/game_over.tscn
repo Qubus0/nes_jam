@@ -1,13 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://dae7c3bqwkx12"]
+[gd_scene load_steps=10 format=3 uid="uid://dae7c3bqwkx12"]
 
 [ext_resource type="Theme" uid="uid://ckpsaqo81fdqi" path="res://interface/default.theme" id="1_evdff"]
 [ext_resource type="Script" path="res://interface/game_over.gd" id="2_nj0gw"]
 [ext_resource type="Texture2D" uid="uid://ckdmgcbqytgyh" path="res://interface/game_over.png" id="3_2a07y"]
 [ext_resource type="AudioStream" uid="uid://dqoeb7ik8tedx" path="res://characters/player/hurt.wav" id="4_jkkgv"]
+[ext_resource type="Texture2D" uid="uid://cguprh8rwbibm" path="res://interface/juiced.png" id="4_nukkt"]
 [ext_resource type="Script" path="res://interface/blink_label.gd" id="5_4ljbp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_j7xih"]
-font_size = 24
 font_color = Color(0.972549, 0.721569, 0.00784314, 1)
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_hm2wx"]
@@ -29,14 +29,24 @@ grow_vertical = 2
 theme = ExtResource("1_evdff")
 script = ExtResource("2_nj0gw")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("3_2a07y")
-
-[node name="Text" type="Label" parent="."]
+[node name="TabContainer" type="TabContainer" parent="."]
 unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 1
+tabs_visible = false
+
+[node name="Generic" type="TextureRect" parent="TabContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("3_2a07y")
+metadata/_tab_index = 0
+
+[node name="Text" type="Label" parent="TabContainer/Generic"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -53,6 +63,28 @@ text = "GAME
   OVER"
 label_settings = SubResource("LabelSettings_j7xih")
 visible_ratio = -0.0833333
+
+[node name="Juiced" type="TextureRect" parent="TabContainer"]
+layout_mode = 2
+texture = ExtResource("4_nukkt")
+metadata/_tab_index = 1
+
+[node name="Text" type="Label" parent="TabContainer/Juiced"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -108.0
+offset_top = -46.0
+offset_right = 108.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "You've been 
+Juiced"
+label_settings = SubResource("LabelSettings_j7xih")
+horizontal_alignment = 1
 
 [node name="Sound" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true

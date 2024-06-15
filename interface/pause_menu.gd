@@ -29,3 +29,8 @@ func _on_menu_pressed() -> void:
 	unpause()
 	Global.change_scene_to_file("res://main.tscn")
 
+
+func _on_restart_pressed() -> void:
+	unpause()
+	Global.change_scene_to_file(get_tree().current_scene.scene_file_path)
+

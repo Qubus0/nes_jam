@@ -39,12 +39,12 @@ func _process(delta: float) -> void:
 		await get_tree().create_timer(10).timeout
 		if $Lemon.visible == true:
 			can_shoot = true
-	
+
 	if lemnote_sprite.frame == 8:
 		lemnote_sprite.play(&"idle")
 		await get_tree().create_timer(5).timeout
 		lemnote_sprite.play(&"grow")
-	
+
 	if blender_sprite.frame == 3 and blender_sprite.animation == &"lemon_enter":
 		blender_sprite.play(&"get_juiced")
 	if blender_sprite.frame == 9 and blender_sprite.animation == &"get_juiced":
@@ -94,4 +94,4 @@ func _on_juicing_zone_body_entered(body: Node2D) -> void:
 	$Player.speed = 0
 	$Player.fall_gravity = 0
 	await get_tree().create_timer(1).timeout
-	Global.game_over(self)
+	Global.game_over(self, Global.death.JUICED)

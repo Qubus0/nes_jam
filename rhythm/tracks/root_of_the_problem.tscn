@@ -1,0 +1,132 @@
+[gd_scene load_steps=8 format=3 uid="uid://dk6x53tjbcatp"]
+
+[ext_resource type="Script" path="res://beat_track.gd" id="1_st7y0"]
+[ext_resource type="AudioStream" uid="uid://cct4rhpkoiwoi" path="res://characters/beet/root_of_the_problem.wav" id="2_61li7"]
+[ext_resource type="Texture2D" uid="uid://cmawg8gkpnnnj" path="res://rhythm/beat.png" id="3_m8srb"]
+[ext_resource type="PackedScene" uid="uid://xrk332tlwqw4" path="res://rhythm/beat.tscn" id="4_xvoou"]
+
+[sub_resource type="Curve2D" id="Curve2D_t03x2"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 740, 0)
+}
+point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rxyh4"]
+size = Vector2(1, 4)
+
+[sub_resource type="LabelSettings" id="LabelSettings_h6x3y"]
+font_size = 10
+
+[node name="RootOfTheProblem" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_st7y0")
+track_delay = 0.4
+track = ExtResource("2_61li7")
+
+[node name="Rhythm" type="Path2D" parent="."]
+process_mode = 1
+self_modulate = Color(1, 1, 1, 0.258824)
+curve = SubResource("Curve2D_t03x2")
+
+[node name="Playhead" type="PathFollow2D" parent="Rhythm"]
+unique_name_in_owner = true
+position = Vector2(24.7976, 0)
+progress = 24.8028
+
+[node name="Area" type="Area2D" parent="Rhythm/Playhead"]
+collision_layer = 0
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rhythm/Playhead/Area"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_rxyh4")
+debug_color = Color(1, 1, 1, 0.42)
+
+[node name="Marker" type="Sprite2D" parent="Rhythm/Playhead"]
+position = Vector2(0, -11)
+rotation = -1.5708
+texture = ExtResource("3_m8srb")
+hframes = 6
+frame = 4
+
+[node name="Beat3" parent="Rhythm" instance=ExtResource("4_xvoou")]
+position = Vector2(53.8094, 0)
+progress = 53.8028
+time_sec = 2.5
+face_left = false
+theme = 3
+
+[node name="Beat4" parent="Rhythm" instance=ExtResource("4_xvoou")]
+position = Vector2(58.9743, 0)
+progress = 58.8028
+time_sec = 3.0
+theme = 2
+
+[node name="Beat9" parent="Rhythm" instance=ExtResource("4_xvoou")]
+position = Vector2(68.7995, 0)
+progress = 68.8028
+time_sec = 4.0
+face_left = false
+theme = 3
+
+[node name="Beat10" parent="Rhythm" instance=ExtResource("4_xvoou")]
+position = Vector2(78.8004, 0)
+progress = 78.8028
+time_sec = 5.0
+theme = 2
+
+[node name="Beat11" parent="Rhythm" instance=ExtResource("4_xvoou")]
+position = Vector2(93.8023, 0)
+progress = 93.8028
+time_sec = 6.5
+face_left = false
+theme = 3
+
+[node name="Beat12" parent="Rhythm" instance=ExtResource("4_xvoou")]
+position = Vector2(98.7988, 0)
+progress = 98.8028
+time_sec = 7.0
+theme = 2
+
+[node name="Beat5" parent="Rhythm" instance=ExtResource("4_xvoou")]
+position = Vector2(108.801, 0)
+progress = 108.803
+time_sec = 8.0
+face_left = false
+theme = 3
+
+[node name="Beat6" parent="Rhythm" instance=ExtResource("4_xvoou")]
+position = Vector2(118.802, 0)
+progress = 118.803
+time_sec = 9.0
+theme = 2
+
+[node name="Beat8" parent="Rhythm" instance=ExtResource("4_xvoou")]
+position = Vector2(133.799, 0)
+progress = 133.803
+time_sec = 10.5
+face_left = false
+theme = 3
+
+[node name="Beat7" parent="Rhythm" instance=ExtResource("4_xvoou")]
+position = Vector2(138.801, 0)
+progress = 138.803
+time_sec = 11.0
+theme = 2
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -47.0
+offset_right = 123.0
+offset_bottom = -24.0
+grow_vertical = 0
+text = "10px = 1 second"
+label_settings = SubResource("LabelSettings_h6x3y")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+process_mode = 1
+stream = ExtResource("2_61li7")
+volume_db = -14.637
+bus = &"Music"

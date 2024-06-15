@@ -9,6 +9,12 @@ const GAME_OVER = preload("res://interface/game_over.tscn")
 
 var last_scene_path := ""
 var is_game_over := false
+var cause_of_death := death.GENERIC
+
+enum death {
+	GENERIC,
+	JUICED,
+}
 
 
 func _ready() -> void:
@@ -49,10 +55,11 @@ func change_scene_to_packed(scene: PackedScene) -> void:
 	transition_finished.emit()
 
 
-func game_over(origin_node: Node) -> void:
+func game_over(origin_node: Node, death := death.GENERIC) -> void:
 	var scene_root := origin_node.owner if origin_node.owner else origin_node
 	last_scene_path = scene_root.scene_file_path
 	is_game_over = true
+	cause_of_death = death
 	change_scene_to_packed(GAME_OVER)
 
 
