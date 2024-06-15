@@ -561,12 +561,19 @@ dust = NodePath("Dust")
 coyote_timer = NodePath("CoyoteTimer")
 metadata/_edit_group_ = true
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
-
 [node name="RayCast2D" type="RayCast2D" parent="Player" node_paths=PackedStringArray("tile_map", "player")]
 script = ExtResource("6_gogsn")
 tile_map = NodePath("../../TileMapLayer")
 player = NodePath("..")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+drag_left_margin = 0.8
+drag_right_margin = 0.8
+
+[node name="Marker2D" type="Marker2D" parent="Player"]
+position = Vector2(72, 0)
 
 [node name="OutOfBounds" type="Area2D" parent="."]
 position = Vector2(0, 632)
