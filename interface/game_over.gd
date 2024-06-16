@@ -5,7 +5,7 @@ extends Control
 
 
 func _ready() -> void:
-	tabc.hide()
+	tabc.current_tab = Global.cause_of_death
 	for text in find_children("Text", "Label"):
 		text.visible_characters = 0
 
@@ -14,8 +14,6 @@ func _ready() -> void:
 
 
 func start() -> void:
-	tabc.show()
-	tabc.current_tab = Global.cause_of_death
 	var death := tabc.get_current_tab_control()
 	var text := death.get_node("Text")
 

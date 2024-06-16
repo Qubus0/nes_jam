@@ -54,10 +54,15 @@ layout_mode = 2
 layout_mode = 2
 alignment = 1
 
-[node name="VolumeSlider" parent="PanelContainer/BoxContainer/BoxContainer" instance=ExtResource("3_cq08p")]
+[node name="Music" parent="PanelContainer/BoxContainer/BoxContainer" node_paths=PackedStringArray("sample") instance=ExtResource("3_cq08p")]
 layout_mode = 2
 audio_bus_name = &"Music"
-sample = ExtResource("4_8dsf2")
+sample = NodePath("Sample")
+
+[node name="Sample" type="AudioStreamPlayer" parent="PanelContainer/BoxContainer/BoxContainer/Music"]
+stream = ExtResource("4_8dsf2")
+volume_db = -20.092
+mix_target = 2
 
 [node name="Icon" type="TextureRect" parent="PanelContainer/BoxContainer/BoxContainer"]
 layout_mode = 2
@@ -68,10 +73,14 @@ stretch_mode = 5
 layout_mode = 2
 alignment = 1
 
-[node name="VolumeSlider" parent="PanelContainer/BoxContainer/BoxContainer2" instance=ExtResource("3_cq08p")]
+[node name="Sounds" parent="PanelContainer/BoxContainer/BoxContainer2" node_paths=PackedStringArray("sample") instance=ExtResource("3_cq08p")]
 layout_mode = 2
 audio_bus_name = &"Sound"
-sample = ExtResource("5_udb7d")
+sample = NodePath("Sample")
+
+[node name="Sample" type="AudioStreamPlayer" parent="PanelContainer/BoxContainer/BoxContainer2/Sounds"]
+stream = ExtResource("5_udb7d")
+volume_db = -9.545
 
 [node name="Icon" type="TextureRect" parent="PanelContainer/BoxContainer/BoxContainer2"]
 layout_mode = 2
