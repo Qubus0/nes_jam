@@ -3,6 +3,7 @@ extends Node
 signal transition_finished
 
 const GAME_OVER = preload("res://interface/game_over.tscn")
+const DIALOGUE = preload("res://interface/dialogue.tscn")
 
 @onready var pause_menu: PauseMenu = $PauseMenu
 @onready var transition: Transition = $Transition
@@ -10,6 +11,7 @@ const GAME_OVER = preload("res://interface/game_over.tscn")
 var last_scene_path := ""
 var is_game_over := false
 var cause_of_death := death.GENERIC
+var current_conversation := conversation.INTRO_END
 
 enum death {
 	GENERIC,
@@ -17,10 +19,16 @@ enum death {
 	WEAK,
 }
 
+enum conversation {
+	INTRO_START,
+	INTRO_END,
+}
+
 
 func _ready() -> void:
-	await transition.trans_in()
 	pause_menu.unpause()
+	await transition.trans_in()
+	transition_finished.emit()
 
 
 func _unhandled_key_input(event: InputEvent) -> void:
@@ -62,6 +70,13 @@ func game_over(origin_node: Node, death := death.GENERIC) -> void:
 	is_game_over = true
 	cause_of_death = death
 	change_scene_to_packed(GAME_OVER)
+
+
+func dialogue(convo: int) -> void:
+	current_conversation = convo
+	change_scene_to_packed(DIALOGUE)
+
+
 
 func play_stage_music():
 	$LemonStageBGM.play()

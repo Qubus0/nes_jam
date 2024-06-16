@@ -6,7 +6,7 @@ func _ready() -> void:
 
 
 func _on_tutorial_pressed() -> void:
-	Global.change_scene_to_file("res://characters/beet/tutorial_beet_arena.tscn")
+	Global.dialogue(Global.conversation.INTRO_START)
 
 
 func _on_lemon_pressed() -> void:

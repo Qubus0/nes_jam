@@ -27,9 +27,10 @@ var _pause_begin := 0
 func _update() -> void:
 	if not Engine.is_editor_hint():
 		return
-	#var preview := $AudioStreamPreview as AudioStreamPreview
-	#preview.stream_path = track.resource_path
-	#preview._update_preview()
+	var preview := $AudioStreamPreview as AudioStreamPreview
+	if track is AudioStreamWAV:
+		preview.stream_path = track.resource_path
+		preview._update_preview()
 	($Rhythm.curve as Curve2D).set_point_position(1, Vector2(track.get_length() * 10, 0))
 	($Music as AudioStreamPlayer).stream = track
 

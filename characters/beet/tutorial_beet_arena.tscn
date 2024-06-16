@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dkw3h5c4m1m83"]
+[gd_scene load_steps=28 format=3 uid="uid://dkw3h5c4m1m83"]
 
 [ext_resource type="Script" path="res://characters/beet/tutorial_beet_arena.gd" id="1_277o3"]
 [ext_resource type="PackedScene" path="res://interface/health_bar.tscn" id="2_aj617"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://1thhsnw546i3" path="res://characters/beet/beethoven_beginning_map.png" id="5_346ix"]
 [ext_resource type="Texture2D" uid="uid://wf11eab74fy8" path="res://characters/beet/beethoven_back.png" id="5_c8qtf"]
 [ext_resource type="PackedScene" uid="uid://c8cq6yojoo4gy" path="res://characters/player/player.tscn" id="8_ell45"]
-[ext_resource type="AudioStream" path="res://rhythm/tracks/root_of_the_problem/root_of_the_problem.wav" id="9_m5m4n"]
 [ext_resource type="PackedScene" uid="uid://dk6x53tjbcatp" path="res://rhythm/tracks/tutorial/root_of_the_problem.tscn" id="9_nf6lc"]
 
 [sub_resource type="Curve2D" id="Curve2D_xo3am"]
@@ -226,7 +225,6 @@ shape = SubResource("RectangleShape2D_y43yp")
 
 [node name="RootOfTheProblem" parent="." instance=ExtResource("9_nf6lc")]
 position = Vector2(0, 297)
-track = ExtResource("9_m5m4n")
 
 [connection signal="beat_hit" from="Interface/Control/Rhythm" to="." method="_on_rhythm_beat_hit"]
 [connection signal="music_started" from="RootOfTheProblem" to="." method="_on_music_started"]
