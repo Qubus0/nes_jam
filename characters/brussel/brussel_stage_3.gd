@@ -18,3 +18,8 @@ func _process(delta: float) -> void:
 			kick_drum.play(&"idle")
 		await get_tree().create_timer(1.603).timeout
 		drum_beat = true
+
+func _on_level_end_body_entered(body: Node2D) -> void:
+	%Win.show()
+	await get_tree().create_timer(2).timeout
+	Global.change_scene_to_file("res://main.tscn")

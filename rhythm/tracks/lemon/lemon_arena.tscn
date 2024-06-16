@@ -465,5 +465,5 @@ label_settings = SubResource("LabelSettings_h6x3y")
 [node name="Music" type="AudioStreamPlayer" parent="."]
 process_mode = 1
 stream = ExtResource("2_frjgo")
-volume_db = -0.8
+volume_db = -0.5
 bus = &"Music"

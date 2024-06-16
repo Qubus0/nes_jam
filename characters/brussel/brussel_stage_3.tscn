@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://cctw4chjjl4xl"]
+[gd_scene load_steps=40 format=4 uid="uid://cctw4chjjl4xl"]
 
 [ext_resource type="Script" path="res://characters/brussel/brussel_stage_3.gd" id="1_6v0a2"]
 [ext_resource type="PackedScene" uid="uid://b6nnedcuijkdh" path="res://interface/health_bar.tscn" id="1_tiowv"]
@@ -10,9 +10,13 @@
 [ext_resource type="PackedScene" uid="uid://sm8ieqfo1brp" path="res://characters/lemon/killzone.tscn" id="5_sjgcb"]
 [ext_resource type="Texture2D" uid="uid://c3g3kltxd3nt5" path="res://characters/brussel/brussel_block.png" id="6_fsb1q"]
 [ext_resource type="PackedScene" uid="uid://c8cq6yojoo4gy" path="res://characters/player/player.tscn" id="6_miwi1"]
+[ext_resource type="FontFile" uid="uid://dr8jhk3d5ka4x" path="res://interface/font/the-video-arcade-game-font/the-video-arcade-game-font.ttf" id="6_v6wfb"]
 [ext_resource type="Texture2D" uid="uid://bcg5sxoxwswed" path="res://characters/brussel/brussel_block_oneway.png" id="7_awb1t"]
 [ext_resource type="PackedScene" uid="uid://pmvtjmod8nao" path="res://characters/brussel/electric_gate.tscn" id="10_si10l"]
 [ext_resource type="PackedScene" uid="uid://dvw431s4mio22" path="res://characters/brussel/coil_wall.tscn" id="11_7chhu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mfjvk"]
+font = ExtResource("6_v6wfb")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_go08q"]
 texture = ExtResource("4_8dk40")
@@ -687,6 +691,9 @@ sources/0 = SubResource("TileSetAtlasSource_2yodh")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_34kpd"]
 size = Vector2(16, 16)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ychl3"]
+size = Vector2(14, 24)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d6vqq"]
 size = Vector2(256, 20)
 
@@ -695,6 +702,23 @@ script = ExtResource("1_6v0a2")
 
 [node name="HealthBar" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_tiowv")]
 player = NodePath("../Player")
+
+[node name="Win" type="Label" parent="HealthBar"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = -11.0
+offset_right = 57.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "You Win"
+label_settings = SubResource("LabelSettings_mfjvk")
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -1
@@ -981,6 +1005,15 @@ position = Vector2(225, -440)
 facing_right = true
 is_fast = true
 
+[node name="LevelEnd" type="Area2D" parent="."]
+position = Vector2(123, -763)
+collision_mask = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelEnd"]
+position = Vector2(-3, -2)
+shape = SubResource("RectangleShape2D_ychl3")
+
 [node name="Player" parent="." node_paths=PackedStringArray("health", "sprite", "dust", "coyote_timer") instance=ExtResource("6_miwi1")]
 position = Vector2(119, 120)
 wall_jump_enabled = true
@@ -1001,3 +1034,5 @@ metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/Killzone"]
 shape = SubResource("RectangleShape2D_d6vqq")
+
+[connection signal="body_entered" from="LevelEnd" to="." method="_on_level_end_body_entered"]
