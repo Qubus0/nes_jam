@@ -1,0 +1,191 @@
+[gd_scene load_steps=24 format=3 uid="uid://bnfu6rxhk8u4k"]
+
+[ext_resource type="PackedScene" uid="uid://delvr3p2o5moi" path="res://rhythm/tracks/cherry/cherry_arena.tscn" id="1_cs6js"]
+[ext_resource type="Script" path="res://characters/cherry/cherry_arena.gd" id="1_rhs5d"]
+[ext_resource type="Texture2D" uid="uid://dlcfem0hy5vw" path="res://characters/cherry/cherry_play.png" id="2_xed4h"]
+[ext_resource type="PackedScene" path="res://interface/health_bar.tscn" id="3_msxhs"]
+[ext_resource type="Script" path="res://characters/health.gd" id="3_on744"]
+[ext_resource type="PackedScene" uid="uid://7b4uamk1ww8p" path="res://rhythm/rhythm.tscn" id="4_7je6e"]
+[ext_resource type="Script" path="res://characters/hurtbox.gd" id="4_wea8j"]
+[ext_resource type="FontFile" uid="uid://dr8jhk3d5ka4x" path="res://interface/font/the-video-arcade-game-font/the-video-arcade-game-font.ttf" id="5_d6fsk"]
+[ext_resource type="Texture2D" uid="uid://dknjdxqje6k3q" path="res://characters/beet/arena.png" id="6_2ffvw"]
+[ext_resource type="PackedScene" uid="uid://c8cq6yojoo4gy" path="res://characters/player/player.tscn" id="7_0a54k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_urpy1"]
+atlas = ExtResource("2_xed4h")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jamix"]
+atlas = ExtResource("2_xed4h")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t8a83"]
+atlas = ExtResource("2_xed4h")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rftdp"]
+atlas = ExtResource("2_xed4h")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7usci"]
+atlas = ExtResource("2_xed4h")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l3ygg"]
+atlas = ExtResource("2_xed4h")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wfij4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_urpy1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jamix")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t8a83")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rftdp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7usci")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l3ygg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yuddv"]
+
+[sub_resource type="Curve2D" id="Curve2D_kykmy"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 5, 4, 0.459098, 13.0593, -0.459098, -13.0593, -10, -25, -17.263, 32.1449, 17.263, -32.1449, 5, -81, 0, 0, 0, 0, 105, -155)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_7y8n5"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 5, 5, -2.17947, 10.2152, 2.17947, -10.2152, -14, -34, -7.77829, 15.977, 7.77829, -15.977, 22, -64, -12.2268, 18.1667, 12.2268, -18.1667, 26, -137, 0, 0, 0, 0, 103, -158)
+}
+point_count = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_esfk3"]
+font = ExtResource("5_d6fsk")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vayqy"]
+size = Vector2(256, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p5e6r"]
+size = Vector2(7, 172)
+
+[node name="CherryArena" type="Node2D"]
+script = ExtResource("1_rhs5d")
+
+[node name="Cherry" type="Node2D" parent="."]
+position = Vector2(128, 44)
+
+[node name="Sprite" type="AnimatedSprite2D" parent="Cherry"]
+position = Vector2(0, -5)
+sprite_frames = SubResource("SpriteFrames_wfij4")
+autoplay = "default"
+frame_progress = 0.31817
+
+[node name="Health" type="Node" parent="Cherry"]
+script = ExtResource("3_on744")
+max_health = 50
+
+[node name="Hurtbox" type="Area2D" parent="Cherry" node_paths=PackedStringArray("health")]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("4_wea8j")
+health = NodePath("../Health")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Cherry/Hurtbox"]
+shape = SubResource("CircleShape2D_yuddv")
+
+[node name="HealthBar" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_msxhs")]
+player = NodePath("../Player")
+
+[node name="Interface" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="Interface"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Rhythm" parent="Interface/Control" node_paths=PackedStringArray("track") instance=ExtResource("4_7je6e")]
+layout_mode = 1
+track = NodePath("../../../CherryArena")
+
+[node name="InstrumentAttacks" type="Node2D" parent="Interface"]
+position = Vector2(24, 202)
+
+[node name="Perfect" type="Path2D" parent="Interface/InstrumentAttacks"]
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0.3)
+curve = SubResource("Curve2D_kykmy")
+
+[node name="Attack" type="Path2D" parent="Interface/InstrumentAttacks"]
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0.3)
+curve = SubResource("Curve2D_7y8n5")
+
+[node name="Win" type="Label" parent="Interface"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -11.5
+offset_right = 56.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "You Win"
+label_settings = SubResource("LabelSettings_esfk3")
+
+[node name="Arena" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, 12)
+texture = ExtResource("6_2ffvw")
+centered = false
+
+[node name="Player" parent="." node_paths=PackedStringArray("health", "sprite", "dust", "coyote_timer") instance=ExtResource("7_0a54k")]
+position = Vector2(129, 152)
+health = NodePath("Health")
+sprite = NodePath("Sprite")
+dust = NodePath("Dust")
+coyote_timer = NodePath("CoyoteTimer")
+
+[node name="Room" type="StaticBody2D" parent="."]
+position = Vector2(128, 168)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Room"]
+position = Vector2(0, -164)
+shape = SubResource("RectangleShape2D_vayqy")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Room"]
+position = Vector2(-124.5, -82)
+shape = SubResource("RectangleShape2D_p5e6r")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Room"]
+position = Vector2(124.5, -82)
+shape = SubResource("RectangleShape2D_p5e6r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room"]
+shape = SubResource("RectangleShape2D_vayqy")
+
+[node name="CherryArena" parent="." instance=ExtResource("1_cs6js")]
+position = Vector2(0, 288)

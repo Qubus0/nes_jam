@@ -186,6 +186,7 @@ position = Vector2(0, -30)
 shape = SubResource("RectangleShape2D_y43yp")
 
 [node name="BeetArena" parent="." instance=ExtResource("9_2rsut")]
+position = Vector2(0, 296)
 
 [connection signal="beat_hit" from="Interface/Control/Rhythm" to="." method="_on_rhythm_beat_hit"]
 [connection signal="defeated" from="Beet" to="." method="_on_beet_defeated"]
