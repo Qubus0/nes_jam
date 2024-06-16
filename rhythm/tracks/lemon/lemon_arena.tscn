@@ -33,16 +33,16 @@ font_size = 10
 [node name="LemonArena" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_jhj4v")
-track_delay = 0.4
+track_delay = 0.3
 track = ExtResource("2_frjgo")
 
 [node name="AudioStreamPreview" parent="." instance=ExtResource("5_fkqfo")]
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 24.8003
+offset_left = 25.7865
 offset_top = -64.0
-offset_right = 850.8
+offset_right = 851.786
 grow_vertical = 2
 texture = SubResource("ImageTexture_bj8d0")
 stream_path = "res://characters/lemon/lemon_arena.wav"
@@ -54,8 +54,8 @@ curve = SubResource("Curve2D_t03x2")
 
 [node name="Playhead" type="PathFollow2D" parent="Rhythm"]
 unique_name_in_owner = true
-position = Vector2(24.8003, 0)
-progress = 24.8028
+position = Vector2(25.7865, 0)
+progress = 25.8028
 
 [node name="Area" type="Area2D" parent="Rhythm/Playhead"]
 collision_layer = 0
@@ -465,5 +465,5 @@ label_settings = SubResource("LabelSettings_h6x3y")
 [node name="Music" type="AudioStreamPlayer" parent="."]
 process_mode = 1
 stream = ExtResource("2_frjgo")
-volume_db = -1.637
+volume_db = -0.8
 bus = &"Music"

@@ -6,6 +6,7 @@ var bouncing = false
 @onready var thrown_lemon_marker: Marker2D = $ThrownLemonMarker
 @onready var lemnote_sprite: AnimatedSprite2D = $LemonNote/Sprite
 @onready var blender_sprite: AnimatedSprite2D = $Blender/Sprite
+@onready var exhaust_sprite: AnimatedSprite2D = $ExhaustExpel
 
 var projectile = preload("res://characters/lemon/lemon_projectile.tscn")
 const LEMON_BOULDER = preload("res://characters/lemon/lemon_boulder.tscn")
@@ -21,9 +22,9 @@ enum {
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#Global.play_stage_music()
 	await get_tree().create_timer(4).timeout
 	can_shoot = true
+	lemnote_sprite.play(&"grow")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -50,6 +51,9 @@ func _process(delta: float) -> void:
 		blender_sprite.play(&"get_juiced")
 	if blender_sprite.frame == 9 and blender_sprite.animation == &"get_juiced":
 		blender_sprite.play(&"default")
+		exhaust_sprite.play(&"expel")
+	if exhaust_sprite.frame == 7 and exhaust_sprite.animation == &"expel":
+		exhaust_sprite.play(&"idle")
 
 func _on_rhythm_beat_hit(accuracy: int) -> void:
 	var shot: InstrumentShot = INSTRUMENT_SHOT.instantiate()
