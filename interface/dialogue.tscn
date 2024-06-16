@@ -30,12 +30,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_0thqt")
-current_tab = 11
+current_tab = 0
 tabs_visible = false
 script = ExtResource("1_w2h7l")
 
 [node name="IntroStart" type="Control" parent="."]
-visible = false
 layout_mode = 2
 script = ExtResource("3_ufgve")
 destination_scene = ExtResource("4_77x4h")
@@ -919,6 +918,7 @@ visible_characters_behavior = 1
 metadata/_tab_index = 1
 
 [node name="BeetArenaStartPlayer" type="Control" parent="."]
+visible = false
 layout_mode = 2
 script = ExtResource("3_ufgve")
 character_delay = 0.06

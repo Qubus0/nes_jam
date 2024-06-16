@@ -11,7 +11,7 @@ const DIALOGUE = preload("res://interface/dialogue.tscn")
 var last_scene_path := ""
 var is_game_over := false
 var cause_of_death := death.GENERIC
-var current_conversation := conversation.INTRO_END
+var current_conversation := conversation.INTRO_START
 
 enum death {
 	GENERIC,
@@ -22,6 +22,18 @@ enum death {
 enum conversation {
 	INTRO_START,
 	INTRO_END,
+	LEMON_STAGE_START,
+	LEMON_ARENA_START,
+	LEMON_ARENA_END,
+	BRUSSEL_STAGE1_START,
+	BRUSSEL_STAGE2_START,
+	BRUSSEL_STAGE3_END,
+	CHERRY_STAGE_START,
+	CHERRY_ARENA_START,
+	CHERRY_ARENA_END,
+	BEET_ARENA_STARTPLAYER,
+	BEET_ARENA_START,
+	BEET_ARENA_END,
 }
 
 var playing_bgm := ""
@@ -34,6 +46,13 @@ func _ready() -> void:
 
 
 func _unhandled_key_input(event: InputEvent) -> void:
+	#if get_tree().paused:
+		#if (event as InputEventKey).keycode
+		#InputMap.add_action("attack")
+		#var ev = InputEventKey.new()
+		#ev.scancode = KEY_SPACE
+		#InputMap.action_add_event("attack", ev)
+
 	if not event.is_action_pressed("Start") and not event.is_action_pressed("Select"):
 		return
 
