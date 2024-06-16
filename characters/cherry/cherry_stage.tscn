@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://characters/cherry/cherry_stage.gd" id="1_ogeea"]
 [ext_resource type="PackedScene" uid="uid://c8cq6yojoo4gy" path="res://characters/player/player.tscn" id="2_7oiim"]
-[ext_resource type="PackedScene" uid="uid://b6nnedcuijkdh" path="res://interface/health_bar.tscn" id="2_vw73b"]
+[ext_resource type="PackedScene" path="res://interface/health_bar.tscn" id="2_vw73b"]
 [ext_resource type="Texture2D" uid="uid://ci6y6n1mbvwcm" path="res://tilemaps/cherry_map.png" id="3_pxj3r"]
 [ext_resource type="Script" path="res://characters/player/friction_probe.gd" id="6_gogsn"]
 
@@ -645,7 +645,6 @@ player = NodePath("..")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position_smoothing_enabled = true
-position_smoothing_speed = 10.0
 drag_left_margin = 0.8
 drag_right_margin = 0.8
 
