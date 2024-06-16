@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://dhuqdrg0d1acn"]
+[gd_scene load_steps=63 format=3 uid="uid://dhuqdrg0d1acn"]
 
 [ext_resource type="Texture2D" uid="uid://dgvwyyf21awc5" path="res://characters/lemon/we_all_shiv_in_a_yellow_submarine.png" id="1_14pqb"]
 [ext_resource type="PackedScene" uid="uid://7b4uamk1ww8p" path="res://rhythm/rhythm.tscn" id="1_o151y"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://c77u0pvosh5ki" path="res://characters/lemon/blender.png" id="9_v8vop"]
 [ext_resource type="Texture2D" uid="uid://bv42d57xd636c" path="res://characters/lemon/lemon_note.png" id="10_oeda3"]
 [ext_resource type="PackedScene" uid="uid://cse5w64ulhtkl" path="res://rhythm/tracks/lemon/lemon_arena.tscn" id="10_sq60k"]
+[ext_resource type="Texture2D" uid="uid://ygq4gjv7mkfs" path="res://characters/lemon/sub_exhaust.png" id="11_o1eb0"]
 
 [sub_resource type="Curve2D" id="Curve2D_1bdqc"]
 _data = {
@@ -485,6 +486,82 @@ a = Vector2(0, -13)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ash3"]
 size = Vector2(17, 5)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_j5o3s"]
+atlas = ExtResource("11_o1eb0")
+region = Rect2(0, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukp0f"]
+atlas = ExtResource("11_o1eb0")
+region = Rect2(48, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3pek"]
+atlas = ExtResource("11_o1eb0")
+region = Rect2(96, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_an2nd"]
+atlas = ExtResource("11_o1eb0")
+region = Rect2(144, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rvnui"]
+atlas = ExtResource("11_o1eb0")
+region = Rect2(192, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f3qvh"]
+atlas = ExtResource("11_o1eb0")
+region = Rect2(240, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1lv6o"]
+atlas = ExtResource("11_o1eb0")
+region = Rect2(288, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fo3o2"]
+atlas = ExtResource("11_o1eb0")
+region = Rect2(0, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3mope"]
+atlas = ExtResource("11_o1eb0")
+region = Rect2(0, 0, 48, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c0p24"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j5o3s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ukp0f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p3pek")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_an2nd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rvnui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f3qvh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1lv6o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fo3o2")
+}],
+"loop": false,
+"name": &"expel",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3mope")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_xn4nq"]
 atlas = ExtResource("10_oeda3")
 region = Rect2(48, 0, 48, 32)
@@ -671,13 +748,19 @@ collision_mask = 2
 position = Vector2(29.5, 122.5)
 shape = SubResource("RectangleShape2D_3ash3")
 
+[node name="ExhaustExpel" type="AnimatedSprite2D" parent="."]
+position = Vector2(24, 168)
+sprite_frames = SubResource("SpriteFrames_c0p24")
+animation = &"expel"
+autoplay = "idle"
+
 [node name="LemonNote" type="Node2D" parent="."]
 
 [node name="Sprite" type="AnimatedSprite2D" parent="LemonNote"]
 position = Vector2(200, 64)
 sprite_frames = SubResource("SpriteFrames_b44h5")
-animation = &"grow"
-autoplay = "grow"
+animation = &"idle"
+autoplay = "idle"
 
 [node name="Bouncing" type="Path2D" parent="LemonNote"]
 unique_name_in_owner = true
