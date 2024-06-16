@@ -28,9 +28,9 @@ func _update() -> void:
 	if not Engine.is_editor_hint():
 		return
 	var preview := $AudioStreamPreview as AudioStreamPreview
-	if track is AudioStreamWAV:
-		preview.stream_path = track.resource_path
-		preview._update_preview()
+
+	preview.stream_path = track.resource_path if track is AudioStreamWAV else ""
+	preview._update_preview()
 	($Rhythm.curve as Curve2D).set_point_position(1, Vector2(track.get_length() * 10, 0))
 	($Music as AudioStreamPlayer).stream = track
 
@@ -43,7 +43,7 @@ func _ready() -> void:
 	_time_begin = Time.get_ticks_usec()
 	_time_delay = AudioServer.get_time_to_next_mix() + AudioServer.get_output_latency()
 
-	#position.y = 160
+	position.y = 160 # debug
 
 	#$Music.play()
 	get_tree().create_timer(time_to_first_beat).timeout.connect(
@@ -62,6 +62,7 @@ func _process(_delta: float) -> void:
 		update = 0
 
 		%Playhead.progress = (time_to_first_beat - track_delay) * 10
+		$AudioStreamPreview.position.x = %Playhead.global_position.x
 		for beat: Beat in get_tree().get_nodes_in_group(&"beat"):
 			beat.progress = (time_to_first_beat + beat.time_sec) * 10
 		return

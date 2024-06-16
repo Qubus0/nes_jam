@@ -24,12 +24,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_0thqt")
-current_tab = 1
+current_tab = 0
 tabs_visible = false
 script = ExtResource("1_w2h7l")
 
 [node name="IntroStart" type="Control" parent="."]
-visible = false
 layout_mode = 2
 script = ExtResource("3_ufgve")
 destination_scene = ExtResource("4_77x4h")
@@ -126,6 +125,7 @@ visible_characters_behavior = 1
 metadata/_tab_index = 4
 
 [node name="IntroEnd" type="Control" parent="."]
+visible = false
 layout_mode = 2
 script = ExtResource("3_ufgve")
 destination_scene = ExtResource("8_0e4db")
@@ -180,13 +180,11 @@ theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
 [node name="Texts" type="TabContainer" parent="IntroEnd/Margin"]
-visible = false
 layout_mode = 2
-current_tab = 2
+current_tab = 0
 tabs_visible = false
 
 [node name="Text" type="RichTextLabel" parent="IntroEnd/Margin/Texts"]
-visible = false
 layout_mode = 2
 bbcode_enabled = true
 text = "[wave amp=10.0 freq=16.0 connected=1]WHAT WAS THAT?![/wave]"
@@ -202,6 +200,7 @@ visible_characters_behavior = 1
 metadata/_tab_index = 1
 
 [node name="Text3" type="RichTextLabel" parent="IntroEnd/Margin/Texts"]
+visible = false
 layout_mode = 2
 bbcode_enabled = true
 text = "GO FIND A REAL MUSICIAN TO PLAY OR NEVER RETURN!"
