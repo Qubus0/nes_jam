@@ -1,0 +1,73 @@
+[gd_scene load_steps=10 format=3 uid="uid://dvw431s4mio22"]
+
+[ext_resource type="Script" path="res://characters/brussel/coil_wall.gd" id="1_tthh4"]
+[ext_resource type="Texture2D" uid="uid://mk587w3gqgbw" path="res://characters/brussel/coil_walls_left.png" id="2_wqtm2"]
+[ext_resource type="Texture2D" uid="uid://cc1qmww6sukd6" path="res://characters/brussel/coil_walls_right.png" id="3_niolx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n263h"]
+atlas = ExtResource("2_wqtm2")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3n8aa"]
+atlas = ExtResource("3_niolx")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h8f4k"]
+atlas = ExtResource("2_wqtm2")
+region = Rect2(0, 96, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18xr5"]
+atlas = ExtResource("3_niolx")
+region = Rect2(0, 96, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kcb0p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n263h")
+}],
+"loop": true,
+"name": &"off_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3n8aa")
+}],
+"loop": true,
+"name": &"off_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h8f4k")
+}],
+"loop": true,
+"name": &"on_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18xr5")
+}],
+"loop": true,
+"name": &"on_right",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i61hp"]
+size = Vector2(10, 44)
+
+[node name="Wall" type="Area2D"]
+collision_layer = 32
+collision_mask = 64
+script = ExtResource("1_tthh4")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_kcb0p")
+animation = &"off_left"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_i61hp")

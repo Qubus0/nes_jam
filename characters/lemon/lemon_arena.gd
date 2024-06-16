@@ -21,6 +21,7 @@ enum {
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	#Global.play_stage_music()
 	await get_tree().create_timer(4).timeout
 	can_shoot = true
 
