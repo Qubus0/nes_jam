@@ -12,6 +12,9 @@ func _ready() -> void:
 
 
 func _unhandled_key_input(event: InputEvent) -> void:
+	if Input.is_key_pressed(KEY_Q) and Input.is_key_pressed(KEY_SHIFT):
+		Global.dialogue(current_tab +1)
+
 	if not conversation.text_finished:
 		if event.is_action_pressed("ui_accept"):
 			conversation.skip()

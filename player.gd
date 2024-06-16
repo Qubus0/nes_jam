@@ -49,6 +49,7 @@ func _physics_process(delta: float) -> void:
 
 	if Input.is_action_just_pressed(&"up") and (is_on_floor() or has_coyote):
 		velocity.y = jump_velocity
+		has_coyote = false
 		$Jump.play()
 		start_height = position.y
 	if is_on_wall_only() and has_wall_jump:
