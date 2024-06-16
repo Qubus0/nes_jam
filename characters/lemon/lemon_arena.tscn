@@ -7,10 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://c8cq6yojoo4gy" path="res://characters/player/player.tscn" id="2_ptbrl"]
 [ext_resource type="FontFile" uid="uid://dr8jhk3d5ka4x" path="res://interface/font/the-video-arcade-game-font/the-video-arcade-game-font.ttf" id="3_7elt5"]
 [ext_resource type="PackedScene" uid="uid://iivny0b5cmmp" path="res://characters/lemon/lemon.tscn" id="3_o10qq"]
-[ext_resource type="AudioStream" uid="uid://b7g73y0bqilic" path="res://characters/lemon/lemon_arena_theme.mp3" id="6_dlw8u"]
+[ext_resource type="AudioStream" uid="uid://b7g73y0bqilic" path="res://rhythm/tracks/lemon/lemon_arena_theme.mp3" id="6_dlw8u"]
 [ext_resource type="Texture2D" uid="uid://c77u0pvosh5ki" path="res://characters/lemon/blender.png" id="9_v8vop"]
 [ext_resource type="Texture2D" uid="uid://bv42d57xd636c" path="res://characters/lemon/lemon_note.png" id="10_oeda3"]
-[ext_resource type="PackedScene" uid="uid://dk6x53tjbcatp" path="res://rhythm/tracks/root_of_the_problem.tscn" id="11_wl7k3"]
+[ext_resource type="PackedScene" uid="uid://cse5w64ulhtkl" path="res://rhythm/tracks/lemon/lemon_arena.tscn" id="10_sq60k"]
 
 [sub_resource type="Curve2D" id="Curve2D_1bdqc"]
 _data = {
@@ -600,7 +600,7 @@ offset_bottom = 240.0
 layout_mode = 1
 anchors_preset = -1
 anchor_top = -2.75
-track = NodePath("../../../RootOfTheProblem")
+track = NodePath("../../../LemonArena")
 
 [node name="InstrumentAttacks" type="Node2D" parent="Interface"]
 position = Vector2(24, 202)
@@ -633,10 +633,6 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "You Win"
 label_settings = SubResource("LabelSettings_6mjjq")
-
-[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_dlw8u")
-autoplay = true
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_2604f")
@@ -707,8 +703,8 @@ coyote_timer = NodePath("CoyoteTimer")
 [node name="ThrownLemonMarker" type="Marker2D" parent="."]
 position = Vector2(140, 80)
 
-[node name="RootOfTheProblem" parent="." instance=ExtResource("11_wl7k3")]
-track_delay = null
+[node name="LemonArena" parent="." instance=ExtResource("10_sq60k")]
+track = ExtResource("6_dlw8u")
 
 [connection signal="beat_hit" from="Interface/Control/Rhythm" to="." method="_on_rhythm_beat_hit"]
 [connection signal="body_entered" from="Blender/JuicingZone" to="." method="_on_juicing_zone_body_entered"]

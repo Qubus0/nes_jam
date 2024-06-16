@@ -1,0 +1,232 @@
+[gd_scene load_steps=29 format=3 uid="uid://dkw3h5c4m1m83"]
+
+[ext_resource type="Script" path="res://characters/beet/tutorial_beet_arena.gd" id="1_277o3"]
+[ext_resource type="PackedScene" path="res://interface/health_bar.tscn" id="2_aj617"]
+[ext_resource type="PackedScene" uid="uid://7b4uamk1ww8p" path="res://rhythm/rhythm.tscn" id="3_f53qa"]
+[ext_resource type="FontFile" uid="uid://dr8jhk3d5ka4x" path="res://interface/font/the-video-arcade-game-font/the-video-arcade-game-font.ttf" id="4_slui4"]
+[ext_resource type="Texture2D" uid="uid://1thhsnw546i3" path="res://characters/beet/beethoven_beginning_map.png" id="5_346ix"]
+[ext_resource type="Texture2D" uid="uid://wf11eab74fy8" path="res://characters/beet/beethoven_back.png" id="5_c8qtf"]
+[ext_resource type="PackedScene" uid="uid://c8cq6yojoo4gy" path="res://characters/player/player.tscn" id="8_ell45"]
+[ext_resource type="AudioStream" path="res://rhythm/tracks/root_of_the_problem/root_of_the_problem.wav" id="9_m5m4n"]
+[ext_resource type="PackedScene" uid="uid://dk6x53tjbcatp" path="res://rhythm/tracks/tutorial/root_of_the_problem.tscn" id="9_nf6lc"]
+
+[sub_resource type="Curve2D" id="Curve2D_xo3am"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 5, 4, 0.459098, 13.0593, -0.459098, -13.0593, -10, -25, -17.263, 32.1449, 17.263, -32.1449, 10, -88, -29.9622, 13.4929, 29.9622, -13.4929, 154, -139, 0, 0, 0, 0, 166, -208)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_7e71l"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 5, 5, -2.17947, 10.2152, 2.17947, -10.2152, -14, -34, -7.77829, 15.977, 7.77829, -15.977, 2, -50, -12.2268, 18.1667, 12.2268, -18.1667, -11, -106, 0, 0, 0, 0, -33, -142)
+}
+point_count = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_gije1"]
+font = ExtResource("4_slui4")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mp88u"]
+atlas = ExtResource("5_c8qtf")
+region = Rect2(0, 0, 124, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_juwrn"]
+atlas = ExtResource("5_c8qtf")
+region = Rect2(124, 0, 124, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lsfhs"]
+atlas = ExtResource("5_c8qtf")
+region = Rect2(248, 0, 124, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_blah4"]
+atlas = ExtResource("5_c8qtf")
+region = Rect2(372, 0, 124, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wti5n"]
+atlas = ExtResource("5_c8qtf")
+region = Rect2(496, 0, 124, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ykoq5"]
+atlas = ExtResource("5_c8qtf")
+region = Rect2(620, 0, 124, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7vhb"]
+atlas = ExtResource("5_c8qtf")
+region = Rect2(744, 0, 124, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rs33q"]
+atlas = ExtResource("5_c8qtf")
+region = Rect2(868, 0, 124, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76iqx"]
+atlas = ExtResource("5_c8qtf")
+region = Rect2(992, 0, 124, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_adn68"]
+atlas = ExtResource("5_c8qtf")
+region = Rect2(1116, 0, 124, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3s562"]
+atlas = ExtResource("5_c8qtf")
+region = Rect2(1240, 0, 124, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x152y"]
+atlas = ExtResource("5_c8qtf")
+region = Rect2(0, 0, 124, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bioxv"]
+atlas = ExtResource("5_c8qtf")
+region = Rect2(124, 0, 124, 59)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ac1pa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mp88u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_juwrn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lsfhs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_blah4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wti5n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ykoq5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w7vhb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rs33q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_76iqx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_adn68")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3s562")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x152y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bioxv")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 1.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y43yp"]
+size = Vector2(256, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_db6dt"]
+size = Vector2(7, 172)
+
+[node name="BeetArena" type="Node2D"]
+script = ExtResource("1_277o3")
+
+[node name="HealthBar" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_aj617")]
+visible = false
+player = NodePath("../Player")
+
+[node name="Interface" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="Interface"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Rhythm" parent="Interface/Control" node_paths=PackedStringArray("track") instance=ExtResource("3_f53qa")]
+layout_mode = 1
+track = NodePath("../../../RootOfTheProblem")
+
+[node name="InstrumentAttacks" type="Node2D" parent="Interface"]
+position = Vector2(24, 202)
+
+[node name="Perfect" type="Path2D" parent="Interface/InstrumentAttacks"]
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0.3)
+curve = SubResource("Curve2D_xo3am")
+
+[node name="Attack" type="Path2D" parent="Interface/InstrumentAttacks"]
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0.3)
+curve = SubResource("Curve2D_7e71l")
+
+[node name="Win" type="Label" parent="Interface"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -11.5
+offset_right = 56.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "You Win"
+label_settings = SubResource("LabelSettings_gije1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(127, 64)
+sprite_frames = SubResource("SpriteFrames_ac1pa")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.348579
+
+[node name="Arena" type="Sprite2D" parent="."]
+position = Vector2(0, 12)
+texture = ExtResource("5_346ix")
+centered = false
+
+[node name="Player" parent="." node_paths=PackedStringArray("health", "sprite", "dust", "coyote_timer") instance=ExtResource("8_ell45")]
+position = Vector2(129, 126)
+health = NodePath("Health")
+sprite = NodePath("Sprite")
+dust = NodePath("Dust")
+coyote_timer = NodePath("CoyoteTimer")
+
+[node name="Room" type="StaticBody2D" parent="."]
+position = Vector2(128, 168)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Room"]
+position = Vector2(0, -164)
+shape = SubResource("RectangleShape2D_y43yp")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Room"]
+position = Vector2(-104.5, -82)
+shape = SubResource("RectangleShape2D_db6dt")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Room"]
+position = Vector2(97.5, -82)
+shape = SubResource("RectangleShape2D_db6dt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room"]
+position = Vector2(0, -30)
+shape = SubResource("RectangleShape2D_y43yp")
+
+[node name="RootOfTheProblem" parent="." instance=ExtResource("9_nf6lc")]
+position = Vector2(0, 297)
+track = ExtResource("9_m5m4n")
+
+[connection signal="beat_hit" from="Interface/Control/Rhythm" to="." method="_on_rhythm_beat_hit"]
+[connection signal="music_started" from="RootOfTheProblem" to="." method="_on_music_started"]

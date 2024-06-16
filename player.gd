@@ -7,6 +7,7 @@ extends CharacterBody2D
 @export var jump_rise_time := .3
 @export var jump_fall_time := .3
 @export var jump_coyote_time := .1
+@export var wall_jump_enabled := false
 
 @export_group("Movement")
 @export var speed := 110.0
@@ -37,7 +38,7 @@ const DUST_STAGES := [&"none", &"light", &"medium", &"strong"]
 func _physics_process(delta: float) -> void:
 	if is_on_floor():
 		has_coyote = true
-		has_wall_jump = true
+		has_wall_jump = wall_jump_enabled
 	else:
 		velocity.y += clamp(get_calculated_gravity() * delta, 0 , max_fall_velocity)
 		if coyote_timer.is_stopped() and has_coyote:
@@ -50,7 +51,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = jump_velocity
 		$Jump.play()
 		start_height = position.y
-	if is_on_wall_only() and has_wall_jump == true:
+	if is_on_wall_only() and has_wall_jump:
 		if (Input.is_action_just_pressed(&"up") or Input.is_action_just_pressed(&"right")) and sprite.flip_h == true:
 			velocity.y = jump_velocity*0.75
 			velocity.x += 40

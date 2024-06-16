@@ -14,6 +14,7 @@ var cause_of_death := death.GENERIC
 enum death {
 	GENERIC,
 	JUICED,
+	WEAK,
 }
 
 

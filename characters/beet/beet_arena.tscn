@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c44itudm3s8x8" path="res://characters/beet/key_bullet.tscn" id="5_a44xy"]
 [ext_resource type="FontFile" uid="uid://dr8jhk3d5ka4x" path="res://interface/font/the-video-arcade-game-font/the-video-arcade-game-font.ttf" id="5_w7rvy"]
 [ext_resource type="Texture2D" uid="uid://dknjdxqje6k3q" path="res://characters/beet/arena.png" id="7_q4qpp"]
-[ext_resource type="PackedScene" uid="uid://dk6x53tjbcatp" path="res://rhythm/tracks/root_of_the_problem.tscn" id="9_ac012"]
+[ext_resource type="PackedScene" uid="uid://dt66lhgs5eicn" path="res://rhythm/tracks/beet/beet_arena.tscn" id="9_2rsut"]
 
 [sub_resource type="Curve2D" id="Curve2D_xo3am"]
 _data = {
@@ -55,7 +55,7 @@ grow_vertical = 2
 
 [node name="Rhythm" parent="Interface/Control" node_paths=PackedStringArray("track") instance=ExtResource("2_8hul5")]
 layout_mode = 1
-track = NodePath("../../../RootOfTheProblem")
+track = NodePath("../../../BeetArena")
 
 [node name="InstrumentAttacks" type="Node2D" parent="Interface"]
 position = Vector2(24, 202)
@@ -88,7 +88,6 @@ text = "You Win"
 label_settings = SubResource("LabelSettings_gije1")
 
 [node name="Arena" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(0, 12)
 texture = ExtResource("7_q4qpp")
 centered = false
@@ -161,7 +160,7 @@ dark = true
 position = Vector2(117, -260)
 
 [node name="Player" parent="." node_paths=PackedStringArray("health", "sprite", "dust", "coyote_timer") instance=ExtResource("4_7csfv")]
-position = Vector2(12, 122)
+position = Vector2(129, 126)
 health = NodePath("Health")
 sprite = NodePath("Sprite")
 dust = NodePath("Dust")
@@ -186,9 +185,7 @@ shape = SubResource("RectangleShape2D_db6dt")
 position = Vector2(0, -30)
 shape = SubResource("RectangleShape2D_y43yp")
 
-[node name="RootOfTheProblem" parent="." instance=ExtResource("9_ac012")]
-position = Vector2(0, 297)
-track_delay = 1.0
+[node name="BeetArena" parent="." instance=ExtResource("9_2rsut")]
 
 [connection signal="beat_hit" from="Interface/Control/Rhythm" to="." method="_on_rhythm_beat_hit"]
 [connection signal="defeated" from="Beet" to="." method="_on_beet_defeated"]

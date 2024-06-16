@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://7b4uamk1ww8p"]
+[gd_scene load_steps=34 format=3 uid="uid://7b4uamk1ww8p"]
 
 [ext_resource type="Script" path="res://rhythm/rhythm.gd" id="1_1kst2"]
 [ext_resource type="Texture2D" uid="uid://x1uudp4r2g13" path="res://rhythm/rhythm_bar.png" id="2_yffci"]
@@ -10,6 +10,8 @@
 [ext_resource type="AudioStream" uid="uid://c3spo8wbf4dr5" path="res://rhythm/note_hit.wav" id="9_6tt10"]
 [ext_resource type="AudioStream" uid="uid://bc6uiv5602rcu" path="res://rhythm/note_wrong.wav" id="10_n5vca"]
 [ext_resource type="AudioStream" uid="uid://ckqcxck2vld01" path="res://rhythm/note_perfect.wav" id="11_mcqv1"]
+[ext_resource type="Script" path="res://countdown.gd" id="11_nkbg4"]
+[ext_resource type="AudioStream" uid="uid://cr3al24s6blmt" path="res://interface/click.wav" id="12_a7f3x"]
 
 [sub_resource type="Curve2D" id="Curve2D_o7k0u"]
 _data = {
@@ -133,6 +135,11 @@ animations = [{
 font = ExtResource("8_vwjn3")
 font_size = 8
 font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_awwjv"]
+font = ExtResource("8_vwjn3")
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Rhythm" type="Control"]
 layout_mode = 3
@@ -289,4 +296,34 @@ stream = ExtResource("11_mcqv1")
 volume_db = -24.413
 bus = &"Sound"
 
+[node name="Countdown" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -13.0
+offset_top = -9.0
+offset_right = 13.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "3"
+label_settings = SubResource("LabelSettings_awwjv")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("11_nkbg4")
+
+[node name="Timer" type="Timer" parent="Countdown"]
+wait_time = 0.9
+autostart = true
+
+[node name="Click" type="AudioStreamPlayer" parent="Countdown"]
+stream = ExtResource("12_a7f3x")
+volume_db = -12.665
+pitch_scale = 1.2
+bus = &"Sound"
+
 [connection signal="area_entered" from="Track/Miss/Miss" to="." method="_on_miss_area_entered"]
+[connection signal="timeout" from="Countdown/Timer" to="Countdown" method="_on_timer_timeout"]

@@ -1,0 +1,79 @@
+[gd_scene load_steps=8 format=3 uid="uid://cse5w64ulhtkl"]
+
+[ext_resource type="Script" path="res://beat_track.gd" id="1_jhj4v"]
+[ext_resource type="AudioStream" uid="uid://cct4rhpkoiwoi" path="res://rhythm/tracks/tutorial/root_of_the_problem.wav" id="2_qbjtp"]
+[ext_resource type="Texture2D" uid="uid://cmawg8gkpnnnj" path="res://rhythm/beat.png" id="3_csnrg"]
+[ext_resource type="PackedScene" uid="uid://xrk332tlwqw4" path="res://rhythm/beat.tscn" id="4_mvlxu"]
+
+[sub_resource type="Curve2D" id="Curve2D_t03x2"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 740, 0)
+}
+point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rxyh4"]
+size = Vector2(1, 4)
+
+[sub_resource type="LabelSettings" id="LabelSettings_h6x3y"]
+font_size = 10
+
+[node name="LemonArena" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_jhj4v")
+track_delay = 0.4
+track = ExtResource("2_qbjtp")
+
+[node name="Rhythm" type="Path2D" parent="."]
+process_mode = 1
+self_modulate = Color(1, 1, 1, 0.258824)
+curve = SubResource("Curve2D_t03x2")
+
+[node name="Playhead" type="PathFollow2D" parent="Rhythm"]
+unique_name_in_owner = true
+position = Vector2(24.7976, 0)
+progress = 24.8028
+
+[node name="Area" type="Area2D" parent="Rhythm/Playhead"]
+collision_layer = 0
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rhythm/Playhead/Area"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_rxyh4")
+debug_color = Color(1, 1, 1, 0.42)
+
+[node name="Marker" type="Sprite2D" parent="Rhythm/Playhead"]
+position = Vector2(0, -11)
+rotation = -1.5708
+texture = ExtResource("3_csnrg")
+hframes = 6
+frame = 4
+
+[node name="Beat" parent="Rhythm" instance=ExtResource("4_mvlxu")]
+position = Vector2(28.787, 0)
+progress = 28.8028
+face_left = false
+theme = 3
+
+[node name="Beat1" parent="Rhythm" instance=ExtResource("4_mvlxu")]
+position = Vector2(48.7981, 0)
+progress = 48.8028
+time_sec = 2.0
+theme = 2
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -47.0
+offset_right = 123.0
+offset_bottom = -24.0
+grow_vertical = 0
+text = "10px = 1 second"
+label_settings = SubResource("LabelSettings_h6x3y")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+process_mode = 1
+stream = ExtResource("2_qbjtp")
+volume_db = -14.637
+bus = &"Music"

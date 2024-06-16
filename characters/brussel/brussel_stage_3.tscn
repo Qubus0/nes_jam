@@ -1,11 +1,11 @@
 [gd_scene load_steps=34 format=4 uid="uid://cctw4chjjl4xl"]
 
 [ext_resource type="Script" path="res://characters/brussel/brussel_stage_3.gd" id="1_6v0a2"]
-[ext_resource type="PackedScene" uid="uid://b6nnedcuijkdh" path="res://interface/health_bar.tscn" id="1_tiowv"]
+[ext_resource type="PackedScene" path="res://interface/health_bar.tscn" id="1_tiowv"]
 [ext_resource type="Texture2D" uid="uid://j3r8j6vk83u3" path="res://characters/brussel/brussel_industries.png" id="4_8dk40"]
 [ext_resource type="AudioStream" uid="uid://bajgumnh2ho3x" path="res://characters/brussel/brussel_stage_theme_2.mp3" id="4_xh2x2"]
 [ext_resource type="Script" path="res://characters/brussel/brussel_block_fast.gd" id="5_fnl6y"]
-[ext_resource type="PackedScene" uid="uid://sm8ieqfo1brp" path="res://characters/lemon/killzone.tscn" id="5_sjgcb"]
+[ext_resource type="PackedScene" path="res://characters/lemon/killzone.tscn" id="5_sjgcb"]
 [ext_resource type="Script" path="res://characters/brussel/electric_gate_fast.gd" id="6_8dch5"]
 [ext_resource type="Texture2D" uid="uid://c3g3kltxd3nt5" path="res://characters/brussel/brussel_block.png" id="6_fsb1q"]
 [ext_resource type="PackedScene" uid="uid://c8cq6yojoo4gy" path="res://characters/player/player.tscn" id="6_miwi1"]
@@ -933,6 +933,7 @@ shape = SubResource("RectangleShape2D_g1hrw")
 
 [node name="Player" parent="." node_paths=PackedStringArray("health", "sprite", "dust", "coyote_timer") instance=ExtResource("6_miwi1")]
 position = Vector2(119, 168)
+wall_jump_enabled = true
 health = NodePath("Health")
 sprite = NodePath("Sprite")
 dust = NodePath("Dust")

@@ -1,0 +1,438 @@
+[gd_scene load_steps=8 format=3 uid="uid://dk6x53tjbcatp"]
+
+[ext_resource type="Script" path="res://beat_track.gd" id="1_moxus"]
+[ext_resource type="AudioStream" uid="uid://cct4rhpkoiwoi" path="res://rhythm/tracks/tutorial/root_of_the_problem.wav" id="2_lcovo"]
+[ext_resource type="Texture2D" uid="uid://cmawg8gkpnnnj" path="res://rhythm/beat.png" id="3_ripnj"]
+[ext_resource type="PackedScene" uid="uid://xrk332tlwqw4" path="res://rhythm/beat.tscn" id="4_r1roa"]
+
+[sub_resource type="Curve2D" id="Curve2D_t03x2"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 740, 0)
+}
+point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rxyh4"]
+size = Vector2(1, 4)
+
+[sub_resource type="LabelSettings" id="LabelSettings_h6x3y"]
+font_size = 10
+
+[node name="RootOfTheProblem" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_moxus")
+track_delay = 0.4
+track = ExtResource("2_lcovo")
+
+[node name="Rhythm" type="Path2D" parent="."]
+process_mode = 1
+self_modulate = Color(1, 1, 1, 0.258824)
+curve = SubResource("Curve2D_t03x2")
+
+[node name="Playhead" type="PathFollow2D" parent="Rhythm"]
+unique_name_in_owner = true
+position = Vector2(24.7976, 0)
+progress = 24.8028
+
+[node name="Area" type="Area2D" parent="Rhythm/Playhead"]
+collision_layer = 0
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rhythm/Playhead/Area"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_rxyh4")
+debug_color = Color(1, 1, 1, 0.42)
+
+[node name="Marker" type="Sprite2D" parent="Rhythm/Playhead"]
+position = Vector2(0, -11)
+rotation = -1.5708
+texture = ExtResource("3_ripnj")
+hframes = 6
+frame = 4
+
+[node name="Beat" parent="Rhythm" instance=ExtResource("4_r1roa")]
+position = Vector2(28.787, 0)
+progress = 28.8028
+face_left = false
+theme = 3
+
+[node name="Beat1" parent="Rhythm" instance=ExtResource("4_r1roa")]
+position = Vector2(48.7981, 0)
+progress = 48.8028
+time_sec = 2.0
+theme = 2
+
+[node name="Beat2" parent="Rhythm" instance=ExtResource("4_r1roa")]
+position = Vector2(68.7995, 0)
+progress = 68.8028
+time_sec = 4.0
+face_left = false
+theme = 3
+
+[node name="Beat3" parent="Rhythm" instance=ExtResource("4_r1roa")]
+position = Vector2(88.7985, 0)
+progress = 88.8028
+time_sec = 6.0
+theme = 2
+
+[node name="Beat4" parent="Rhythm" instance=ExtResource("4_r1roa")]
+position = Vector2(103.799, 0)
+progress = 103.803
+time_sec = 7.5
+theme = 2
+
+[node name="Beat5" parent="Rhythm" instance=ExtResource("4_r1roa")]
+position = Vector2(108.801, 0)
+progress = 108.803
+time_sec = 8.0
+face_left = false
+theme = 3
+
+[node name="Beat6" parent="Rhythm" instance=ExtResource("4_r1roa")]
+position = Vector2(118.802, 0)
+progress = 118.803
+time_sec = 9.0
+face_left = false
+theme = 3
+
+[node name="Beat7" parent="Rhythm" instance=ExtResource("4_r1roa")]
+position = Vector2(133.799, 0)
+progress = 133.803
+time_sec = 10.5
+theme = 2
+
+[node name="Beat8" parent="Rhythm" instance=ExtResource("4_r1roa")]
+position = Vector2(138.801, 0)
+progress = 138.803
+time_sec = 11.0
+theme = 2
+
+[node name="Beat9" parent="Rhythm" instance=ExtResource("4_r1roa")]
+position = Vector2(148.8, 0)
+progress = 148.803
+time_sec = 12.0
+face_left = false
+theme = 3
+
+[node name="Beat10" parent="Rhythm" instance=ExtResource("4_r1roa")]
+position = Vector2(158.799, 0)
+progress = 158.803
+time_sec = 13.0
+face_left = false
+theme = 3
+
+[node name="Beat11" parent="Rhythm" instance=ExtResource("4_r1roa")]
+position = Vector2(168.8, 0)
+progress = 168.803
+time_sec = 14.0
+theme = 2
+
+[node name="Beat12" parent="Rhythm" instance=ExtResource("4_r1roa")]
+position = Vector2(173.8, 0)
+progress = 173.803
+time_sec = 14.5
+theme = 2
+
+[node name="Beat13" parent="Rhythm" instance=ExtResource("4_r1roa")]
+position = Vector2(178.802, 0)
+progress = 178.803
+time_sec = 15.0
+face_left = false
+theme = 3
+
+[node name="Beat14" parent="Rhythm" instance=ExtResource("4_r1roa")]
+position = Vector2(218.801, 0)
+progress = 218.803
+time_sec = 19.0
+theme = 2
+
+[node name="Beat15" parent="Rhythm" instance=ExtResource("4_r1roa")]
+position = Vector2(228.801, 0)
+progress = 228.803
+time_sec = 20.0
+theme = 2
+
+[node name="Beat16" parent="Rhythm" instance=ExtResource("4_r1roa")]
+position = Vector2(248.801, 0)
+progress = 248.803
+time_sec = 22.0
+theme = 2
+
+[node name="Beat17" parent="Rhythm" instance=ExtResource("4_r1roa")]
+position = Vector2(253.802, 0)
+progress = 253.803
+time_sec = 22.5
+theme = 2
+
+[node name="Beat18" parent="Rhythm" instance=ExtResource("4_r1roa")]
+position = Vector2(258.803, 0)
+progress = 258.803
+time_sec = 23.0
+theme = 2
+
+[node name="Beat19" parent="Rhythm" instance=ExtResource("4_r1roa")]
+position = Vector2(268.801, 0)
+progress = 268.803
+time_sec = 24.0
+theme = 2
+
+[node name="Beat20" parent="Rhythm" instance=ExtResource("4_r1roa")]
+position = Vector2(271.303, 0)
+progress = 271.303
+time_sec = 24.25
+theme = 2
+
+[node name="Beat21" parent="Rhythm" instance=ExtResource("4_r1roa")]
+position = Vector2(273.801, 0)
+progress = 273.803
+time_sec = 24.5
+theme = 2
+
+[node name="Beat22" parent="Rhythm" instance=ExtResource("4_r1roa")]
+position = Vector2(276.302, 0)
+progress = 276.303
+time_sec = 24.75
+face_left = false
+theme = 3
+
+[node name="Beat24" parent="Rhythm" instance=ExtResource("4_r1roa")]
+position = Vector2(278.802, 0)
+progress = 278.803
+time_sec = 25.0
+theme = 2
+
+[node name="Beat23" parent="Rhythm" instance=ExtResource("4_r1roa")]
+position = Vector2(281.302, 0)
+progress = 281.303
+time_sec = 25.25
+theme = 2
+
+[node name="Beat25" parent="Rhythm" instance=ExtResource("4_r1roa")]
+position = Vector2(283.803, 0)
+progress = 283.803
+time_sec = 25.5
+theme = 2
+
+[node name="Beat26" parent="Rhythm" instance=ExtResource("4_r1roa")]
+position = Vector2(286.302, 0)
+progress = 286.303
+time_sec = 25.75
+face_left = false
+theme = 3
+
+[node name="Beat27" parent="Rhythm" instance=ExtResource("4_r1roa")]
+position = Vector2(288.802, 0)
+progress = 288.803
+time_sec = 26.0
+face_left = false
+theme = 3
+
+[node name="Beat28" parent="Rhythm" instance=ExtResource("4_r1roa")]
+position = Vector2(291.302, 0)
+progress = 291.303
+time_sec = 26.25
+face_left = false
+theme = 3
+
+[node name="Beat29" parent="Rhythm" instance=ExtResource("4_r1roa")]
+position = Vector2(293.802, 0)
+progress = 293.803
+time_sec = 26.5
+face_left = false
+theme = 3
+
+[node name="Beat30" parent="Rhythm" instance=ExtResource("4_r1roa")]
+position = Vector2(296.302, 0)
+progress = 296.303
+time_sec = 26.75
+theme = 2
+
+[node name="Beat31" parent="Rhythm" instance=ExtResource("4_r1roa")]
+position = Vector2(298.802, 0)
+progress = 298.803
+time_sec = 27.0
+face_left = false
+theme = 3
+
+[node name="Beat32" parent="Rhythm" instance=ExtResource("4_r1roa")]
+position = Vector2(301.303, 0)
+progress = 301.303
+time_sec = 27.25
+face_left = false
+theme = 3
+
+[node name="Beat33" parent="Rhythm" instance=ExtResource("4_r1roa")]
+position = Vector2(303.802, 0)
+progress = 303.803
+time_sec = 27.5
+face_left = false
+theme = 3
+
+[node name="Beat42" parent="Rhythm" instance=ExtResource("4_r1roa")]
+position = Vector2(326.303, 0)
+progress = 326.303
+time_sec = 29.75
+face_left = false
+theme = 3
+
+[node name="Beat43" parent="Rhythm" instance=ExtResource("4_r1roa")]
+position = Vector2(328.802, 0)
+progress = 328.803
+time_sec = 30.0
+face_left = false
+theme = 3
+
+[node name="Beat44" parent="Rhythm" instance=ExtResource("4_r1roa")]
+position = Vector2(331.303, 0)
+progress = 331.303
+time_sec = 30.25
+face_left = false
+theme = 3
+
+[node name="Beat45" parent="Rhythm" instance=ExtResource("4_r1roa")]
+position = Vector2(333.802, 0)
+progress = 333.803
+time_sec = 30.5
+face_left = false
+theme = 3
+
+[node name="Beat46" parent="Rhythm" instance=ExtResource("4_r1roa")]
+position = Vector2(336.302, 0)
+progress = 336.303
+time_sec = 30.75
+theme = 2
+
+[node name="Beat47" parent="Rhythm" instance=ExtResource("4_r1roa")]
+position = Vector2(338.802, 0)
+progress = 338.803
+time_sec = 31.0
+face_left = false
+theme = 3
+
+[node name="Beat48" parent="Rhythm" instance=ExtResource("4_r1roa")]
+position = Vector2(341.302, 0)
+progress = 341.303
+time_sec = 31.25
+face_left = false
+theme = 3
+
+[node name="Beat49" parent="Rhythm" instance=ExtResource("4_r1roa")]
+position = Vector2(343.803, 0)
+progress = 343.803
+time_sec = 31.5
+face_left = false
+theme = 3
+
+[node name="Beat34" parent="Rhythm" instance=ExtResource("4_r1roa")]
+position = Vector2(306.302, 0)
+progress = 306.303
+time_sec = 27.75
+theme = 2
+
+[node name="Beat35" parent="Rhythm" instance=ExtResource("4_r1roa")]
+position = Vector2(308.802, 0)
+progress = 308.803
+time_sec = 28.0
+theme = 2
+
+[node name="Beat36" parent="Rhythm" instance=ExtResource("4_r1roa")]
+position = Vector2(311.302, 0)
+progress = 311.303
+time_sec = 28.25
+theme = 2
+
+[node name="Beat37" parent="Rhythm" instance=ExtResource("4_r1roa")]
+position = Vector2(313.803, 0)
+progress = 313.803
+time_sec = 28.5
+theme = 2
+
+[node name="Beat38" parent="Rhythm" instance=ExtResource("4_r1roa")]
+position = Vector2(316.302, 0)
+progress = 316.303
+time_sec = 28.75
+face_left = false
+theme = 3
+
+[node name="Beat39" parent="Rhythm" instance=ExtResource("4_r1roa")]
+position = Vector2(318.802, 0)
+progress = 318.803
+time_sec = 29.0
+theme = 2
+
+[node name="Beat40" parent="Rhythm" instance=ExtResource("4_r1roa")]
+position = Vector2(321.302, 0)
+progress = 321.303
+time_sec = 29.25
+theme = 2
+
+[node name="Beat41" parent="Rhythm" instance=ExtResource("4_r1roa")]
+position = Vector2(323.802, 0)
+progress = 323.803
+time_sec = 29.5
+theme = 2
+
+[node name="Beat50" parent="Rhythm" instance=ExtResource("4_r1roa")]
+position = Vector2(346.302, 0)
+progress = 346.303
+time_sec = 31.75
+theme = 2
+
+[node name="Beat51" parent="Rhythm" instance=ExtResource("4_r1roa")]
+position = Vector2(348.803, 0)
+progress = 348.803
+time_sec = 32.0
+theme = 2
+
+[node name="Beat52" parent="Rhythm" instance=ExtResource("4_r1roa")]
+position = Vector2(351.303, 0)
+progress = 351.303
+time_sec = 32.25
+theme = 2
+
+[node name="Beat53" parent="Rhythm" instance=ExtResource("4_r1roa")]
+position = Vector2(353.803, 0)
+progress = 353.803
+time_sec = 32.5
+theme = 2
+
+[node name="Beat54" parent="Rhythm" instance=ExtResource("4_r1roa")]
+position = Vector2(356.303, 0)
+progress = 356.303
+time_sec = 32.75
+face_left = false
+theme = 3
+
+[node name="Beat55" parent="Rhythm" instance=ExtResource("4_r1roa")]
+position = Vector2(358.803, 0)
+progress = 358.803
+time_sec = 33.0
+theme = 2
+
+[node name="Beat56" parent="Rhythm" instance=ExtResource("4_r1roa")]
+position = Vector2(361.303, 0)
+progress = 361.303
+time_sec = 33.25
+theme = 2
+
+[node name="Beat57" parent="Rhythm" instance=ExtResource("4_r1roa")]
+position = Vector2(363.803, 0)
+progress = 363.803
+time_sec = 33.5
+theme = 2
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -47.0
+offset_right = 123.0
+offset_bottom = -24.0
+grow_vertical = 0
+text = "10px = 1 second"
+label_settings = SubResource("LabelSettings_h6x3y")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+process_mode = 1
+stream = ExtResource("2_lcovo")
+volume_db = -14.637
+bus = &"Music"

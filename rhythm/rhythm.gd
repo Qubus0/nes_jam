@@ -64,6 +64,7 @@ func handle_input() -> void:
 		var direction := -1 if beat.face_left else 1
 		if not Input.get_axis("B", "A") == direction:
 			show_accuracy(WRONG)
+			beat_hit.emit(WRONG)
 		elif %Perfect.has_overlapping_areas():
 			show_accuracy(PERFECT)
 			beat_hit.emit(PERFECT)
@@ -75,6 +76,7 @@ func handle_input() -> void:
 			beat_hit.emit(WEAK)
 		else:
 			show_accuracy(MISS)
+			beat_hit.emit(MISS)
 
 		beat.get_parent().remove_child(beat)
 		beat.queue_free()

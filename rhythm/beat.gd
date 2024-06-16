@@ -2,6 +2,9 @@
 class_name Beat
 extends PathFollow2D
 
+@export var offset := 0.0 :
+	set(off):
+		time_sec += off
 
 @export var time_sec := 0.0
 @export var face_left := true :

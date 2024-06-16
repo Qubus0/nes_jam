@@ -30,6 +30,13 @@ theme_override_constants/separation = 10
 alignment = 1
 vertical = true
 
+[node name="Tutorial" type="Button" parent="CanvasLayer/Control/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Tutorial"
+flat = true
+
 [node name="Lemon" type="Button" parent="CanvasLayer/Control/BoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -56,6 +63,7 @@ layout_mode = 2
 text = "Brussel"
 flat = true
 
+[connection signal="pressed" from="CanvasLayer/Control/BoxContainer/Tutorial" to="." method="_on_tutorial_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/BoxContainer/Lemon" to="." method="_on_lemon_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/BoxContainer/Beet" to="." method="_on_beet_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/BoxContainer/Cherry" to="." method="_on_cherry_pressed"]

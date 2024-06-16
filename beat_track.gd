@@ -2,6 +2,7 @@
 class_name BeatTrack
 extends Node2D
 
+signal music_started
 
 @export var track_delay := 0.0
 @export var track: AudioStream :
@@ -40,12 +41,16 @@ func _ready() -> void:
 
 	_time_begin = Time.get_ticks_usec()
 	_time_delay = AudioServer.get_time_to_next_mix() + AudioServer.get_output_latency()
-	position.y = 160
+
+	#position.y = 160
 
 	#$Music.play()
 	get_tree().create_timer(time_to_first_beat).timeout.connect(
-		func(): $Music.play()
+		func():
+			$Music.play()
+			music_started.emit()
 	)
+
 
 var update := 0.0
 func _process(_delta: float) -> void:

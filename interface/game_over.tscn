@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dae7c3bqwkx12"]
+[gd_scene load_steps=12 format=3 uid="uid://dae7c3bqwkx12"]
 
 [ext_resource type="Theme" uid="uid://ckpsaqo81fdqi" path="res://interface/default.theme" id="1_evdff"]
 [ext_resource type="Script" path="res://interface/game_over.gd" id="2_nj0gw"]
@@ -6,9 +6,13 @@
 [ext_resource type="AudioStream" uid="uid://dqoeb7ik8tedx" path="res://characters/player/hurt.wav" id="4_jkkgv"]
 [ext_resource type="Texture2D" uid="uid://cguprh8rwbibm" path="res://interface/juiced.png" id="4_nukkt"]
 [ext_resource type="Script" path="res://interface/blink_label.gd" id="5_4ljbp"]
+[ext_resource type="Texture2D" uid="uid://bdcw5mj2olcjs" path="res://characters/beet/beethoven_portrait.png" id="5_7tuyg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_j7xih"]
 font_color = Color(0.972549, 0.721569, 0.00784314, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_nrk7i"]
+font_color = Color(0.847059, 0, 0.8, 1)
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_hm2wx"]
 random_pitch = 1.1
@@ -37,11 +41,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-current_tab = 1
+current_tab = 0
 tabs_visible = false
 
 [node name="Generic" type="TextureRect" parent="TabContainer"]
-visible = false
 layout_mode = 2
 texture = ExtResource("3_2a07y")
 metadata/_tab_index = 0
@@ -62,9 +65,11 @@ grow_vertical = 2
 text = "GAME 
   OVER"
 label_settings = SubResource("LabelSettings_j7xih")
-visible_ratio = -0.0833333
+visible_characters = 0
+visible_ratio = 0.0
 
 [node name="Juiced" type="TextureRect" parent="TabContainer"]
+visible = false
 layout_mode = 2
 texture = ExtResource("4_nukkt")
 metadata/_tab_index = 1
@@ -85,6 +90,30 @@ text = "You've been
 Juiced"
 label_settings = SubResource("LabelSettings_j7xih")
 horizontal_alignment = 1
+
+[node name="Weak" type="TextureRect" parent="TabContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("5_7tuyg")
+metadata/_tab_index = 2
+
+[node name="Text" type="Label" parent="TabContainer/Weak"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -92.0
+offset_top = -82.0
+offset_right = 124.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Weak.
+ Try 
+  again"
+label_settings = SubResource("LabelSettings_nrk7i")
 
 [node name="Sound" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
