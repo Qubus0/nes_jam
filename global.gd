@@ -24,6 +24,8 @@ enum conversation {
 	INTRO_END,
 }
 
+var playing_bgm := ""
+
 
 func _ready() -> void:
 	pause_menu.unpause()
@@ -51,6 +53,18 @@ func _unhandled_key_input(event: InputEvent) -> void:
 
 
 func change_scene_to_file(path: String) -> void:
+	# don't ask FIXME
+	if "cherry_stage" in path:
+		$LemonStageBGM.stop()
+		if not $CherryStageBGM.playing:
+			$CherryStageBGM.play()
+	elif "lemon_stage" in path:
+		$CherryStageBGM.stop()
+		if not $LemonStageBGM.playing:
+			$LemonStageBGM.play()
+	else:
+		stop_music()
+
 	await transition.trans_out()
 	get_tree().change_scene_to_file(path)
 	await transition.trans_in()
@@ -58,6 +72,8 @@ func change_scene_to_file(path: String) -> void:
 
 
 func change_scene_to_packed(scene: PackedScene) -> void:
+	stop_music()
+
 	await transition.trans_out()
 	get_tree().change_scene_to_packed(scene)
 	await transition.trans_in()
@@ -77,6 +93,7 @@ func dialogue(convo: int) -> void:
 	change_scene_to_packed(DIALOGUE)
 
 
+func stop_music() -> void:
+	$CherryStageBGM.stop()
+	$LemonStageBGM.stop()
 
-func play_stage_music():
-	$LemonStageBGM.play()

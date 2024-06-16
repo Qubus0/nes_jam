@@ -1,10 +1,9 @@
-extends Node2D
+extends Stage
 
-func _ready() -> void:
-	Global.play_stage_music()
 
 func _process(delta: float) -> void:
 	pass
+
 
 func _on_water_body_entered(body: Node2D) -> void:
 	$Player.position.y = $WaterDeathZone/Water1.position.y - 10

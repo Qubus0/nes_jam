@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dm7tl1wq8tl45" path="res://interface/pause_menu.tscn" id="2_8oaxg"]
 [ext_resource type="PackedScene" uid="uid://dobwp2fov6j5k" path="res://interface/transition.tscn" id="3_v4sqy"]
 [ext_resource type="AudioStream" uid="uid://cwaxqb5cnavgu" path="res://characters/lemon/lemon_stage.wav" id="6_s2rqi"]
-[ext_resource type="AudioStream" uid="uid://b7v7lpkoa1qpq" path="res://characters/lemon/lemon_arena.wav" id="7_nkkfv"]
+[ext_resource type="AudioStream" uid="uid://8qsavsqoqcn" path="res://characters/cherry/cherry_stage.wav" id="7_jgda4"]
 [ext_resource type="Texture2D" uid="uid://cm5d8q0e5fi5s" path="res://interface/focus_arrow.png" id="8_dbftv"]
 [ext_resource type="Script" path="res://interface/focus_arrow.gd" id="9_leqpc"]
 
@@ -41,6 +41,7 @@ stream = ExtResource("6_s2rqi")
 volume_db = -0.4
 bus = &"Music"
 
-[node name="LemonArenaBGM" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_nkkfv")
+[node name="CherryStageBGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_jgda4")
+volume_db = -0.4
 bus = &"Music"
