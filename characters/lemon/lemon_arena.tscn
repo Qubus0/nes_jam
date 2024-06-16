@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://dhuqdrg0d1acn"]
+[gd_scene load_steps=52 format=3 uid="uid://dhuqdrg0d1acn"]
 
 [ext_resource type="Texture2D" uid="uid://dgvwyyf21awc5" path="res://characters/lemon/we_all_shiv_in_a_yellow_submarine.png" id="1_14pqb"]
 [ext_resource type="PackedScene" uid="uid://7b4uamk1ww8p" path="res://rhythm/rhythm.tscn" id="1_o151y"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://c8cq6yojoo4gy" path="res://characters/player/player.tscn" id="2_ptbrl"]
 [ext_resource type="FontFile" uid="uid://dr8jhk3d5ka4x" path="res://interface/font/the-video-arcade-game-font/the-video-arcade-game-font.ttf" id="3_7elt5"]
 [ext_resource type="PackedScene" uid="uid://iivny0b5cmmp" path="res://characters/lemon/lemon.tscn" id="3_o10qq"]
-[ext_resource type="AudioStream" uid="uid://b7g73y0bqilic" path="res://rhythm/tracks/lemon/lemon_arena_theme.mp3" id="6_dlw8u"]
 [ext_resource type="Texture2D" uid="uid://c77u0pvosh5ki" path="res://characters/lemon/blender.png" id="9_v8vop"]
 [ext_resource type="Texture2D" uid="uid://bv42d57xd636c" path="res://characters/lemon/lemon_note.png" id="10_oeda3"]
 [ext_resource type="PackedScene" uid="uid://cse5w64ulhtkl" path="res://rhythm/tracks/lemon/lemon_arena.tscn" id="10_sq60k"]
@@ -704,7 +703,6 @@ coyote_timer = NodePath("CoyoteTimer")
 position = Vector2(140, 80)
 
 [node name="LemonArena" parent="." instance=ExtResource("10_sq60k")]
-track = ExtResource("6_dlw8u")
 
 [connection signal="beat_hit" from="Interface/Control/Rhythm" to="." method="_on_rhythm_beat_hit"]
 [connection signal="body_entered" from="Blender/JuicingZone" to="." method="_on_juicing_zone_body_entered"]

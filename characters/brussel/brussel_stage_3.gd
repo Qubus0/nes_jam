@@ -3,8 +3,8 @@ extends Node2D
 @onready var kick_drum: AnimatedSprite2D = $Background/KickDrum
 var drum_beat = true
 
-var speed = 30
-var max_speed = 50
+var speed = 20
+var max_speed = 30
 
 func _process(delta: float) -> void:
 	$Camera2D.position.y -= speed * delta

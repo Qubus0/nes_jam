@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://c6k4dlalflm7y"]
+[gd_scene load_steps=17 format=4 uid="uid://c6k4dlalflm7y"]
 
 [ext_resource type="Script" path="res://characters/brussel/brussel_stage.gd" id="1_lmypr"]
 [ext_resource type="PackedScene" uid="uid://b6nnedcuijkdh" path="res://interface/health_bar.tscn" id="2_bl50l"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c8cq6yojoo4gy" path="res://characters/player/player.tscn" id="4_042ug"]
 [ext_resource type="AudioStream" uid="uid://0b2obaun7is4" path="res://characters/brussel/brussel_stage_theme_1.mp3" id="4_dv527"]
 [ext_resource type="PackedScene" uid="uid://sm8ieqfo1brp" path="res://characters/lemon/killzone.tscn" id="4_qwxdj"]
+[ext_resource type="Texture2D" uid="uid://b25syw6escv80" path="res://characters/brussel/laugh_screen.png" id="6_7hjv7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u33p8"]
 texture = ExtResource("3_mynih")
@@ -556,6 +557,28 @@ sources/0 = SubResource("TileSetAtlasSource_nswds")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iywv2"]
 size = Vector2(14, 24)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_86ngk"]
+atlas = ExtResource("6_7hjv7")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_igpmp"]
+atlas = ExtResource("6_7hjv7")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4n75q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_86ngk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_igpmp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
 [node name="BrusselStage" type="Node2D"]
 script = ExtResource("1_lmypr")
 
@@ -593,6 +616,11 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PhaseTransition"]
 position = Vector2(1, -6)
 shape = SubResource("RectangleShape2D_iywv2")
+
+[node name="TVLaugh" type="AnimatedSprite2D" parent="."]
+position = Vector2(120, -152)
+sprite_frames = SubResource("SpriteFrames_4n75q")
+autoplay = "default"
 
 [node name="Player" parent="." node_paths=PackedStringArray("health", "sprite", "dust", "coyote_timer") instance=ExtResource("4_042ug")]
 position = Vector2(119, 136)
