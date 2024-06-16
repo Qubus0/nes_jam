@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bisd8m0b2oclw"]
+[gd_scene load_steps=7 format=3 uid="uid://bisd8m0b2oclw"]
 
 [ext_resource type="Script" path="res://global.gd" id="1_dnvdf"]
 [ext_resource type="PackedScene" uid="uid://dm7tl1wq8tl45" path="res://interface/pause_menu.tscn" id="2_8oaxg"]
-[ext_resource type="PackedScene" uid="uid://dobwp2fov6j5k" path="res://interface/transition.tscn" id="3_v4sqy"]
+[ext_resource type="PackedScene" path="res://interface/transition.tscn" id="3_v4sqy"]
+[ext_resource type="AudioStream" uid="uid://cwaxqb5cnavgu" path="res://characters/lemon/lemon_stage.wav" id="6_s2rqi"]
 [ext_resource type="Texture2D" uid="uid://cm5d8q0e5fi5s" path="res://interface/focus_arrow.png" id="8_dbftv"]
 [ext_resource type="Script" path="res://interface/focus_arrow.gd" id="9_leqpc"]
 
@@ -33,3 +34,8 @@ stretch_mode = 5
 script = ExtResource("9_leqpc")
 
 [node name="Transition" parent="." instance=ExtResource("3_v4sqy")]
+
+[node name="LemonStageBGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_s2rqi")
+volume_db = -0.4
+bus = &"Music"

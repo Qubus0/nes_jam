@@ -1,10 +1,10 @@
 [gd_scene load_steps=26 format=4 uid="uid://cuxrphhysvlk0"]
 
 [ext_resource type="Script" path="res://characters/brussel/brussel_stage_2.gd" id="1_lmypr"]
-[ext_resource type="PackedScene" path="res://interface/health_bar.tscn" id="2_ijgkj"]
+[ext_resource type="PackedScene" uid="uid://b6nnedcuijkdh" path="res://interface/health_bar.tscn" id="2_ijgkj"]
 [ext_resource type="Texture2D" uid="uid://j3r8j6vk83u3" path="res://characters/brussel/brussel_industries.png" id="3_mynih"]
 [ext_resource type="PackedScene" uid="uid://c8cq6yojoo4gy" path="res://characters/player/player.tscn" id="4_042ug"]
-[ext_resource type="PackedScene" path="res://characters/lemon/killzone.tscn" id="4_qwxdj"]
+[ext_resource type="PackedScene" uid="uid://sm8ieqfo1brp" path="res://characters/lemon/killzone.tscn" id="4_qwxdj"]
 [ext_resource type="AudioStream" uid="uid://0b2obaun7is4" path="res://characters/brussel/brussel_stage_theme_1.mp3" id="4_ypf8l"]
 [ext_resource type="Script" path="res://characters/brussel/brussel_block.gd" id="6_tygsq"]
 [ext_resource type="Texture2D" uid="uid://q5dfoa66iptm" path="res://characters/brussel/electric_trap.png" id="7_2d1ly"]

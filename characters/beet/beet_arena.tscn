@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://d25fo6tavx8fs"]
 
 [ext_resource type="Script" path="res://characters/beet/beet_arena.gd" id="1_kslb5"]
-[ext_resource type="PackedScene" path="res://interface/health_bar.tscn" id="2_6onhr"]
+[ext_resource type="PackedScene" uid="uid://b6nnedcuijkdh" path="res://interface/health_bar.tscn" id="2_6onhr"]
 [ext_resource type="PackedScene" uid="uid://7b4uamk1ww8p" path="res://rhythm/rhythm.tscn" id="2_8hul5"]
 [ext_resource type="PackedScene" uid="uid://vbtwg3dccnv2" path="res://characters/beet/beet.tscn" id="3_a4f4u"]
 [ext_resource type="PackedScene" uid="uid://c8cq6yojoo4gy" path="res://characters/player/player.tscn" id="4_7csfv"]

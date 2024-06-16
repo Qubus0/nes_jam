@@ -63,4 +63,5 @@ func game_over(origin_node: Node, death := death.GENERIC) -> void:
 	cause_of_death = death
 	change_scene_to_packed(GAME_OVER)
 
-
+func play_stage_music():
+	$LemonStageBGM.play()

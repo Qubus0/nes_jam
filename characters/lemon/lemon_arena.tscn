@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dgvwyyf21awc5" path="res://characters/lemon/we_all_shiv_in_a_yellow_submarine.png" id="1_14pqb"]
 [ext_resource type="PackedScene" uid="uid://7b4uamk1ww8p" path="res://rhythm/rhythm.tscn" id="1_o151y"]
 [ext_resource type="Script" path="res://characters/lemon/lemon_arena.gd" id="1_ql2a3"]
-[ext_resource type="PackedScene" path="res://interface/health_bar.tscn" id="2_bbpua"]
+[ext_resource type="PackedScene" uid="uid://b6nnedcuijkdh" path="res://interface/health_bar.tscn" id="2_bbpua"]
 [ext_resource type="PackedScene" uid="uid://c8cq6yojoo4gy" path="res://characters/player/player.tscn" id="2_ptbrl"]
 [ext_resource type="FontFile" uid="uid://dr8jhk3d5ka4x" path="res://interface/font/the-video-arcade-game-font/the-video-arcade-game-font.ttf" id="3_7elt5"]
 [ext_resource type="PackedScene" uid="uid://iivny0b5cmmp" path="res://characters/lemon/lemon.tscn" id="3_o10qq"]
