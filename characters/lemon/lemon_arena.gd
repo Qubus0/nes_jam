@@ -58,7 +58,7 @@ func _on_rhythm_beat_hit(accuracy: int) -> void:
 			shot.damage = 6
 			%Perfect.add_child(shot)
 		WEAK:
-			shot.damage = 2
+			shot.damage = -3
 			%Attack.add_child(shot)
 		_:
 			shot.damage = 3
