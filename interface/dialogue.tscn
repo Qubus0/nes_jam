@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://lj5n40c4ms62"]
+[gd_scene load_steps=18 format=3 uid="uid://lj5n40c4ms62"]
 
 [ext_resource type="Theme" uid="uid://ckpsaqo81fdqi" path="res://interface/default.theme" id="1_0thqt"]
 [ext_resource type="Texture2D" uid="uid://be2ucgbhugr6f" path="res://characters/beet/beethoven_portrait_dark.png" id="1_ryg2d"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://v0c6se8o27e1" path="res://characters/lemon/lemon_stage.tscn" id="8_0e4db"]
 [ext_resource type="Texture2D" uid="uid://csh083s6ii7ty" path="res://characters/beet/beethoven_portrait_covering_ears.png" id="9_vsync"]
 [ext_resource type="Texture2D" uid="uid://ditgljhuhu1ud" path="res://characters/player/player_portrait.png" id="10_cvrwj"]
+[ext_resource type="Texture2D" uid="uid://bus5j7ckaq8rq" path="res://characters/player/player_portrait_sad.png" id="10_ppu73"]
 [ext_resource type="Texture2D" uid="uid://cx30rrqg5twdc" path="res://characters/lemon/lemon_portrait.png" id="11_8pks5"]
 [ext_resource type="Texture2D" uid="uid://dp10xmkfa0x46" path="res://characters/brussel/brussel_portrait.png" id="12_4c01o"]
 [ext_resource type="Texture2D" uid="uid://bwb1wi3yx3em4" path="res://characters/cherry/cherry_portrait.png" id="12_aid35"]
@@ -30,12 +31,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_0thqt")
-current_tab = 13
+current_tab = 0
 tabs_visible = false
 script = ExtResource("1_w2h7l")
 
 [node name="IntroStart" type="Control" parent="."]
-visible = false
 layout_mode = 2
 script = ExtResource("3_ufgve")
 destination_scene = ExtResource("4_77x4h")
@@ -237,10 +237,11 @@ bus = &"Sound"
 
 [node name="Sprite" type="TextureRect" parent="LemonStageStart"]
 layout_mode = 2
-offset_top = 4.0
-offset_right = 256.0
-offset_bottom = 244.0
-texture = ExtResource("10_cvrwj")
+offset_left = 18.0
+offset_top = -11.0
+offset_right = 274.0
+offset_bottom = 229.0
+texture = ExtResource("10_ppu73")
 stretch_mode = 5
 
 [node name="Arrow" type="TextureRect" parent="LemonStageStart"]
@@ -276,10 +277,11 @@ theme_override_constants/margin_bottom = 8
 
 [node name="Texts" type="TabContainer" parent="LemonStageStart/Margin"]
 layout_mode = 2
-current_tab = 0
+current_tab = 2
 tabs_visible = false
 
 [node name="Text" type="RichTextLabel" parent="LemonStageStart/Margin/Texts"]
+visible = false
 layout_mode = 2
 bbcode_enabled = true
 text = "rude..."
@@ -295,7 +297,6 @@ visible_characters_behavior = 1
 metadata/_tab_index = 1
 
 [node name="Text3" type="RichTextLabel" parent="LemonStageStart/Margin/Texts"]
-visible = false
 layout_mode = 2
 bbcode_enabled = true
 text = "Let's go find some musicians"
@@ -1091,6 +1092,7 @@ visible_characters_behavior = 1
 metadata/_tab_index = 2
 
 [node name="BeetArenaEnd" type="Control" parent="."]
+visible = false
 layout_mode = 2
 script = ExtResource("3_ufgve")
 character_delay = 0.06

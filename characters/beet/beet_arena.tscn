@@ -27,7 +27,7 @@ font = ExtResource("5_w7rvy")
 
 [sub_resource type="Curve2D" id="Curve2D_y5ohi"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -472)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1200)
 }
 point_count = 2
 
@@ -104,60 +104,240 @@ unique_name_in_owner = true
 rotates = false
 
 [node name="KeyBullet" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
-position = Vector2(128, -32)
+position = Vector2(64, -120)
+short = true
 
 [node name="KeyBullet2" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
-position = Vector2(96, -32)
+position = Vector2(32, -120)
+short = true
 
 [node name="KeyBullet3" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
-position = Vector2(80, -88)
+position = Vector2(80, -136)
+dark = true
 short = true
 
 [node name="KeyBullet4" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
-position = Vector2(128, -88)
+position = Vector2(48, -136)
 short = true
 
 [node name="KeyBullet5" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
-position = Vector2(160, -128)
-dark = true
+position = Vector2(104, -168)
+short = true
 
 [node name="KeyBullet6" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
-position = Vector2(200, -128)
+position = Vector2(72, -168)
+short = true
 
 [node name="KeyBullet7" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
-position = Vector2(52, -155)
+position = Vector2(128, -192)
+short = true
+
+[node name="KeyBullet8" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(96, -192)
 dark = true
 short = true
 
 [node name="KeyBullet9" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
-position = Vector2(30, -155)
-short = true
-
-[node name="KeyBullet8" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
-position = Vector2(128, -32)
-scale = Vector2(1e-05, 1e-05)
+position = Vector2(152, -216)
 short = true
 
 [node name="KeyBullet10" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
-position = Vector2(100, -155)
+position = Vector2(120, -216)
 short = true
 
 [node name="KeyBullet11" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
-position = Vector2(126, -196)
-dark = true
+position = Vector2(216, -216)
 
 [node name="KeyBullet12" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
-position = Vector2(100, -196)
+position = Vector2(184, -216)
+short = true
 
 [node name="KeyBullet13" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
-position = Vector2(209, -260)
+position = Vector2(144, -264)
+short = true
 
 [node name="KeyBullet14" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
-position = Vector2(183, -260)
-dark = true
+position = Vector2(120, -264)
 
 [node name="KeyBullet15" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
-position = Vector2(117, -260)
+position = Vector2(216, -264)
+
+[node name="KeyBullet16" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(180, -264)
+short = true
+
+[node name="KeyBullet17" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(144, -320)
+short = true
+
+[node name="KeyBullet18" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(120, -320)
+
+[node name="KeyBullet19" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(216, -320)
+
+[node name="KeyBullet20" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(180, -320)
+short = true
+
+[node name="KeyBullet21" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(152, -376)
+short = true
+
+[node name="KeyBullet22" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(120, -376)
+
+[node name="KeyBullet23" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(216, -376)
+
+[node name="KeyBullet24" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(187, -376)
+short = true
+
+[node name="KeyBullet25" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(162, -432)
+short = true
+
+[node name="KeyBullet26" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(120, -432)
+
+[node name="KeyBullet27" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(216, -432)
+
+[node name="KeyBullet29" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(120, -300)
+short = true
+
+[node name="KeyBullet37" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(120, -241)
+short = true
+
+[node name="KeyBullet30" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(216, -300)
+short = true
+
+[node name="KeyBullet31" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(120, -356)
+dark = true
+short = true
+
+[node name="KeyBullet32" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(216, -356)
+dark = true
+short = true
+
+[node name="KeyBullet33" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(120, -412)
+short = true
+
+[node name="KeyBullet34" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(216, -412)
+short = true
+
+[node name="KeyBullet35" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(120, -468)
+short = true
+
+[node name="KeyBullet36" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(216, -468)
+short = true
+
+[node name="KeyBullet28" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(197, -432)
+short = true
+
+[node name="KeyBullet38" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(203, -546)
+
+[node name="KeyBullet39" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(163, -546)
+short = true
+
+[node name="KeyBullet40" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(187, -570)
+dark = true
+short = true
+
+[node name="KeyBullet41" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(155, -594)
+short = true
+
+[node name="KeyBullet42" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(123, -594)
+dark = true
+
+[node name="KeyBullet43" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(147, -618)
+dark = true
+short = true
+
+[node name="KeyBullet44" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(64, -688)
+short = true
+
+[node name="KeyBullet45" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(32, -688)
+short = true
+
+[node name="KeyBullet46" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(80, -704)
+dark = true
+short = true
+
+[node name="KeyBullet47" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(48, -704)
+short = true
+
+[node name="KeyBullet48" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(104, -736)
+short = true
+
+[node name="KeyBullet49" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(72, -736)
+short = true
+
+[node name="KeyBullet50" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(128, -760)
+short = true
+
+[node name="KeyBullet51" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(96, -760)
+dark = true
+short = true
+
+[node name="KeyBullet52" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(144, -864)
+short = true
+
+[node name="KeyBullet53" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(112, -864)
+short = true
+
+[node name="KeyBullet54" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(160, -880)
+dark = true
+short = true
+
+[node name="KeyBullet55" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(128, -880)
+short = true
+
+[node name="KeyBullet56" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(184, -912)
+short = true
+
+[node name="KeyBullet57" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(152, -912)
+short = true
+
+[node name="KeyBullet58" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(208, -936)
+short = true
+
+[node name="KeyBullet59" parent="PianoKeys/PianoPattern" instance=ExtResource("5_a44xy")]
+position = Vector2(176, -936)
+dark = true
+short = true
 
 [node name="Player" parent="." node_paths=PackedStringArray("health", "sprite", "dust", "coyote_timer") instance=ExtResource("4_7csfv")]
 position = Vector2(129, 126)

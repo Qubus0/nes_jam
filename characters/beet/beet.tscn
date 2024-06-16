@@ -1,38 +1,66 @@
-[gd_scene load_steps=10 format=3 uid="uid://vbtwg3dccnv2"]
+[gd_scene load_steps=14 format=3 uid="uid://vbtwg3dccnv2"]
 
 [ext_resource type="Script" path="res://characters/beet/beet.gd" id="1_c4stk"]
-[ext_resource type="Texture2D" uid="uid://ggvjig4eivxw" path="res://characters/beet/beet_hoven.png" id="1_ta73l"]
+[ext_resource type="Texture2D" uid="uid://c28cbt23yxfjl" path="res://characters/beet/beethoven_the_first.png" id="3_851b8"]
 [ext_resource type="Script" path="res://characters/hurtbox.gd" id="3_tw618"]
 [ext_resource type="Script" path="res://characters/health.gd" id="4_t7shv"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k4ch6"]
-atlas = ExtResource("1_ta73l")
+[sub_resource type="AtlasTexture" id="AtlasTexture_hrwgf"]
+atlas = ExtResource("3_851b8")
 region = Rect2(0, 0, 116, 53)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wfs4x"]
-atlas = ExtResource("1_ta73l")
+[sub_resource type="AtlasTexture" id="AtlasTexture_753ys"]
+atlas = ExtResource("3_851b8")
 region = Rect2(116, 0, 116, 53)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3k3di"]
-atlas = ExtResource("1_ta73l")
+[sub_resource type="AtlasTexture" id="AtlasTexture_vfg21"]
+atlas = ExtResource("3_851b8")
 region = Rect2(232, 0, 116, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wrbbf"]
+atlas = ExtResource("3_851b8")
+region = Rect2(0, 53, 116, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pf8le"]
+atlas = ExtResource("3_851b8")
+region = Rect2(116, 53, 116, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j10ll"]
+atlas = ExtResource("3_851b8")
+region = Rect2(232, 53, 116, 53)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ikcpb"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_k4ch6")
+"texture": SubResource("AtlasTexture_hrwgf")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wfs4x")
+"texture": SubResource("AtlasTexture_753ys")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3k3di")
+"texture": SubResource("AtlasTexture_vfg21")
 }],
 "loop": true,
 "name": &"default",
 "speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wrbbf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pf8le")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j10ll")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 8.0
 }]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8437u"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fhkyb"]
 height = 56.0
@@ -42,6 +70,11 @@ script = ExtResource("1_c4stk")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ikcpb")
+animation = &"hit"
+autoplay = "default"
+
+[node name="HandsL" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_8437u")
 autoplay = "default"
 
 [node name="Health" type="Node" parent="."]
@@ -59,5 +92,6 @@ position = Vector2(0, -8)
 rotation = 1.57079
 shape = SubResource("CapsuleShape2D_fhkyb")
 
+[connection signal="animation_finished" from="Sprite" to="." method="_on_sprite_animation_finished"]
 [connection signal="depleted" from="Health" to="." method="_on_health_depleted"]
 [connection signal="hurt" from="Health" to="." method="_on_health_hurt"]
