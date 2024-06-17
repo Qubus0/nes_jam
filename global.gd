@@ -46,7 +46,7 @@ func _ready() -> void:
 	transition_finished.emit()
 
 
-func _unhandled_key_input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	#if get_tree().paused:
 		#if (event as InputEventKey).keycode
 		#InputMap.add_action("attack")

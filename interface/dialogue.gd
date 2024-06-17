@@ -11,7 +11,7 @@ func _ready() -> void:
 	conversation.start()
 
 
-func _unhandled_key_input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_key_pressed(KEY_Q) and Input.is_key_pressed(KEY_SHIFT):
 		Global.dialogue(current_tab +1)
 
