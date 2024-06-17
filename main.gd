@@ -18,7 +18,7 @@ func _on_lemon_pressed() -> void:
 
 
 func _on_beet_pressed() -> void:
-	Global.dialogue(Global.conversation.BEET_ARENA_START)
+	Global.dialogue(Global.conversation.BEET_ARENA_STARTPLAYER)
 
 
 func _on_cherry_pressed() -> void:

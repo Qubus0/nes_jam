@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://lj5n40c4ms62"]
+[gd_scene load_steps=30 format=3 uid="uid://lj5n40c4ms62"]
 
 [ext_resource type="Theme" uid="uid://ckpsaqo81fdqi" path="res://interface/default.theme" id="1_0thqt"]
 [ext_resource type="Texture2D" uid="uid://be2ucgbhugr6f" path="res://characters/beet/beethoven_portrait_dark.png" id="1_ryg2d"]
@@ -26,6 +26,8 @@
 [ext_resource type="PackedScene" uid="uid://d25fo6tavx8fs" path="res://characters/beet/beet_arena.tscn" id="20_calua"]
 [ext_resource type="Texture2D" uid="uid://0sspnyw2ovif" path="res://characters/cherry/cherry_portrait_before.png" id="21_k6qhj"]
 [ext_resource type="PackedScene" uid="uid://dogfroq83k01i" path="res://main.tscn" id="22_p5isu"]
+[ext_resource type="Texture2D" uid="uid://dvx1gaok37orc" path="res://characters/beet/beethoven_arena_band_together.png" id="24_8bhq0"]
+[ext_resource type="PackedScene" uid="uid://7xkvc1kfykfe" path="res://characters/beet/band_intro.tscn" id="24_8n14v"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_khq5t"]
 playback_mode = 1
@@ -41,7 +43,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_0thqt")
-current_tab = 4
+current_tab = 12
 tabs_visible = false
 script = ExtResource("1_w2h7l")
 
@@ -401,6 +403,7 @@ visible_characters_behavior = 1
 metadata/_tab_index = 2
 
 [node name="LemonArenaStart" type="Control" parent="."]
+visible = false
 layout_mode = 2
 script = ExtResource("3_ufgve")
 destination_scene = ExtResource("12_13ahs")
@@ -1039,10 +1042,9 @@ visible_characters_behavior = 1
 metadata/_tab_index = 1
 
 [node name="BeetArenaStartPlayer" type="Control" parent="."]
-visible = false
 layout_mode = 2
 script = ExtResource("3_ufgve")
-destination_conversation = 13
+destination_scene = ExtResource("24_8n14v")
 metadata/_tab_index = 12
 
 [node name="Sound" type="AudioStreamPlayer" parent="BeetArenaStartPlayer"]
@@ -1056,7 +1058,7 @@ bus = &"Sound"
 layout_mode = 2
 offset_right = 256.0
 offset_bottom = 240.0
-texture = ExtResource("10_cvrwj")
+texture = ExtResource("24_8bhq0")
 stretch_mode = 5
 
 [node name="Arrow" type="TextureRect" parent="BeetArenaStartPlayer"]
@@ -1092,16 +1094,24 @@ theme_override_constants/margin_bottom = 8
 
 [node name="Texts" type="TabContainer" parent="BeetArenaStartPlayer/Margin"]
 layout_mode = 2
-current_tab = 0
+current_tab = 1
 tabs_visible = false
 
 [node name="Text" type="RichTextLabel" parent="BeetArenaStartPlayer/Margin/Texts"]
+visible = false
 layout_mode = 2
 bbcode_enabled = true
 text = "Now, with the band assembled,
-let's go!"
+let's have some fun!"
 visible_characters_behavior = 1
 metadata/_tab_index = 0
+
+[node name="Text2" type="RichTextLabel" parent="BeetArenaStartPlayer/Margin/Texts"]
+layout_mode = 2
+bbcode_enabled = true
+text = "Welcome to our grand debut everyone!"
+visible_characters_behavior = 1
+metadata/_tab_index = 1
 
 [node name="BeetArenaStart" type="Control" parent="."]
 visible = false
@@ -1147,7 +1157,7 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -83.0
+offset_top = -81.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/margin_left = 8
@@ -1157,32 +1167,33 @@ theme_override_constants/margin_bottom = 8
 
 [node name="Texts" type="TabContainer" parent="BeetArenaStart/Margin"]
 layout_mode = 2
-current_tab = 2
+current_tab = 0
 tabs_visible = false
 
 [node name="Text" type="RichTextLabel" parent="BeetArenaStart/Margin/Texts"]
-visible = false
 layout_mode = 2
 theme_override_colors/default_color = Color(0.847059, 0, 0.8, 1)
 bbcode_enabled = true
-text = "You [wave amp=10.0 freq=4.0 connected=1]dare[/wave]
-show
-your face here again?"
+text = "
+[wave amp=10.0 freq=30.0 connected=1]WHAT ARE
+YOU DOING
+IN MY HALL?![/wave]"
 visible_characters_behavior = 1
 metadata/_tab_index = 0
 
-[node name="Text2" type="RichTextLabel" parent="BeetArenaStart/Margin/Texts"]
+[node name="Text4" type="RichTextLabel" parent="BeetArenaStart/Margin/Texts"]
 visible = false
 layout_mode = 2
 theme_override_colors/default_color = Color(0.847059, 0, 0.8, 1)
 bbcode_enabled = true
-text = "Is this
-a game
-to you?"
+text = "
+You [wave amp=10.0 freq=4.0 connected=1]dare[/wave]
+show your face here again?"
 visible_characters_behavior = 1
 metadata/_tab_index = 1
 
 [node name="Text3" type="RichTextLabel" parent="BeetArenaStart/Margin/Texts"]
+visible = false
 layout_mode = 2
 theme_override_colors/default_color = Color(0.847059, 0, 0.8, 1)
 bbcode_enabled = true

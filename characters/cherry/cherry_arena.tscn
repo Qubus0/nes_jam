@@ -1,8 +1,8 @@
-[gd_scene load_steps=24 format=3 uid="uid://d3081edce6eg2"]
+[gd_scene load_steps=24 format=3 uid="uid://bnfu6rxhk8u4k"]
 
 [ext_resource type="PackedScene" uid="uid://delvr3p2o5moi" path="res://rhythm/tracks/cherry/cherry_arena.tscn" id="1_cs6js"]
 [ext_resource type="Script" path="res://characters/cherry/cherry_arena.gd" id="1_rhs5d"]
-[ext_resource type="PackedScene" uid="uid://b6nnedcuijkdh" path="res://interface/health_bar.tscn" id="3_msxhs"]
+[ext_resource type="PackedScene" path="res://interface/health_bar.tscn" id="3_msxhs"]
 [ext_resource type="PackedScene" uid="uid://7b4uamk1ww8p" path="res://rhythm/rhythm.tscn" id="4_7je6e"]
 [ext_resource type="FontFile" uid="uid://dr8jhk3d5ka4x" path="res://interface/font/the-video-arcade-game-font/the-video-arcade-game-font.ttf" id="5_d6fsk"]
 [ext_resource type="Texture2D" uid="uid://ccfkbpe6r2nw6" path="res://characters/cherry/cherry_arena.png" id="5_nn0ek"]
@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b5b0hbkbjmgui" path="res://characters/cherry/arena_floor_2.png" id="7_noqmg"]
 [ext_resource type="Texture2D" uid="uid://cemla3d3kxji5" path="res://characters/cherry/arena_floor_3.png" id="8_81ufh"]
 [ext_resource type="Texture2D" uid="uid://b8htwxffnu6wr" path="res://characters/cherry/arena_floor_4.png" id="9_oswkt"]
-[ext_resource type="PackedScene" uid="uid://nedvqlhxl1s5" path="res://characters/cherry/cherry.tscn" id="10_ogq7q"]
+[ext_resource type="PackedScene" path="res://characters/cherry/cherry.tscn" id="10_ogq7q"]
 
 [sub_resource type="Curve2D" id="Curve2D_kykmy"]
 _data = {
