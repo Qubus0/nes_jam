@@ -218,16 +218,18 @@ autoplay = "default"
 frame_progress = 0.482209
 
 [node name="Piano" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(0, 17)
 sprite_frames = SubResource("SpriteFrames_h0xap")
 autoplay = "default"
-frame_progress = 0.164123
+frame_progress = 0.485563
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("4_t7shv")
 max_health = 300
 
 [node name="Path2D" type="Path2D" parent="."]
+visible = false
 position = Vector2(7, 2)
 curve = SubResource("Curve2D_4h3x5")
 
@@ -238,9 +240,10 @@ position = Vector2(-48, 9)
 [node name="Hands" type="AnimatedSprite2D" parent="Path2D/Left"]
 sprite_frames = SubResource("SpriteFrames_8437u")
 autoplay = "default"
-frame_progress = 0.77173
+frame_progress = 0.0931708
 
 [node name="Path2D2" type="Path2D" parent="."]
+visible = false
 position = Vector2(63, 2)
 curve = SubResource("Curve2D_4h3x5")
 
@@ -251,7 +254,7 @@ position = Vector2(-48, 9)
 [node name="Hands" type="AnimatedSprite2D" parent="Path2D2/Right"]
 sprite_frames = SubResource("SpriteFrames_2tab7")
 autoplay = "default"
-frame_progress = 0.947644
+frame_progress = 0.269085
 
 [node name="Hurtbox" type="Area2D" parent="." node_paths=PackedStringArray("health")]
 collision_layer = 0
@@ -264,7 +267,13 @@ position = Vector2(0, -8)
 rotation = 1.57079
 shape = SubResource("CapsuleShape2D_fhkyb")
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.2
+one_shot = true
+autostart = true
+
 [connection signal="animation_finished" from="Sprite" to="." method="_on_sprite_animation_finished"]
 [connection signal="animation_finished" from="Piano" to="." method="_on_sprite_animation_finished"]
 [connection signal="depleted" from="Health" to="." method="_on_health_depleted"]
 [connection signal="hurt" from="Health" to="." method="_on_health_hurt"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

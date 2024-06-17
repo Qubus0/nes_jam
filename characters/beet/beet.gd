@@ -23,3 +23,9 @@ func _on_sprite_animation_finished() -> void:
 func _process(delta: float) -> void:
 	%Left.progress += 20 * delta
 	%Right.progress += 20 * delta
+
+
+func _on_timer_timeout() -> void:
+	$Path2D.show()
+	$Path2D2.show()
+	$Piano.show()
