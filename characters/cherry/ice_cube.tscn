@@ -1,0 +1,52 @@
+[gd_scene load_steps=9 format=3 uid="uid://dnln1v2hdsfbj"]
+
+[ext_resource type="Script" path="res://characters/cherry/ice_cube.gd" id="1_kbv7o"]
+[ext_resource type="Texture2D" uid="uid://wfsb3pam5aof" path="res://characters/cherry/ice_cube.png" id="1_uuvod"]
+[ext_resource type="Texture2D" uid="uid://c2o5nvato2joh" path="res://characters/cherry/ice_cube_tall.png" id="2_sj2ei"]
+[ext_resource type="Script" path="res://characters/hitbox.gd" id="3_ivc18"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7bslv"]
+atlas = ExtResource("1_uuvod")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ghitv"]
+atlas = ExtResource("2_sj2ei")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4iq3e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7bslv")
+}],
+"loop": true,
+"name": &"small",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ghitv")
+}],
+"loop": true,
+"name": &"tall",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ahu0c"]
+size = Vector2(16, 32)
+
+[node name="IceCube" type="PathFollow2D"]
+script = ExtResource("1_kbv7o")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4iq3e")
+animation = &"tall"
+autoplay = "tall"
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 64
+script = ExtResource("3_ivc18")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("RectangleShape2D_ahu0c")

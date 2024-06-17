@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://d3081edce6eg2"]
+[gd_scene load_steps=24 format=3 uid="uid://d3081edce6eg2"]
 
 [ext_resource type="PackedScene" uid="uid://delvr3p2o5moi" path="res://rhythm/tracks/cherry/cherry_arena.tscn" id="1_cs6js"]
 [ext_resource type="Script" path="res://characters/cherry/cherry_arena.gd" id="1_rhs5d"]
@@ -39,6 +39,18 @@ size = Vector2(190, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sxgv7"]
 size = Vector2(158, 20)
+
+[sub_resource type="Curve2D" id="Curve2D_4chxf"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -75, 128, 0, 0, 0, 0, 215, 128)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_owevx"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 270, 128, 0, 0, 0, 0, -20, 128)
+}
+point_count = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vayqy"]
 size = Vector2(256, 34)
@@ -152,6 +164,13 @@ position = Vector2(128, 152)
 shape = SubResource("RectangleShape2D_sxgv7")
 
 [node name="Cherry" parent="." instance=ExtResource("10_ogq7q")]
+
+[node name="TempAtt1" type="Path2D" parent="."]
+position = Vector2(57, 0)
+curve = SubResource("Curve2D_4chxf")
+
+[node name="TempAtt2" type="Path2D" parent="."]
+curve = SubResource("Curve2D_owevx")
 
 [node name="Player" parent="." node_paths=PackedStringArray("health", "sprite", "dust", "coyote_timer") instance=ExtResource("7_0a54k")]
 position = Vector2(129, 134)

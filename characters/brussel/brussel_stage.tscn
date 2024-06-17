@@ -608,20 +608,6 @@ position = Vector2(0, 119)
 position = Vector2(0, 122)
 shape = SubResource("WorldBoundaryShape2D_uxt3q")
 
-[node name="Player" parent="." node_paths=PackedStringArray("health", "sprite", "dust", "coyote_timer") instance=ExtResource("4_042ug")]
-position = Vector2(119, 136)
-wall_jump_enabled = true
-health = NodePath("Health")
-sprite = NodePath("Sprite")
-dust = NodePath("Dust")
-coyote_timer = NodePath("CoyoteTimer")
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(9, 0)
-limit_left = 0
-limit_right = 256
-limit_bottom = 240
-
 [node name="PhaseTransition" type="Area2D" parent="."]
 position = Vector2(167, -295)
 collision_mask = 2
@@ -635,6 +621,20 @@ shape = SubResource("RectangleShape2D_iywv2")
 position = Vector2(120, -152)
 sprite_frames = SubResource("SpriteFrames_4n75q")
 autoplay = "default"
+
+[node name="Player" parent="." node_paths=PackedStringArray("health", "sprite", "dust", "coyote_timer") instance=ExtResource("4_042ug")]
+position = Vector2(119, 136)
+wall_jump_enabled = true
+health = NodePath("Health")
+sprite = NodePath("Sprite")
+dust = NodePath("Dust")
+coyote_timer = NodePath("CoyoteTimer")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(9, 0)
+limit_left = 0
+limit_right = 256
+limit_bottom = 240
 
 [connection signal="body_entered" from="PhaseTransition" to="." method="_on_phase_transition_body_entered"]
 [connection signal="body_entered" from="PhaseTransition" to="PhaseTransition" method="_on_body_entered"]

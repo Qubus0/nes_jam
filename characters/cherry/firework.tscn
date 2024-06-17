@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://characters/cherry/firework.gd" id="1_clrns"]
 [ext_resource type="Texture2D" uid="uid://dkm702y3ubvuc" path="res://characters/cherry/firework.png" id="1_li6p7"]
-[ext_resource type="Texture2D" uid="uid://cvfx6mko3706t" path="res://characters/cherry/firework_explosion.png" id="2_p3gne"]
+[ext_resource type="Texture2D" uid="uid://bytd58iw1j233" path="res://characters/cherry/firework_explosion.png" id="2_p3gne"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vvado"]
 atlas = ExtResource("1_li6p7")
