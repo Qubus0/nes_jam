@@ -18,3 +18,8 @@ func _on_health_depleted() -> void:
 
 func _on_sprite_animation_finished() -> void:
 	$Sprite.play("default")
+
+
+func _process(delta: float) -> void:
+	%Left.progress += 20 * delta
+	%Right.progress += 20 * delta

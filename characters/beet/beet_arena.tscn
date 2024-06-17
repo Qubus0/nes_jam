@@ -92,9 +92,6 @@ position = Vector2(0, 12)
 texture = ExtResource("7_q4qpp")
 centered = false
 
-[node name="Beet" parent="." instance=ExtResource("3_a4f4u")]
-position = Vector2(131, 32)
-
 [node name="PianoKeys" type="Path2D" parent="."]
 self_modulate = Color(1, 1, 1, 0.3)
 curve = SubResource("Curve2D_y5ohi")
@@ -481,6 +478,9 @@ short = true
 position = Vector2(176, -936)
 dark = true
 short = true
+
+[node name="Beet" parent="." instance=ExtResource("3_a4f4u")]
+position = Vector2(131, 32)
 
 [node name="Player" parent="." node_paths=PackedStringArray("health", "sprite", "dust", "coyote_timer") instance=ExtResource("4_7csfv")]
 position = Vector2(129, 126)

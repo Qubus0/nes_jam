@@ -1,9 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://vbtwg3dccnv2"]
+[gd_scene load_steps=34 format=3 uid="uid://vbtwg3dccnv2"]
 
 [ext_resource type="Script" path="res://characters/beet/beet.gd" id="1_c4stk"]
 [ext_resource type="Texture2D" uid="uid://c28cbt23yxfjl" path="res://characters/beet/beethoven_the_first.png" id="3_851b8"]
+[ext_resource type="Texture2D" uid="uid://d3fqfbk2meqdi" path="res://characters/beet/piano_play.png" id="3_soaxf"]
 [ext_resource type="Script" path="res://characters/hurtbox.gd" id="3_tw618"]
+[ext_resource type="Texture2D" uid="uid://bo0vqenf2r0wk" path="res://characters/beet/beethoven_hand1.png" id="4_0diuk"]
 [ext_resource type="Script" path="res://characters/health.gd" id="4_t7shv"]
+[ext_resource type="Texture2D" uid="uid://b1o8uft7vdh0h" path="res://characters/beet/beethoven_hand2.png" id="5_0ejfq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hrwgf"]
 atlas = ExtResource("3_851b8")
@@ -60,7 +63,148 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ef5ig"]
+atlas = ExtResource("3_soaxf")
+region = Rect2(0, 0, 116, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p14b1"]
+atlas = ExtResource("3_soaxf")
+region = Rect2(116, 0, 116, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wwibt"]
+atlas = ExtResource("3_soaxf")
+region = Rect2(232, 0, 116, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bx1il"]
+atlas = ExtResource("3_soaxf")
+region = Rect2(348, 0, 116, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w4e28"]
+atlas = ExtResource("3_soaxf")
+region = Rect2(464, 0, 116, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uq7nj"]
+atlas = ExtResource("3_soaxf")
+region = Rect2(580, 0, 116, 19)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h0xap"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ef5ig")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p14b1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wwibt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bx1il")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w4e28")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uq7nj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 16.0
+}]
+
+[sub_resource type="Curve2D" id="Curve2D_4h3x5"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -48, 9, 0, 0, 0, 0, -27, 9)
+}
+point_count = 2
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nfrew"]
+atlas = ExtResource("4_0diuk")
+region = Rect2(0, 0, 23, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfak7"]
+atlas = ExtResource("4_0diuk")
+region = Rect2(23, 0, 23, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2uk6r"]
+atlas = ExtResource("4_0diuk")
+region = Rect2(46, 0, 23, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3nxsn"]
+atlas = ExtResource("4_0diuk")
+region = Rect2(69, 0, 23, 14)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_8437u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nfrew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yfak7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2uk6r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3nxsn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2uk6r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3nxsn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yfak7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2uk6r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nfrew")
+}],
+"loop": true,
+"name": &"default",
+"speed": 16.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kynsq"]
+atlas = ExtResource("5_0ejfq")
+region = Rect2(0, 0, 26, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j40kw"]
+atlas = ExtResource("5_0ejfq")
+region = Rect2(26, 0, 26, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_esojd"]
+atlas = ExtResource("5_0ejfq")
+region = Rect2(52, 0, 26, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfwo7"]
+atlas = ExtResource("5_0ejfq")
+region = Rect2(78, 0, 26, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2tab7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kynsq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j40kw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_esojd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jfwo7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 16.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fhkyb"]
 height = 56.0
@@ -73,13 +217,41 @@ sprite_frames = SubResource("SpriteFrames_ikcpb")
 autoplay = "default"
 frame_progress = 0.482209
 
-[node name="HandsL" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_8437u")
+[node name="Piano" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 17)
+sprite_frames = SubResource("SpriteFrames_h0xap")
 autoplay = "default"
+frame_progress = 0.164123
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("4_t7shv")
 max_health = 300
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(7, 2)
+curve = SubResource("Curve2D_4h3x5")
+
+[node name="Left" type="PathFollow2D" parent="Path2D"]
+unique_name_in_owner = true
+position = Vector2(-48, 9)
+
+[node name="Hands" type="AnimatedSprite2D" parent="Path2D/Left"]
+sprite_frames = SubResource("SpriteFrames_8437u")
+autoplay = "default"
+frame_progress = 0.77173
+
+[node name="Path2D2" type="Path2D" parent="."]
+position = Vector2(63, 2)
+curve = SubResource("Curve2D_4h3x5")
+
+[node name="Right" type="PathFollow2D" parent="Path2D2"]
+unique_name_in_owner = true
+position = Vector2(-48, 9)
+
+[node name="Hands" type="AnimatedSprite2D" parent="Path2D2/Right"]
+sprite_frames = SubResource("SpriteFrames_2tab7")
+autoplay = "default"
+frame_progress = 0.947644
 
 [node name="Hurtbox" type="Area2D" parent="." node_paths=PackedStringArray("health")]
 collision_layer = 0
@@ -93,5 +265,6 @@ rotation = 1.57079
 shape = SubResource("CapsuleShape2D_fhkyb")
 
 [connection signal="animation_finished" from="Sprite" to="." method="_on_sprite_animation_finished"]
+[connection signal="animation_finished" from="Piano" to="." method="_on_sprite_animation_finished"]
 [connection signal="depleted" from="Health" to="." method="_on_health_depleted"]
 [connection signal="hurt" from="Health" to="." method="_on_health_hurt"]
