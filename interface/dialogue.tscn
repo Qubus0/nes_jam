@@ -22,7 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://bdcw5mj2olcjs" path="res://characters/beet/beethoven_portrait.png" id="15_2qref"]
 [ext_resource type="PackedScene" uid="uid://cuxrphhysvlk0" path="res://characters/brussel/brussel_stage_2.tscn" id="16_8sk1n"]
 [ext_resource type="PackedScene" uid="uid://b2pp7o1d0iaij" path="res://characters/cherry/cherry_stage.tscn" id="17_1vtty"]
-[ext_resource type="PackedScene" uid="uid://d3081edce6eg2" path="res://characters/cherry/cherry_arena.tscn" id="18_u72ys"]
+[ext_resource type="PackedScene" uid="uid://bnfu6rxhk8u4k" path="res://characters/cherry/cherry_arena.tscn" id="18_u72ys"]
 [ext_resource type="PackedScene" uid="uid://d25fo6tavx8fs" path="res://characters/beet/beet_arena.tscn" id="20_calua"]
 [ext_resource type="Texture2D" uid="uid://0sspnyw2ovif" path="res://characters/cherry/cherry_portrait_before.png" id="21_k6qhj"]
 [ext_resource type="PackedScene" uid="uid://dogfroq83k01i" path="res://main.tscn" id="22_p5isu"]

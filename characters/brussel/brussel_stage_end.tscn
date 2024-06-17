@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://7i0fl5t52aef"]
+
+[ext_resource type="Texture2D" uid="uid://bo5o7q3o8gckm" path="res://characters/brussel/brussel_inc_top.png" id="1_aynkm"]
+[ext_resource type="Script" path="res://characters/brussel/brussel_stage_end.gd" id="1_f25si"]
+[ext_resource type="PackedScene" uid="uid://c8cq6yojoo4gy" path="res://characters/player/player.tscn" id="2_tstbx"]
+[ext_resource type="AudioStream" uid="uid://bajgumnh2ho3x" path="res://characters/brussel/brussel_stage_theme_2.mp3" id="4_wl6xl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vh73a"]
+size = Vector2(256, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u63qg"]
+size = Vector2(7, 172)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_smmpi"]
+
+[node name="BrusselStageEnd" type="Node2D"]
+script = ExtResource("1_f25si")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_aynkm")
+centered = false
+
+[node name="Player" parent="." node_paths=PackedStringArray("health", "sprite", "dust", "coyote_timer") instance=ExtResource("2_tstbx")]
+position = Vector2(200, 155)
+health = NodePath("Health")
+sprite = NodePath("Sprite")
+dust = NodePath("Dust")
+coyote_timer = NodePath("CoyoteTimer")
+
+[node name="Room" type="StaticBody2D" parent="."]
+position = Vector2(128, 168)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Room"]
+position = Vector2(32, -60)
+shape = SubResource("RectangleShape2D_vh73a")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Room"]
+position = Vector2(-32.5, -2)
+shape = SubResource("RectangleShape2D_u63qg")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Room"]
+position = Vector2(129.5, -2)
+shape = SubResource("RectangleShape2D_u63qg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room"]
+position = Vector2(32, 34)
+shape = SubResource("RectangleShape2D_vh73a")
+
+[node name="Goal" type="Area2D" parent="."]
+position = Vector2(117, 170)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
+shape = SubResource("CircleShape2D_smmpi")
+
+[node name="BrusselStage3BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_wl6xl")
+autoplay = true
+
+[connection signal="body_entered" from="Goal" to="." method="_on_goal_body_entered"]

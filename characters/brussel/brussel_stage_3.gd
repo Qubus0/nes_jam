@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var kick_drum: AnimatedSprite2D = $Background/KickDrum
 var drum_beat = true
+const BRUSSEL_STAGE_END = preload("res://characters/brussel/brussel_stage_end.tscn")
 
 var speed = 20
 var max_speed = 30
@@ -20,4 +21,4 @@ func _process(delta: float) -> void:
 		drum_beat = true
 
 func _on_level_end_body_entered(body: Node2D) -> void:
-	Global.dialogue(Global.conversation.BRUSSEL_STAGE3_END)
+	get_tree().change_scene_to_packed(BRUSSEL_STAGE_END)
