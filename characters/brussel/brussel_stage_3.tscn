@@ -1,19 +1,19 @@
 [gd_scene load_steps=40 format=4 uid="uid://cctw4chjjl4xl"]
 
 [ext_resource type="Script" path="res://characters/brussel/brussel_stage_3.gd" id="1_6v0a2"]
-[ext_resource type="PackedScene" path="res://interface/health_bar.tscn" id="1_tiowv"]
+[ext_resource type="PackedScene" uid="uid://b6nnedcuijkdh" path="res://interface/health_bar.tscn" id="1_tiowv"]
 [ext_resource type="Texture2D" uid="uid://j3r8j6vk83u3" path="res://characters/brussel/brussel_industries.png" id="4_8dk40"]
 [ext_resource type="Texture2D" uid="uid://dvkwqxljdvldy" path="res://characters/brussel/brussel_hobbs.png" id="4_sw4y7"]
 [ext_resource type="AudioStream" uid="uid://bajgumnh2ho3x" path="res://characters/brussel/brussel_stage_theme_2.mp3" id="4_xh2x2"]
 [ext_resource type="Texture2D" uid="uid://bqnfkgr04yo5t" path="res://characters/brussel/kick_drum.png" id="5_13j3h"]
 [ext_resource type="Script" path="res://characters/brussel/brussel_block_fast.gd" id="5_fnl6y"]
-[ext_resource type="PackedScene" path="res://characters/lemon/killzone.tscn" id="5_sjgcb"]
+[ext_resource type="PackedScene" uid="uid://sm8ieqfo1brp" path="res://characters/lemon/killzone.tscn" id="5_sjgcb"]
 [ext_resource type="Texture2D" uid="uid://c3g3kltxd3nt5" path="res://characters/brussel/brussel_block.png" id="6_fsb1q"]
 [ext_resource type="PackedScene" uid="uid://c8cq6yojoo4gy" path="res://characters/player/player.tscn" id="6_miwi1"]
 [ext_resource type="FontFile" uid="uid://dr8jhk3d5ka4x" path="res://interface/font/the-video-arcade-game-font/the-video-arcade-game-font.ttf" id="6_v6wfb"]
 [ext_resource type="Texture2D" uid="uid://bcg5sxoxwswed" path="res://characters/brussel/brussel_block_oneway.png" id="7_awb1t"]
-[ext_resource type="PackedScene" path="res://characters/brussel/electric_gate.tscn" id="10_si10l"]
-[ext_resource type="PackedScene" path="res://characters/brussel/coil_wall.tscn" id="11_7chhu"]
+[ext_resource type="PackedScene" uid="uid://pmvtjmod8nao" path="res://characters/brussel/electric_gate.tscn" id="10_si10l"]
+[ext_resource type="PackedScene" uid="uid://dvw431s4mio22" path="res://characters/brussel/coil_wall.tscn" id="11_7chhu"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_mfjvk"]
 font = ExtResource("6_v6wfb")
