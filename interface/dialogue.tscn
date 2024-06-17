@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://lj5n40c4ms62"]
+[gd_scene load_steps=27 format=3 uid="uid://lj5n40c4ms62"]
 
 [ext_resource type="Theme" uid="uid://ckpsaqo81fdqi" path="res://interface/default.theme" id="1_0thqt"]
 [ext_resource type="Texture2D" uid="uid://be2ucgbhugr6f" path="res://characters/beet/beethoven_portrait_dark.png" id="1_ryg2d"]
@@ -17,12 +17,13 @@
 [ext_resource type="PackedScene" uid="uid://dhuqdrg0d1acn" path="res://characters/lemon/lemon_arena.tscn" id="12_13ahs"]
 [ext_resource type="Texture2D" uid="uid://bwb1wi3yx3em4" path="res://characters/cherry/cherry_portrait.png" id="12_aid35"]
 [ext_resource type="Texture2D" uid="uid://dofloewucyhnt" path="res://characters/brussel/brussel_portrait_smile.png" id="13_nervb"]
-[ext_resource type="PackedScene" uid="uid://c6k4dlalflm7y" path="res://characters/brussel/brussel_stage.tscn" id="14_f4oxk"]
+[ext_resource type="PackedScene" uid="uid://c6k4dlalflm7y" path="res://characters/brussel/brussel_stage.tscn" id="14_f5668"]
 [ext_resource type="Texture2D" uid="uid://bdcw5mj2olcjs" path="res://characters/beet/beethoven_portrait.png" id="15_2qref"]
-[ext_resource type="PackedScene" uid="uid://cuxrphhysvlk0" path="res://characters/brussel/brussel_stage_2.tscn" id="16_bvo7s"]
+[ext_resource type="PackedScene" uid="uid://cuxrphhysvlk0" path="res://characters/brussel/brussel_stage_2.tscn" id="16_8sk1n"]
 [ext_resource type="PackedScene" uid="uid://b2pp7o1d0iaij" path="res://characters/cherry/cherry_stage.tscn" id="17_1vtty"]
-[ext_resource type="PackedScene" uid="uid://d3081edce6eg2" path="res://characters/cherry/cherry_arena.tscn" id="18_u72ys"]
+[ext_resource type="PackedScene" uid="uid://bnfu6rxhk8u4k" path="res://characters/cherry/cherry_arena.tscn" id="18_u72ys"]
 [ext_resource type="PackedScene" uid="uid://d25fo6tavx8fs" path="res://characters/beet/beet_arena.tscn" id="20_calua"]
+[ext_resource type="Texture2D" uid="uid://0sspnyw2ovif" path="res://characters/cherry/cherry_portrait_before.png" id="21_k6qhj"]
 [ext_resource type="PackedScene" uid="uid://dogfroq83k01i" path="res://main.tscn" id="22_p5isu"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_khq5t"]
@@ -39,7 +40,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_0thqt")
-current_tab = 14
+current_tab = 10
 tabs_visible = false
 script = ExtResource("1_w2h7l")
 
@@ -451,14 +452,13 @@ theme_override_constants/margin_bottom = 8
 
 [node name="Texts" type="TabContainer" parent="LemonArenaStart/Margin"]
 layout_mode = 2
-current_tab = 2
+current_tab = 0
 tabs_visible = false
 
 [node name="Text" type="RichTextLabel" parent="LemonArenaStart/Margin/Texts"]
-visible = false
 layout_mode = 2
 bbcode_enabled = true
-text = "Ahoi there mate!"
+text = "Ahoy there mate!"
 visible_characters_behavior = 1
 metadata/_tab_index = 0
 
@@ -471,6 +471,7 @@ visible_characters_behavior = 1
 metadata/_tab_index = 1
 
 [node name="Text3" type="RichTextLabel" parent="LemonArenaStart/Margin/Texts"]
+visible = false
 layout_mode = 2
 bbcode_enabled = true
 text = "What are you looking for? Let's jam together!"
@@ -563,7 +564,7 @@ metadata/_tab_index = 2
 visible = false
 layout_mode = 2
 script = ExtResource("3_ufgve")
-destination_scene = ExtResource("14_f4oxk")
+destination_scene = ExtResource("14_f5668")
 metadata/_tab_index = 6
 
 [node name="Sound" type="AudioStreamPlayer" parent="BrusselStage1Start"]
@@ -652,7 +653,7 @@ metadata/_tab_index = 3
 visible = false
 layout_mode = 2
 script = ExtResource("3_ufgve")
-destination_scene = ExtResource("16_bvo7s")
+destination_scene = ExtResource("16_8sk1n")
 metadata/_tab_index = 7
 
 [node name="Sound" type="AudioStreamPlayer" parent="BrusselStage2Start"]
@@ -880,7 +881,6 @@ visible_characters_behavior = 1
 metadata/_tab_index = 2
 
 [node name="CherryArenaStart" type="Control" parent="."]
-visible = false
 layout_mode = 2
 script = ExtResource("3_ufgve")
 destination_scene = ExtResource("18_u72ys")
@@ -897,7 +897,7 @@ bus = &"Sound"
 layout_mode = 2
 offset_right = 256.0
 offset_bottom = 240.0
-texture = ExtResource("12_aid35")
+texture = ExtResource("21_k6qhj")
 stretch_mode = 5
 
 [node name="Arrow" type="TextureRect" parent="CherryArenaStart"]
@@ -1186,6 +1186,7 @@ visible_characters_behavior = 1
 metadata/_tab_index = 2
 
 [node name="BeetArenaEnd" type="Control" parent="."]
+visible = false
 layout_mode = 2
 script = ExtResource("3_ufgve")
 destination_scene = ExtResource("22_p5isu")
