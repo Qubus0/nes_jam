@@ -40,9 +40,8 @@ func _on_rhythm_beat_hit(accuracy: int) -> void:
 
 func _on_beet_defeated() -> void:
 	$Beet.queue_free()
-	%Win.show()
 	get_tree().paused = true
-	await get_tree().create_timer(2).timeout
+	await get_tree().create_timer(1).timeout
 	get_tree().paused = false
-	Global.change_scene_to_file("res://main.tscn")
+	Global.dialogue(Global.conversation.BEET_ARENA_END)
 

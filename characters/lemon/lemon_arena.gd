@@ -75,7 +75,8 @@ func _on_lemon_defeated() -> void:
 	can_shoot = false
 	await get_tree().create_timer(2).timeout
 	get_tree().paused = false
-	Global.change_scene_to_file("res://main.tscn")
+	Global.dialogue(Global.conversation.LEMON_ARENA_END)
+	#Global.change_scene_to_file("res://main.tscn")
 
 func _on_sprite_frame_changed() -> void:
 	if lemnote_sprite.frame == 5:

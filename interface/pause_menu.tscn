@@ -90,7 +90,7 @@ stretch_mode = 5
 [node name="Menu" type="Button" parent="PanelContainer/BoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Main Menu"
+text = "Level Select"
 flat = true
 
 [node name="Restart" type="Button" parent="PanelContainer/BoxContainer"]

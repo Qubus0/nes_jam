@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://lj5n40c4ms62"]
+[gd_scene load_steps=24 format=3 uid="uid://lj5n40c4ms62"]
 
 [ext_resource type="Theme" uid="uid://ckpsaqo81fdqi" path="res://interface/default.theme" id="1_0thqt"]
 [ext_resource type="Texture2D" uid="uid://be2ucgbhugr6f" path="res://characters/beet/beethoven_portrait_dark.png" id="1_ryg2d"]
@@ -7,15 +7,21 @@
 [ext_resource type="PackedScene" uid="uid://dkw3h5c4m1m83" path="res://characters/beet/tutorial_beet_arena.tscn" id="4_77x4h"]
 [ext_resource type="Texture2D" uid="uid://cjvlgpo4qskjw" path="res://interface/forward_arrow.png" id="4_ilorp"]
 [ext_resource type="AudioStream" uid="uid://bxvrcnwb5yyqk" path="res://characters/beet/voice2.wav" id="4_vp62k"]
-[ext_resource type="PackedScene" uid="uid://v0c6se8o27e1" path="res://characters/lemon/lemon_stage.tscn" id="8_0e4db"]
+[ext_resource type="Texture2D" uid="uid://cae0v3a2qe51k" path="res://characters/beet/beethoven_portrait_hand.png" id="9_pn8vq"]
 [ext_resource type="Texture2D" uid="uid://csh083s6ii7ty" path="res://characters/beet/beethoven_portrait_covering_ears.png" id="9_vsync"]
 [ext_resource type="Texture2D" uid="uid://ditgljhuhu1ud" path="res://characters/player/player_portrait.png" id="10_cvrwj"]
 [ext_resource type="Texture2D" uid="uid://bus5j7ckaq8rq" path="res://characters/player/player_portrait_sad.png" id="10_ppu73"]
+[ext_resource type="PackedScene" uid="uid://v0c6se8o27e1" path="res://characters/lemon/lemon_stage.tscn" id="10_qlhkm"]
 [ext_resource type="Texture2D" uid="uid://cx30rrqg5twdc" path="res://characters/lemon/lemon_portrait.png" id="11_8pks5"]
 [ext_resource type="Texture2D" uid="uid://dp10xmkfa0x46" path="res://characters/brussel/brussel_portrait.png" id="12_4c01o"]
+[ext_resource type="PackedScene" uid="uid://dhuqdrg0d1acn" path="res://characters/lemon/lemon_arena.tscn" id="12_13ahs"]
 [ext_resource type="Texture2D" uid="uid://bwb1wi3yx3em4" path="res://characters/cherry/cherry_portrait.png" id="12_aid35"]
 [ext_resource type="Texture2D" uid="uid://dofloewucyhnt" path="res://characters/brussel/brussel_portrait_smile.png" id="13_nervb"]
 [ext_resource type="Texture2D" uid="uid://bdcw5mj2olcjs" path="res://characters/beet/beethoven_portrait.png" id="15_2qref"]
+[ext_resource type="PackedScene" uid="uid://b2pp7o1d0iaij" path="res://characters/cherry/cherry_stage.tscn" id="17_1vtty"]
+[ext_resource type="PackedScene" uid="uid://bnfu6rxhk8u4k" path="res://characters/cherry/cherry_arena.tscn" id="18_u72ys"]
+[ext_resource type="PackedScene" uid="uid://d25fo6tavx8fs" path="res://characters/beet/beet_arena.tscn" id="20_calua"]
+[ext_resource type="PackedScene" uid="uid://dogfroq83k01i" path="res://main.tscn" id="22_p5isu"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_khq5t"]
 playback_mode = 1
@@ -31,11 +37,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_0thqt")
-current_tab = 0
+current_tab = 14
 tabs_visible = false
 script = ExtResource("1_w2h7l")
 
 [node name="IntroStart" type="Control" parent="."]
+visible = false
 layout_mode = 2
 script = ExtResource("3_ufgve")
 destination_scene = ExtResource("4_77x4h")
@@ -140,7 +147,7 @@ metadata/_tab_index = 4
 visible = false
 layout_mode = 2
 script = ExtResource("3_ufgve")
-destination_scene = ExtResource("8_0e4db")
+destination_conversation = 3
 character_delay = 0.06
 metadata/_tab_index = 1
 
@@ -221,12 +228,97 @@ text = "GO FIND A REAL MUSICIAN TO PLAY OR NEVER RETURN!"
 visible_characters_behavior = 1
 metadata/_tab_index = 2
 
+[node name="IntroBigshot" type="Control" parent="."]
+visible = false
+layout_mode = 2
+script = ExtResource("3_ufgve")
+destination_conversation = 3
+character_delay = 0.06
+metadata/_tab_index = 2
+
+[node name="Sound" type="AudioStreamPlayer" parent="IntroBigshot"]
+stream = SubResource("AudioStreamRandomizer_khq5t")
+volume_db = 2.15
+pitch_scale = 0.8
+mix_target = 2
+bus = &"Sound"
+
+[node name="Sprite" type="TextureRect" parent="IntroBigshot"]
+layout_mode = 2
+offset_top = 4.0
+offset_right = 256.0
+offset_bottom = 244.0
+texture = ExtResource("9_pn8vq")
+stretch_mode = 5
+
+[node name="Arrow" type="TextureRect" parent="IntroBigshot"]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -24.0
+offset_top = -24.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("4_ilorp")
+stretch_mode = 5
+
+[node name="Margin" type="MarginContainer" parent="IntroBigshot"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -83.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Texts" type="TabContainer" parent="IntroBigshot/Margin"]
+layout_mode = 2
+current_tab = 2
+tabs_visible = false
+
+[node name="Text" type="RichTextLabel" parent="IntroBigshot/Margin/Texts"]
+visible = false
+layout_mode = 2
+theme_override_colors/default_color = Color(0.862745, 0, 0.815686, 1)
+bbcode_enabled = true
+text = "[wave amp=10.0 freq=4.0 connected=1]oh, you think you're such a bigshot, huh?[/wave]"
+visible_characters_behavior = 1
+metadata/_tab_index = 0
+
+[node name="Text2" type="RichTextLabel" parent="IntroBigshot/Margin/Texts"]
+visible = false
+layout_mode = 2
+theme_override_colors/default_color = Color(0.862745, 0, 0.815686, 1)
+bbcode_enabled = true
+text = "GET OUT!"
+visible_characters_behavior = 1
+metadata/_tab_index = 1
+
+[node name="Text3" type="RichTextLabel" parent="IntroBigshot/Margin/Texts"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.862745, 0, 0.815686, 1)
+bbcode_enabled = true
+text = "GO FIND A REAL MUSICIAN TO PLAY OR NEVER RETURN!"
+visible_characters_behavior = 1
+metadata/_tab_index = 2
+
 [node name="LemonStageStart" type="Control" parent="."]
 visible = false
 layout_mode = 2
 script = ExtResource("3_ufgve")
-character_delay = 0.06
-metadata/_tab_index = 2
+destination_scene = ExtResource("10_qlhkm")
+metadata/_tab_index = 3
 
 [node name="Sound" type="AudioStreamPlayer" parent="LemonStageStart"]
 stream = SubResource("AudioStreamRandomizer_khq5t")
@@ -307,8 +399,8 @@ metadata/_tab_index = 2
 visible = false
 layout_mode = 2
 script = ExtResource("3_ufgve")
-character_delay = 0.06
-metadata/_tab_index = 3
+destination_scene = ExtResource("12_13ahs")
+metadata/_tab_index = 4
 
 [node name="Sound" type="AudioStreamPlayer" parent="LemonArenaStart"]
 stream = SubResource("AudioStreamRandomizer_khq5t")
@@ -387,8 +479,8 @@ metadata/_tab_index = 2
 visible = false
 layout_mode = 2
 script = ExtResource("3_ufgve")
-character_delay = 0.06
-metadata/_tab_index = 4
+destination_conversation = 6
+metadata/_tab_index = 5
 
 [node name="Sound" type="AudioStreamPlayer" parent="LemonArenaEnd"]
 stream = SubResource("AudioStreamRandomizer_khq5t")
@@ -469,8 +561,7 @@ metadata/_tab_index = 2
 visible = false
 layout_mode = 2
 script = ExtResource("3_ufgve")
-character_delay = 0.06
-metadata/_tab_index = 5
+metadata/_tab_index = 6
 
 [node name="Sound" type="AudioStreamPlayer" parent="BrusselStage1Start"]
 stream = SubResource("AudioStreamRandomizer_khq5t")
@@ -558,8 +649,7 @@ metadata/_tab_index = 3
 visible = false
 layout_mode = 2
 script = ExtResource("3_ufgve")
-character_delay = 0.06
-metadata/_tab_index = 6
+metadata/_tab_index = 7
 
 [node name="Sound" type="AudioStreamPlayer" parent="BrusselStage2Start"]
 stream = SubResource("AudioStreamRandomizer_khq5t")
@@ -633,8 +723,8 @@ metadata/_tab_index = 1
 visible = false
 layout_mode = 2
 script = ExtResource("3_ufgve")
-character_delay = 0.06
-metadata/_tab_index = 7
+destination_conversation = 9
+metadata/_tab_index = 8
 
 [node name="Sound" type="AudioStreamPlayer" parent="BrusselStage3End"]
 stream = SubResource("AudioStreamRandomizer_khq5t")
@@ -708,8 +798,8 @@ metadata/_tab_index = 1
 visible = false
 layout_mode = 2
 script = ExtResource("3_ufgve")
-character_delay = 0.06
-metadata/_tab_index = 8
+destination_scene = ExtResource("17_1vtty")
+metadata/_tab_index = 9
 
 [node name="Sound" type="AudioStreamPlayer" parent="CherryStageStart"]
 stream = SubResource("AudioStreamRandomizer_khq5t")
@@ -789,8 +879,8 @@ metadata/_tab_index = 2
 visible = false
 layout_mode = 2
 script = ExtResource("3_ufgve")
-character_delay = 0.06
-metadata/_tab_index = 9
+destination_scene = ExtResource("18_u72ys")
+metadata/_tab_index = 10
 
 [node name="Sound" type="AudioStreamPlayer" parent="CherryArenaStart"]
 stream = SubResource("AudioStreamRandomizer_khq5t")
@@ -863,8 +953,8 @@ metadata/_tab_index = 1
 visible = false
 layout_mode = 2
 script = ExtResource("3_ufgve")
-character_delay = 0.06
-metadata/_tab_index = 10
+destination_conversation = 12
+metadata/_tab_index = 11
 
 [node name="Sound" type="AudioStreamPlayer" parent="CherryArenaEnd"]
 stream = SubResource("AudioStreamRandomizer_khq5t")
@@ -939,8 +1029,8 @@ metadata/_tab_index = 1
 visible = false
 layout_mode = 2
 script = ExtResource("3_ufgve")
-character_delay = 0.06
-metadata/_tab_index = 11
+destination_conversation = 13
+metadata/_tab_index = 12
 
 [node name="Sound" type="AudioStreamPlayer" parent="BeetArenaStartPlayer"]
 stream = SubResource("AudioStreamRandomizer_khq5t")
@@ -1004,8 +1094,8 @@ metadata/_tab_index = 0
 visible = false
 layout_mode = 2
 script = ExtResource("3_ufgve")
-character_delay = 0.06
-metadata/_tab_index = 12
+destination_scene = ExtResource("20_calua")
+metadata/_tab_index = 13
 
 [node name="Sound" type="AudioStreamPlayer" parent="BeetArenaStart"]
 stream = SubResource("AudioStreamRandomizer_khq5t")
@@ -1092,11 +1182,10 @@ visible_characters_behavior = 1
 metadata/_tab_index = 2
 
 [node name="BeetArenaEnd" type="Control" parent="."]
-visible = false
 layout_mode = 2
 script = ExtResource("3_ufgve")
-character_delay = 0.06
-metadata/_tab_index = 13
+destination_scene = ExtResource("22_p5isu")
+metadata/_tab_index = 14
 
 [node name="Sound" type="AudioStreamPlayer" parent="BeetArenaEnd"]
 stream = SubResource("AudioStreamRandomizer_khq5t")
@@ -1145,15 +1234,37 @@ theme_override_constants/margin_bottom = 8
 
 [node name="Texts" type="TabContainer" parent="BeetArenaEnd/Margin"]
 layout_mode = 2
-current_tab = 0
+current_tab = 2
 tabs_visible = false
 
-[node name="Text" type="RichTextLabel" parent="BeetArenaEnd/Margin/Texts"]
+[node name="Text2" type="RichTextLabel" parent="BeetArenaEnd/Margin/Texts"]
+visible = false
 layout_mode = 2
 theme_override_colors/default_color = Color(0.847059, 0, 0.8, 1)
 bbcode_enabled = true
-text = "Alright. 
+text = "How
+annoying"
+visible_characters_behavior = 1
+metadata/_tab_index = 0
+
+[node name="Text" type="RichTextLabel" parent="BeetArenaEnd/Margin/Texts"]
+visible = false
+layout_mode = 2
+theme_override_colors/default_color = Color(0.847059, 0, 0.8, 1)
+bbcode_enabled = true
+text = "
 I will 
 have to give you this one"
 visible_characters_behavior = 1
-metadata/_tab_index = 0
+metadata/_tab_index = 1
+
+[node name="Text3" type="RichTextLabel" parent="BeetArenaEnd/Margin/Texts"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.847059, 0, 0.8, 1)
+bbcode_enabled = true
+text = "Now go.
+Leave.
+Before I start
+[wave amp=10.0 freq=4.0 connected=1]decomposing[/wave]."
+visible_characters_behavior = 1
+metadata/_tab_index = 2

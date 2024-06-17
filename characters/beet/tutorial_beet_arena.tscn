@@ -1,7 +1,7 @@
 [gd_scene load_steps=28 format=3 uid="uid://dkw3h5c4m1m83"]
 
 [ext_resource type="Script" path="res://characters/beet/tutorial_beet_arena.gd" id="1_277o3"]
-[ext_resource type="PackedScene" uid="uid://b6nnedcuijkdh" path="res://interface/health_bar.tscn" id="2_aj617"]
+[ext_resource type="PackedScene" path="res://interface/health_bar.tscn" id="2_aj617"]
 [ext_resource type="PackedScene" uid="uid://7b4uamk1ww8p" path="res://rhythm/rhythm.tscn" id="3_f53qa"]
 [ext_resource type="FontFile" uid="uid://dr8jhk3d5ka4x" path="res://interface/font/the-video-arcade-game-font/the-video-arcade-game-font.ttf" id="4_slui4"]
 [ext_resource type="Texture2D" uid="uid://1thhsnw546i3" path="res://characters/beet/beethoven_beginning_map.png" id="5_346ix"]

@@ -19,3 +19,7 @@ func _on_out_of_bounds_body_entered(_body: Node2D) -> void:
 
 func _player_hurt() -> void:
 	Global.game_over(self)
+
+
+func _on_goal_area_entered(area: Area2D) -> void:
+	Global.dialogue(Global.conversation.CHERRY_ARENA_END)

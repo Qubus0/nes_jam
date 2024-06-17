@@ -22,6 +22,7 @@ enum death {
 enum conversation {
 	INTRO_START,
 	INTRO_END,
+	INTRO_BIGSHOT,
 	LEMON_STAGE_START,
 	LEMON_ARENA_START,
 	LEMON_ARENA_END,

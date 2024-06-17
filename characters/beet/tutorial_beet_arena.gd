@@ -1,6 +1,5 @@
 extends Node2D
 
-@export var pattern_speed := 40
 
 var bad_accuracy_counter := 0
 
@@ -15,12 +14,18 @@ enum {
 }
 
 
+var time := 0.0
+func _process(delta: float) -> void:
+	time += delta
+
 func _on_rhythm_beat_hit(accuracy: int) -> void:
 	if accuracy == MISS or accuracy == WRONG or accuracy == WEAK:
 		bad_accuracy_counter += 1
 
-	if bad_accuracy_counter > 12:
-		Global.game_over(self, Global.death.WEAK)
+	if bad_accuracy_counter > 8:
+		Global.dialogue(Global.conversation.INTRO_END)
+	elif time > 35.5:
+		Global.dialogue(Global.conversation.INTRO_BIGSHOT)
 
 	var shot: InstrumentShot = INSTRUMENT_SHOT.instantiate()
 	match accuracy:

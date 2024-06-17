@@ -10,7 +10,7 @@ func _process(delta: float) -> void:
 	$Camera2D.position.y -= speed * delta
 	if speed < max_speed:
 		speed += 1 * delta
-	
+
 	if drum_beat == true:
 		drum_beat = false
 		kick_drum.play(&"playing")
