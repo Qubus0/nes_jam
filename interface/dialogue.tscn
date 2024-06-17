@@ -44,7 +44,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_0thqt")
-current_tab = 9
+current_tab = 12
 tabs_visible = false
 script = ExtResource("1_w2h7l")
 
@@ -805,6 +805,7 @@ visible_characters_behavior = 1
 metadata/_tab_index = 0
 
 [node name="BrusselStage3End" type="Control" parent="."]
+visible = false
 layout_mode = 2
 script = ExtResource("3_ufgve")
 destination_conversation = 10
@@ -1034,10 +1035,9 @@ visible_characters_behavior = 1
 metadata/_tab_index = 1
 
 [node name="CherryArenaEnd" type="Control" parent="."]
-visible = false
 layout_mode = 2
 script = ExtResource("3_ufgve")
-destination_conversation = 12
+destination_conversation = 13
 metadata/_tab_index = 12
 
 [node name="Sound" type="AudioStreamPlayer" parent="CherryArenaEnd"]
@@ -1087,11 +1087,10 @@ theme_override_constants/margin_bottom = 0
 
 [node name="Texts" type="TabContainer" parent="CherryArenaEnd/Margin"]
 layout_mode = 2
-current_tab = 1
+current_tab = 0
 tabs_visible = false
 
 [node name="Text" type="RichTextLabel" parent="CherryArenaEnd/Margin/Texts"]
-visible = false
 layout_mode = 2
 theme_override_colors/default_color = Color(0.894118, 0.00392157, 0.345098, 1)
 bbcode_enabled = true
@@ -1101,6 +1100,7 @@ visible_characters_behavior = 1
 metadata/_tab_index = 0
 
 [node name="Text2" type="RichTextLabel" parent="CherryArenaEnd/Margin/Texts"]
+visible = false
 layout_mode = 2
 theme_override_colors/default_color = Color(0.894118, 0.00392157, 0.345098, 1)
 bbcode_enabled = true
