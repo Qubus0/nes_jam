@@ -73,18 +73,6 @@ func _unhandled_key_input(event: InputEvent) -> void:
 
 
 func change_scene_to_file(path: String) -> void:
-	# don't ask FIXME
-	if "cherry_stage" in path:
-		$LemonStageBGM.stop()
-		if not $CherryStageBGM.playing:
-			$CherryStageBGM.play()
-	elif "lemon_stage" in path:
-		$CherryStageBGM.stop()
-		if not $LemonStageBGM.playing:
-			$LemonStageBGM.play()
-	else:
-		stop_music()
-
 	await transition.trans_out()
 	get_tree().change_scene_to_file(path)
 	await transition.trans_in()
@@ -92,8 +80,6 @@ func change_scene_to_file(path: String) -> void:
 
 
 func change_scene_to_packed(scene: PackedScene) -> void:
-	stop_music()
-
 	await transition.trans_out()
 	get_tree().change_scene_to_packed(scene)
 	await transition.trans_in()
@@ -111,9 +97,4 @@ func game_over(origin_node: Node, death := death.GENERIC) -> void:
 func dialogue(convo: int) -> void:
 	current_conversation = convo
 	change_scene_to_packed(DIALOGUE)
-
-
-func stop_music() -> void:
-	$CherryStageBGM.stop()
-	$LemonStageBGM.stop()
 

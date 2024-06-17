@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=4 uid="uid://b2pp7o1d0iaij"]
+[gd_scene load_steps=11 format=4 uid="uid://b2pp7o1d0iaij"]
 
 [ext_resource type="Script" path="res://characters/cherry/cherry_stage.gd" id="1_ogeea"]
 [ext_resource type="PackedScene" uid="uid://c8cq6yojoo4gy" path="res://characters/player/player.tscn" id="2_7oiim"]
 [ext_resource type="PackedScene" path="res://interface/health_bar.tscn" id="2_vw73b"]
 [ext_resource type="Texture2D" uid="uid://ci6y6n1mbvwcm" path="res://tilemaps/cherry_map.png" id="3_pxj3r"]
 [ext_resource type="Script" path="res://characters/player/friction_probe.gd" id="6_gogsn"]
+[ext_resource type="AudioStream" uid="uid://8qsavsqoqcn" path="res://characters/cherry/cherry_stage.wav" id="6_tor80"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gux42"]
 texture = ExtResource("3_pxj3r")
@@ -671,6 +672,12 @@ metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
 shape = SubResource("RectangleShape2D_m5gbp")
+
+[node name="CherryStageBGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_tor80")
+volume_db = -0.6
+autoplay = true
+bus = &"Music"
 
 [connection signal="body_entered" from="OutOfBounds" to="." method="_on_out_of_bounds_body_entered"]
 [connection signal="area_entered" from="Goal" to="." method="_on_goal_area_entered"]
