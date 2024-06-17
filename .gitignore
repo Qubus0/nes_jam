@@ -1,4 +1,5 @@
-/export/
+/export/**
+!/export/**/*.gitkeep
 
 
 # Godot 4+ specific ignores
