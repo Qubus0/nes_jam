@@ -20,7 +20,4 @@ func _process(delta: float) -> void:
 		drum_beat = true
 
 func _on_level_end_body_entered(body: Node2D) -> void:
-	get_tree().paused = true
-	await get_tree().create_timer(2).timeout
-	get_tree().paused = false
 	Global.dialogue(Global.conversation.BRUSSEL_STAGE3_END)
