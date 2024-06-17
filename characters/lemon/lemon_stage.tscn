@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://v0c6se8o27e1"]
+[gd_scene load_steps=33 format=3 uid="uid://v0c6se8o27e1"]
 
 [ext_resource type="Script" path="res://characters/lemon/lemon_stage.gd" id="1_3yalw"]
 [ext_resource type="Texture2D" uid="uid://ctulntoqjext0" path="res://characters/lemon/lemon_tilemap.png" id="1_7v8mq"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bmvc8d82xo0bn" path="res://characters/lemon/lemon_turret_barrel.png" id="7_ip7gc"]
 [ext_resource type="Script" path="res://characters/lemon/boss_transition.gd" id="10_ol2tt"]
 [ext_resource type="AudioStream" uid="uid://ddupq01oum683" path="res://characters/lemon/turret_shoot_sound.mp3" id="11_kipwa"]
+[ext_resource type="AudioStream" uid="uid://cwaxqb5cnavgu" path="res://characters/lemon/lemon_stage.wav" id="13_sxv5k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gswfq"]
 texture = ExtResource("1_7v8mq")
@@ -488,6 +489,12 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WaterDeathZone/Water4"]
 position = Vector2(270, -3.5)
 shape = SubResource("RectangleShape2D_qw0rh")
+
+[node name="LemonStageBGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_sxv5k")
+volume_db = -0.4
+autoplay = true
+bus = &"Music"
 
 [connection signal="body_entered" from="BossTransition" to="BossTransition" method="_on_body_entered"]
 [connection signal="body_entered" from="WaterDeathZone/Water1" to="." method="_on_water_body_entered"]

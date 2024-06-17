@@ -12,20 +12,20 @@ func _on_tutorial_pressed() -> void:
 
 func _on_lemon_pressed() -> void:
 	if Input.is_key_pressed(KEY_ALT):
-		Global.change_scene_to_file("res://characters/lemon/lemon_arena.tscn")
+		Global.dialogue(Global.conversation.LEMON_ARENA_START)
 	else:
-		Global.change_scene_to_file("res://characters/lemon/lemon_stage.tscn")
+		Global.dialogue(Global.conversation.LEMON_STAGE_START)
 
 
 func _on_beet_pressed() -> void:
-	Global.change_scene_to_file("res://characters/beet/beet_arena.tscn")
+	Global.dialogue(Global.conversation.BEET_ARENA_START)
 
 
 func _on_cherry_pressed() -> void:
 	if Input.is_key_pressed(KEY_ALT):
-		Global.change_scene_to_file("res://characters/cherry/cherry_arena.tscn")
+		Global.dialogue(Global.conversation.CHERRY_ARENA_START)
 	else:
-		Global.change_scene_to_file("res://characters/cherry/cherry_stage.tscn")
+		Global.dialogue(Global.conversation.CHERRY_STAGE_START)
 
 
 
@@ -33,5 +33,5 @@ func _on_brussel_pressed() -> void:
 	if Input.is_key_pressed(KEY_ALT):
 		Global.change_scene_to_file("res://characters/brussel/brussel_stage_3.tscn")
 	else:
-		Global.change_scene_to_file("res://characters/brussel/brussel_stage.tscn")
+		Global.dialogue(Global.conversation.BRUSSEL_STAGE1_START)
 
