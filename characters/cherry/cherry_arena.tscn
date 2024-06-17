@@ -1,113 +1,53 @@
-[gd_scene load_steps=24 format=3 uid="uid://bnfu6rxhk8u4k"]
+[gd_scene load_steps=22 format=3 uid="uid://d3081edce6eg2"]
 
 [ext_resource type="PackedScene" uid="uid://delvr3p2o5moi" path="res://rhythm/tracks/cherry/cherry_arena.tscn" id="1_cs6js"]
 [ext_resource type="Script" path="res://characters/cherry/cherry_arena.gd" id="1_rhs5d"]
-[ext_resource type="Texture2D" uid="uid://dlcfem0hy5vw" path="res://characters/cherry/cherry_play.png" id="2_xed4h"]
-[ext_resource type="PackedScene" path="res://interface/health_bar.tscn" id="3_msxhs"]
-[ext_resource type="Script" path="res://characters/health.gd" id="3_on744"]
+[ext_resource type="PackedScene" uid="uid://b6nnedcuijkdh" path="res://interface/health_bar.tscn" id="3_msxhs"]
 [ext_resource type="PackedScene" uid="uid://7b4uamk1ww8p" path="res://rhythm/rhythm.tscn" id="4_7je6e"]
-[ext_resource type="Script" path="res://characters/hurtbox.gd" id="4_wea8j"]
 [ext_resource type="FontFile" uid="uid://dr8jhk3d5ka4x" path="res://interface/font/the-video-arcade-game-font/the-video-arcade-game-font.ttf" id="5_d6fsk"]
-[ext_resource type="Texture2D" uid="uid://dknjdxqje6k3q" path="res://characters/beet/arena.png" id="6_2ffvw"]
+[ext_resource type="Texture2D" uid="uid://ccfkbpe6r2nw6" path="res://characters/cherry/cherry_arena.png" id="5_nn0ek"]
+[ext_resource type="Texture2D" uid="uid://bxwqul72y1wt7" path="res://characters/cherry/arena_floor.png" id="6_nthu8"]
 [ext_resource type="PackedScene" uid="uid://c8cq6yojoo4gy" path="res://characters/player/player.tscn" id="7_0a54k"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_urpy1"]
-atlas = ExtResource("2_xed4h")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jamix"]
-atlas = ExtResource("2_xed4h")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_t8a83"]
-atlas = ExtResource("2_xed4h")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rftdp"]
-atlas = ExtResource("2_xed4h")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7usci"]
-atlas = ExtResource("2_xed4h")
-region = Rect2(128, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_l3ygg"]
-atlas = ExtResource("2_xed4h")
-region = Rect2(160, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_wfij4"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_urpy1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jamix")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_t8a83")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rftdp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7usci")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_l3ygg")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_yuddv"]
+[ext_resource type="Texture2D" uid="uid://b5b0hbkbjmgui" path="res://characters/cherry/arena_floor_2.png" id="7_noqmg"]
+[ext_resource type="Texture2D" uid="uid://cemla3d3kxji5" path="res://characters/cherry/arena_floor_3.png" id="8_81ufh"]
+[ext_resource type="Texture2D" uid="uid://b8htwxffnu6wr" path="res://characters/cherry/arena_floor_4.png" id="9_oswkt"]
+[ext_resource type="PackedScene" uid="uid://nedvqlhxl1s5" path="res://characters/cherry/cherry.tscn" id="10_ogq7q"]
 
 [sub_resource type="Curve2D" id="Curve2D_kykmy"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 5, 4, 0.459098, 13.0593, -0.459098, -13.0593, -10, -25, -17.263, 32.1449, 17.263, -32.1449, 5, -81, 0, 0, 0, 0, 105, -155)
+"points": PackedVector2Array(0, 0, 0, 0, 5, 4, 0.459098, 13.0593, -0.459098, -13.0593, -1, -25, -17.263, 32.1449, 17.263, -32.1449, 17, -88, 0, 0, 0, 0, 105, -124)
 }
 point_count = 4
 
 [sub_resource type="Curve2D" id="Curve2D_7y8n5"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 5, 5, -2.17947, 10.2152, 2.17947, -10.2152, -14, -34, -7.77829, 15.977, 7.77829, -15.977, 22, -64, -12.2268, 18.1667, 12.2268, -18.1667, 26, -137, 0, 0, 0, 0, 103, -158)
+"points": PackedVector2Array(0, 0, 0, 0, 5, 5, -2.17947, 10.2152, 2.17947, -10.2152, -8, -34, -7.77829, 15.977, 7.77829, -15.977, 28, -77, -12.2268, 18.1667, 12.2268, -18.1667, 46, -123, 0, 0, 0, 0, 104, -123)
 }
 point_count = 5
 
 [sub_resource type="LabelSettings" id="LabelSettings_esfk3"]
 font = ExtResource("5_d6fsk")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y6h7b"]
+size = Vector2(256, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wvl0u"]
+size = Vector2(222, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rv4cc"]
+size = Vector2(190, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sxgv7"]
+size = Vector2(158, 20)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vayqy"]
-size = Vector2(256, 8)
+size = Vector2(256, 34)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p5e6r"]
-size = Vector2(7, 172)
+size = Vector2(7, 157)
 
 [node name="CherryArena" type="Node2D"]
 script = ExtResource("1_rhs5d")
-
-[node name="Cherry" type="Node2D" parent="."]
-position = Vector2(128, 44)
-
-[node name="Sprite" type="AnimatedSprite2D" parent="Cherry"]
-position = Vector2(0, -5)
-sprite_frames = SubResource("SpriteFrames_wfij4")
-autoplay = "default"
-frame_progress = 0.31817
-
-[node name="Health" type="Node" parent="Cherry"]
-script = ExtResource("3_on744")
-max_health = 50
-
-[node name="Hurtbox" type="Area2D" parent="Cherry" node_paths=PackedStringArray("health")]
-collision_layer = 0
-collision_mask = 4
-script = ExtResource("4_wea8j")
-health = NodePath("../Health")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Cherry/Hurtbox"]
-shape = SubResource("CircleShape2D_yuddv")
 
 [node name="HealthBar" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_msxhs")]
 player = NodePath("../Player")
@@ -157,13 +97,64 @@ text = "You Win"
 label_settings = SubResource("LabelSettings_esfk3")
 
 [node name="Arena" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(0, 12)
-texture = ExtResource("6_2ffvw")
+texture = ExtResource("5_nn0ek")
 centered = false
 
+[node name="ArenaFloor" type="Node2D" parent="."]
+
+[node name="Floor1" type="StaticBody2D" parent="ArenaFloor"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ArenaFloor/Floor1"]
+position = Vector2(128, 152)
+texture = ExtResource("6_nthu8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArenaFloor/Floor1"]
+position = Vector2(128, 152)
+shape = SubResource("RectangleShape2D_y6h7b")
+
+[node name="FireworkMarkLeft" type="Marker2D" parent="ArenaFloor/Floor1"]
+position = Vector2(9, 154)
+
+[node name="FireworkMarkRight" type="Marker2D" parent="ArenaFloor/Floor1"]
+position = Vector2(247, 154)
+
+[node name="Floor2" type="StaticBody2D" parent="ArenaFloor"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="ArenaFloor/Floor2"]
+position = Vector2(128, 152)
+texture = ExtResource("7_noqmg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArenaFloor/Floor2"]
+position = Vector2(128, 152)
+shape = SubResource("RectangleShape2D_wvl0u")
+
+[node name="Floor3" type="StaticBody2D" parent="ArenaFloor"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="ArenaFloor/Floor3"]
+position = Vector2(128, 152)
+texture = ExtResource("8_81ufh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArenaFloor/Floor3"]
+position = Vector2(128, 152)
+shape = SubResource("RectangleShape2D_rv4cc")
+
+[node name="Floor4" type="StaticBody2D" parent="ArenaFloor"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="ArenaFloor/Floor4"]
+position = Vector2(128, 152)
+texture = ExtResource("9_oswkt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArenaFloor/Floor4"]
+position = Vector2(128, 152)
+shape = SubResource("RectangleShape2D_sxgv7")
+
+[node name="Cherry" parent="." instance=ExtResource("10_ogq7q")]
+
 [node name="Player" parent="." node_paths=PackedStringArray("health", "sprite", "dust", "coyote_timer") instance=ExtResource("7_0a54k")]
-position = Vector2(129, 152)
+position = Vector2(129, 134)
 health = NodePath("Health")
 sprite = NodePath("Sprite")
 dust = NodePath("Dust")
@@ -173,19 +164,20 @@ coyote_timer = NodePath("CoyoteTimer")
 position = Vector2(128, 168)
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Room"]
-position = Vector2(0, -164)
+position = Vector2(0, -151)
 shape = SubResource("RectangleShape2D_vayqy")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Room"]
-position = Vector2(-124.5, -82)
+position = Vector2(-124.5, -84.5)
 shape = SubResource("RectangleShape2D_p5e6r")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Room"]
-position = Vector2(124.5, -82)
+position = Vector2(124.5, -87)
 shape = SubResource("RectangleShape2D_p5e6r")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Room"]
-shape = SubResource("RectangleShape2D_vayqy")
-
 [node name="CherryArena" parent="." instance=ExtResource("1_cs6js")]
+visible = false
 position = Vector2(0, 288)
+
+[connection signal="beat_hit" from="Interface/Control/Rhythm" to="." method="_on_rhythm_beat_hit"]
+[connection signal="defeated" from="Cherry" to="." method="_on_cherry_defeated"]

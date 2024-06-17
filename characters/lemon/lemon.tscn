@@ -100,10 +100,8 @@ script = ExtResource("1_quw8o")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_v6wy4")
-animation = &"throw_lemon"
+animation = &"idle"
 autoplay = "idle"
-frame = 4
-frame_progress = 0.999545
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("2_o3gl8")

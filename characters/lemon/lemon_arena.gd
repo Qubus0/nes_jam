@@ -62,18 +62,19 @@ func _on_rhythm_beat_hit(accuracy: int) -> void:
 			shot.damage = 6
 			%Perfect.add_child(shot)
 		WEAK:
-			shot.damage = -3
+			shot.damage = 2
 			%Attack.add_child(shot)
 		_:
 			shot.damage = 3
 			%Attack.add_child(shot)
 
 func _on_lemon_defeated() -> void:
-	#$Lemon.queue_free()
 	$Lemon.set_visible(false)
 	%Win.show()
+	get_tree().paused = true
 	can_shoot = false
 	await get_tree().create_timer(2).timeout
+	get_tree().paused = false
 	Global.change_scene_to_file("res://main.tscn")
 
 func _on_sprite_frame_changed() -> void:

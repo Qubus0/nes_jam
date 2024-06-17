@@ -1,0 +1,103 @@
+[gd_scene load_steps=15 format=3 uid="uid://nedvqlhxl1s5"]
+
+[ext_resource type="Texture2D" uid="uid://dlcfem0hy5vw" path="res://characters/cherry/cherry_play.png" id="1_i7758"]
+[ext_resource type="Script" path="res://characters/cherry/cherry.gd" id="1_pn23b"]
+[ext_resource type="Script" path="res://characters/health.gd" id="2_h0k13"]
+[ext_resource type="Script" path="res://characters/hurtbox.gd" id="3_vlgn7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cnnsp"]
+atlas = ExtResource("1_i7758")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6mv2"]
+atlas = ExtResource("1_i7758")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_urpy1"]
+atlas = ExtResource("1_i7758")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jamix"]
+atlas = ExtResource("1_i7758")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t8a83"]
+atlas = ExtResource("1_i7758")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rftdp"]
+atlas = ExtResource("1_i7758")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7usci"]
+atlas = ExtResource("1_i7758")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l3ygg"]
+atlas = ExtResource("1_i7758")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wfij4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cnnsp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p6mv2")
+}],
+"loop": true,
+"name": &"hurt",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_urpy1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jamix")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t8a83")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rftdp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7usci")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l3ygg")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yuddv"]
+
+[node name="Cherry" type="Node2D"]
+position = Vector2(128, 79)
+script = ExtResource("1_pn23b")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -5)
+sprite_frames = SubResource("SpriteFrames_wfij4")
+animation = &"hurt"
+autoplay = "idle"
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("2_h0k13")
+max_health = 80
+
+[node name="Hurtbox" type="Area2D" parent="." node_paths=PackedStringArray("health")]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("3_vlgn7")
+health = NodePath("../Health")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("CircleShape2D_yuddv")
+
+[connection signal="depleted" from="Health" to="." method="_on_health_depleted"]
+[connection signal="hurt" from="Health" to="." method="_on_health_hurt"]
