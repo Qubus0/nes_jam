@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://b6rsqj286rc5p"]
+[gd_scene load_steps=7 format=3 uid="uid://b6rsqj286rc5p"]
 
 [ext_resource type="Texture2D" uid="uid://ddipo33l6ck3j" path="res://interface/title.png" id="1_8bsor"]
 [ext_resource type="Script" path="res://interface/start_screen.gd" id="1_f27oy"]
 [ext_resource type="Theme" uid="uid://ckpsaqo81fdqi" path="res://interface/default.theme" id="1_yq7sh"]
 [ext_resource type="Script" path="res://interface/blink_label.gd" id="4_3s6vg"]
+[ext_resource type="AudioStream" uid="uid://dfp2qa646pkhf" path="res://interface/menu_music.wav" id="5_8nd6y"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ewa03"]
 font_color = Color(0.972549, 0.721569, 0, 1)
@@ -50,5 +51,10 @@ script = ExtResource("4_3s6vg")
 unique_name_in_owner = true
 wait_time = 0.7
 autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_8nd6y")
+autoplay = true
+bus = &"Music"
 
 [connection signal="timeout" from="PausedLabel/Blink" to="PausedLabel" method="_on_blink_timeout"]
