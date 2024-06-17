@@ -44,7 +44,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_0thqt")
-current_tab = 8
+current_tab = 9
 tabs_visible = false
 script = ExtResource("1_w2h7l")
 
@@ -738,6 +738,7 @@ visible_characters_behavior = 1
 metadata/_tab_index = 1
 
 [node name="BrusselStage3Start" type="Control" parent="."]
+visible = false
 layout_mode = 2
 script = ExtResource("3_ufgve")
 destination_scene = ExtResource("19_c4csv")
@@ -804,10 +805,9 @@ visible_characters_behavior = 1
 metadata/_tab_index = 0
 
 [node name="BrusselStage3End" type="Control" parent="."]
-visible = false
 layout_mode = 2
 script = ExtResource("3_ufgve")
-destination_conversation = 9
+destination_conversation = 10
 metadata/_tab_index = 9
 
 [node name="Sound" type="AudioStreamPlayer" parent="BrusselStage3End"]
