@@ -79,7 +79,7 @@ autoplay = "default"
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("4_t7shv")
-max_health = 50
+max_health = 300
 
 [node name="Hurtbox" type="Area2D" parent="." node_paths=PackedStringArray("health")]
 collision_layer = 0

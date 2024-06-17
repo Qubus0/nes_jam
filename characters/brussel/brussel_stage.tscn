@@ -592,10 +592,6 @@ layer = -1
 tile_map_data = PackedByteArray("AAAAAAoAAAAAAA8AAAAAAAsAAAAAABAAAAAAAAwAAAAAABEAAAAAAA0AAAAAABIAAAAAAA4AAAAAABMAAAABAAoAAAABAA8AAAABAAsAAAABABAAAAABAAwAAAABABEAAAABAA0AAAABABIAAAABAA4AAAABABMAAAACAAoAAAACAA8AAAACAAsAAAACABAAAAACAAwAAAACABEAAAACAA0AAAACABIAAAACAA4AAAACABMAAAADAAoAAAADAA8AAAADAAsAAAADABAAAAADAAwAAAADABEAAAADAA0AAAADABIAAAADAA4AAAADABMAAAAEAAoAAAAEAA8AAAAEAAsAAAAEABAAAAAEAAwAAAAEABEAAAAEAA0AAAAEABIAAAAEAA4AAAAEABMAAAA=")
 tile_set = SubResource("TileSet_yf1ml")
 
-[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_dv527")
-autoplay = true
-
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_h0jso")
 format = 2
@@ -635,6 +631,10 @@ position = Vector2(9, 0)
 limit_left = 0
 limit_right = 256
 limit_bottom = 240
+
+[node name="BrusselStageBGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_dv527")
+autoplay = true
 
 [connection signal="body_entered" from="PhaseTransition" to="." method="_on_phase_transition_body_entered"]
 [connection signal="body_entered" from="PhaseTransition" to="PhaseTransition" method="_on_body_entered"]
