@@ -14,4 +14,5 @@ func _process(delta: float) -> void:
 		drum_beat = true
 
 func _on_phase_transition_body_entered(body: Node2D) -> void:
-	get_tree().change_scene_to_packed(STAGE_3)
+	Global.dialogue(Global.conversation.BRUSSEL_STAGE3_START)
+
