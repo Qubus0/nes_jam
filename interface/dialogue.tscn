@@ -889,7 +889,7 @@ metadata/_tab_index = 10
 [node name="Sound" type="AudioStreamPlayer" parent="CherryArenaStart"]
 stream = SubResource("AudioStreamRandomizer_khq5t")
 volume_db = 2.15
-pitch_scale = 0.8
+pitch_scale = 1.6
 mix_target = 2
 bus = &"Sound"
 
@@ -963,7 +963,7 @@ metadata/_tab_index = 11
 [node name="Sound" type="AudioStreamPlayer" parent="CherryArenaEnd"]
 stream = SubResource("AudioStreamRandomizer_khq5t")
 volume_db = 2.15
-pitch_scale = 0.8
+pitch_scale = 1.6
 mix_target = 2
 bus = &"Sound"
 
