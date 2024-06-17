@@ -1,10 +1,53 @@
-[gd_scene load_steps=7 format=3 uid="uid://b6rsqj286rc5p"]
+[gd_scene load_steps=13 format=3 uid="uid://b6rsqj286rc5p"]
 
-[ext_resource type="Texture2D" uid="uid://ddipo33l6ck3j" path="res://interface/title.png" id="1_8bsor"]
 [ext_resource type="Script" path="res://interface/start_screen.gd" id="1_f27oy"]
 [ext_resource type="Theme" uid="uid://ckpsaqo81fdqi" path="res://interface/default.theme" id="1_yq7sh"]
+[ext_resource type="Texture2D" uid="uid://c7ldrvk7xhigt" path="res://interface/beetbeat.png" id="3_am0eo"]
 [ext_resource type="Script" path="res://interface/blink_label.gd" id="4_3s6vg"]
 [ext_resource type="AudioStream" uid="uid://dfp2qa646pkhf" path="res://interface/menu_music.wav" id="5_8nd6y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vcacq"]
+atlas = ExtResource("3_am0eo")
+region = Rect2(0, 0, 256, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqqsu"]
+atlas = ExtResource("3_am0eo")
+region = Rect2(256, 0, 256, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t25jv"]
+atlas = ExtResource("3_am0eo")
+region = Rect2(512, 0, 256, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w04u7"]
+atlas = ExtResource("3_am0eo")
+region = Rect2(768, 0, 256, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_166p6"]
+atlas = ExtResource("3_am0eo")
+region = Rect2(1024, 0, 256, 240)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pfgim"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vcacq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nqqsu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t25jv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w04u7")
+}, {
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_166p6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ewa03"]
 font_color = Color(0.972549, 0.721569, 0, 1)
@@ -19,17 +62,15 @@ grow_vertical = 2
 theme = ExtResource("1_yq7sh")
 script = ExtResource("1_f27oy")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_8bsor")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_pfgim")
+autoplay = "default"
+frame_progress = 0.880855
+centered = false
 
 [node name="PausedLabel" type="Label" parent="."]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

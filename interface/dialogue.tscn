@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://lj5n40c4ms62"]
+[gd_scene load_steps=28 format=3 uid="uid://lj5n40c4ms62"]
 
 [ext_resource type="Theme" uid="uid://ckpsaqo81fdqi" path="res://interface/default.theme" id="1_0thqt"]
 [ext_resource type="Texture2D" uid="uid://be2ucgbhugr6f" path="res://characters/beet/beethoven_portrait_dark.png" id="1_ryg2d"]
@@ -17,11 +17,12 @@
 [ext_resource type="PackedScene" uid="uid://dhuqdrg0d1acn" path="res://characters/lemon/lemon_arena.tscn" id="12_13ahs"]
 [ext_resource type="Texture2D" uid="uid://bwb1wi3yx3em4" path="res://characters/cherry/cherry_portrait.png" id="12_aid35"]
 [ext_resource type="Texture2D" uid="uid://dofloewucyhnt" path="res://characters/brussel/brussel_portrait_smile.png" id="13_nervb"]
+[ext_resource type="Texture2D" uid="uid://boyt1e5arvb2c" path="res://characters/lemon/john_lemon_beginning.png" id="13_palif"]
 [ext_resource type="PackedScene" uid="uid://c6k4dlalflm7y" path="res://characters/brussel/brussel_stage.tscn" id="14_f5668"]
 [ext_resource type="Texture2D" uid="uid://bdcw5mj2olcjs" path="res://characters/beet/beethoven_portrait.png" id="15_2qref"]
 [ext_resource type="PackedScene" uid="uid://cuxrphhysvlk0" path="res://characters/brussel/brussel_stage_2.tscn" id="16_8sk1n"]
 [ext_resource type="PackedScene" uid="uid://b2pp7o1d0iaij" path="res://characters/cherry/cherry_stage.tscn" id="17_1vtty"]
-[ext_resource type="PackedScene" uid="uid://d3081edce6eg2" path="res://characters/cherry/cherry_arena.tscn" id="18_u72ys"]
+[ext_resource type="PackedScene" uid="uid://bnfu6rxhk8u4k" path="res://characters/cherry/cherry_arena.tscn" id="18_u72ys"]
 [ext_resource type="PackedScene" uid="uid://d25fo6tavx8fs" path="res://characters/beet/beet_arena.tscn" id="20_calua"]
 [ext_resource type="Texture2D" uid="uid://0sspnyw2ovif" path="res://characters/cherry/cherry_portrait_before.png" id="21_k6qhj"]
 [ext_resource type="PackedScene" uid="uid://dogfroq83k01i" path="res://main.tscn" id="22_p5isu"]
@@ -40,7 +41,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_0thqt")
-current_tab = 10
+current_tab = 4
 tabs_visible = false
 script = ExtResource("1_w2h7l")
 
@@ -400,7 +401,6 @@ visible_characters_behavior = 1
 metadata/_tab_index = 2
 
 [node name="LemonArenaStart" type="Control" parent="."]
-visible = false
 layout_mode = 2
 script = ExtResource("3_ufgve")
 destination_scene = ExtResource("12_13ahs")
@@ -418,7 +418,7 @@ layout_mode = 2
 offset_top = 4.0
 offset_right = 256.0
 offset_bottom = 244.0
-texture = ExtResource("11_8pks5")
+texture = ExtResource("13_palif")
 stretch_mode = 5
 
 [node name="Arrow" type="TextureRect" parent="LemonArenaStart"]
@@ -890,6 +890,7 @@ visible_characters_behavior = 1
 metadata/_tab_index = 2
 
 [node name="CherryArenaStart" type="Control" parent="."]
+visible = false
 layout_mode = 2
 script = ExtResource("3_ufgve")
 destination_scene = ExtResource("18_u72ys")
