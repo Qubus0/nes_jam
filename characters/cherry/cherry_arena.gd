@@ -25,7 +25,7 @@ func _process(delta: float) -> void:
 	var firework_instance2 = FIREWORK.instantiate()
 	firework_instance.transform = $ArenaFloor/Floor1/FireworkMarkLeft.global_transform
 	firework_instance2.transform = $ArenaFloor/Floor1/FireworkMarkRight.global_transform
-	
+
 	if fire_cube == true:
 		fire_cube = false
 		var cube_instance = ICE_CUBE.instantiate()
@@ -54,8 +54,5 @@ func _on_rhythm_beat_hit(accuracy: int) -> void:
 
 func _on_cherry_defeated() -> void:
 	$Cherry.set_visible(false)
-	get_tree().paused = true
-	await get_tree().create_timer(1).timeout
-	get_tree().paused = false
 	Global.dialogue(Global.conversation.CHERRY_ARENA_END)
 

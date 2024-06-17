@@ -65,7 +65,7 @@ script = ExtResource("1_f27oy")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_pfgim")
 autoplay = "default"
-frame_progress = 0.880855
+frame_progress = 0.727978
 centered = false
 
 [node name="PausedLabel" type="Label" parent="."]

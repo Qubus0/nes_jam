@@ -70,8 +70,8 @@ script = ExtResource("1_c4stk")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ikcpb")
-animation = &"hit"
 autoplay = "default"
+frame_progress = 0.482209
 
 [node name="HandsL" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8437u")
